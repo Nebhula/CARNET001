@@ -594,6 +594,191 @@
             }
         }
     </style>
+
+
+<style>
+    .custom-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .custom-block {
+        flex: 1;
+        min-width: calc(100% - 10px);
+        max-width: 620px;
+        cursor: pointer;
+    }
+
+    .custom-label {
+        font-size: 12px;
+        color: #003620;
+        margin-bottom: 4px;
+        text-align: left;
+    }
+
+    .custom-value {
+        background-color: #d3ead9;
+        color: #003620;
+        font-weight: bold;
+        padding: 18px 40px 18px 20px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        user-select: none;
+        font-size: 16px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .custom-button-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .custom-icon-button {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    .custom-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.85);
+        z-index: 99999;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    .custom-modal.active {
+        display: flex;
+    }
+
+    .custom-modal-content {
+        width: 95%;
+        max-width: 750px;
+        max-height: 85vh;
+        background: white;
+        border-radius: 20px 20px 0 0;
+        padding: 25px;
+        overflow-y: auto;
+        animation: custom-slideUp 0.4s ease-out;
+        position: relative;
+    }
+
+    @keyframes custom-slideUp {
+        from { transform: translateY(100%); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    .custom-modal-close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        background: #f0f0f0;
+        color: #555;
+        font-size: 26px;
+        font-weight: bold;
+        border-radius: 50%;
+        cursor: pointer;
+        border: none;
+    }
+
+    .custom-modal-title {
+        color: #033360;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .custom-modal-content-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .custom-image-container {
+        width: 100%;
+        margin-bottom: 20px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-text-content {
+        width: 100%;
+        padding: 0 10px;
+        margin-bottom: 20px;
+        color: #333;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .custom-modal-action {
+        display: block;
+        width: 100%;
+        padding: 16px;
+        background: #033360;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 12px;
+        text-align: center;
+        text-decoration: none;
+        margin-top: 10px;
+        cursor: pointer;
+        border: none;
+    }
+
+    @media (max-width: 768px) {
+        .custom-modal-content {
+            padding: 20px 15px;
+        }
+        .custom-modal-action {
+            padding: 14px;
+            font-size: 15px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .custom-block {
+            min-width: 100%;
+        }
+        .custom-button-icon {
+            width: 20px;
+            height: 20px;
+        }
+        .custom-icon-button {
+            right: 10px;
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .custom-modal-content {
+            padding: 15px 10px;
+        }
+    }
+</style>
+
+    
 </head>
 <body>
 
@@ -682,6 +867,26 @@
                     </div>
                 </div>
             </div>
+
+<!-- Nuevo botón único -->
+<div class="custom-container">
+  <div class="custom-block" onclick="openCustomModal('map2')">
+    <div class="custom-label">SÍGUEME EN</div>
+    <div class="custom-value">
+      <svg class="custom-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#003620">
+        <path d="M18 11v2h4v-2h-4zm-2 6.61c.96.71 2.21 1.65 3.2 2.39.4-.53.8-1.07 1.2-1.6-.99-.74-2.24-1.68-3.2-2.4-.4.54-.8 1.08-1.2 1.61zM20.4 5.6c-.4-.53-.8-1.07-1.2-1.6-.99.74-2.24 1.68-3.2 2.4.4.53.8 1.07 1.2 1.6.96-.72 2.21-1.65 3.2-2.4z"/>
+        <path d="M4 9c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h1v4h2v-4h1l5 3V6L8 9H4z"/>
+      </svg>
+      Avianuncios.com
+      <span class="custom-icon-button">→</span>
+    </div>
+  </div>
+</div>
+
+
+
+
+            
         </div>
 
         <div class="card-footer">
@@ -763,6 +968,32 @@
     </div>
 </div>
 
+
+<!-- Modal del nuevo botón -->
+<div id="custom-map2Modal" class="custom-modal">
+  <div class="custom-modal-content">
+    <button class="custom-modal-close" onclick="closeCustomModal()">×</button>
+    <h2 class="custom-modal-title">AVIANUNCIOS</h2>
+    <div class="custom-modal-content-wrapper">
+      <div class="custom-image-container">
+        <center>
+          <img alt="Avianuncios Logo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4wJNV6DTDMUrwP6SHxplHj-pTOuvvdvzlbyw1-xfrvWSSEdpLlXa_hJ4h6c7XVNv9IsBnG-eKAXUCEZATTjMbYfW7okdS1sB9WqjZpm7yfZGnh4ghbOEYtdxgGMRYoygHo_q9O1JqhYUroxGw7ou7BsnYvuUtScy4BlqtmD5Dvr2dhI0lmzWjRADWfHMo/s1600/Blue%20Snow%20%20Winter%20Sport%20Store%20Logo%20%2810%29.png " style="width: 100%; max-width: 200px;" />
+        </center>
+      </div>
+      <div class="custom-text-content">
+        <center>
+          <h3>Título del anuncio</h3>
+          <p>Este es un ejemplo de texto que puedes colocar en tu anuncio importante.</p>
+        </center>
+      </div>
+      <a class="custom-modal-action" href="#" target="_blank">VER MÁS INFORMACIÓN</a>
+    </div>
+  </div>
+</div>
+
+
+
+    
 <script>
     function openModal(modalType) {
         closeModal();
