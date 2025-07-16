@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carnet Digital Profesional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css "/>
+  <style>
+    :root {
+      --primary-color: #003620;
+      --primary-light: #d3ead9;
+      --secondary-color: #f0f0f0;
+      --text-color: #333;
+      --text-light: #777;
+      --bg-color: #ffffff;
+      --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+      --border-radius: 12px;
+    }
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: var(--secondary-color);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .card-container {
+      width: 100%;
+      max-width: 450px;
+    }
+    .card {
+      background-color: var(--bg-color);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+    }
+    .card-header {
+      background: linear-gradient(135deg, var(--primary-color), #006341);
+      color: white;
+      padding: 25px;
+      text-align: center;
+      position: relative;
+    }
+    .profile-section {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 15px;
+      position: relative;
+      border-radius: 50%;
+      border: 4px solid white;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .profile-actions {
+      position: absolute;
+      top: 0;
+      right: 20%;
+    }
+    #btn-descargar {
+      background: var(--primary-light);
+      border: none;
+      padding: 6px;
+      border-radius: 50%;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    #btn-descargar:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    #btn-descargar svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--primary-color);
+    }
+    .card-header h1 {
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    .card-header p {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-bottom: 15px;
+    }
+    .badges {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .badge {
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .badge.verified {
+      background-color: rgba(76, 209, 55, 0.2);
+      color: #4cd137;
+    }
+    .badge.premium {
+      background-color: rgba(255, 215, 0, 0.2);
+      color: gold;
+    }
+    .card-body {
+      padding: 25px;
+    }
+    .info-container {
+      width: 100%;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+    .info-block {
+      flex: 1;
+      min-width: calc(50% - 8px);
+    }
+    .label {
+      font-size: 12px;
+      color: var(--primary-color);
+      margin-bottom: 4px;
+      text-align: left;
+      font-weight: 500;
+    }
+    .value, .dni-field {
+      background-color: var(--primary-light);
+      color: var(--primary-color);
+      font-weight: bold;
+      padding: 15px;
+      border-radius: 8px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      user-select: none;
+      font-size: 14px;
+      position: relative;
+      overflow: visible;
+      margin-bottom: 15px;
+    }
+    .icon-button {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+    }
+    .dni-input-password {
+      display: none;
+      margin-top: 8px;
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      color: var(--text-color);
+      background-color: white;
+    }
+    .dni-text {
+      display: block;
+      width: 100%;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 20px 0 15px;
+      color: var(--primary-color);
+    }
+    .section-title h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    .section-title i {
+      font-size: 1.2rem;
+    }
+    .social-links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .social-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .social-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    .social-button i {
+      font-size: 1.1rem;
+    }
+    #twitter {
+      background-color: #1DA1F2;
+    }
+    #linkedin {
+      background-color: #0077B5;
+    }
+    #github {
+      background-color: #333;
+    }
+    #instagram {
+      background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D);
+    }
+    .qr-section {
+      text-align: center;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: rgba(211, 234, 217, 0.3);
+      border-radius: var(--border-radius);
+    }
+    .qr-code img {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 15px;
+    }
+    .card-footer {
+      padding: 15px 25px;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .footer-credits {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+    .footer-credits i {
+      color: #ff4757;
+    }
+    .footer-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    .action-btn {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 20px;
+      background-color: var(--primary-color);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .action-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+    .action-btn.secondary {
+      background-color: transparent;
+      border: 1px solid var(--primary-color);
+      color: var(--primary-color);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 99999;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .modal-content {
+      width: 95%;
+      max-width: 750px;
+      max-height: 85vh;
+      background: white;
+      border-radius: 20px 20px 0 0;
+      padding: 30px;
+      overflow-y: auto;
+      animation: slideUp 0.4s ease-out;
+      position: relative;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+      background: #f0f0f0;
+      color: #555;
+      font-size: 26px;
+      font-weight: bold;
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+    }
+    .modal-title {
+      color: var(--primary-color);
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .modal-text {
+      color: var(--text-color);
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    .modal-action {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background: var(--primary-color);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 12px;
+      margin-top: 25px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .icon-button {
+        right: 10px;
+        width: 16px;
+        height: 16px;
+      }
+      .dni-field {
+        padding-right: 35px;
+      }
+      .modal-content {
+        padding: 20px;
+      }
+      .modal-title {
+        font-size: 20px;
+      }
+      .modal-text {
+        font-size: 14px;
+      }
+      .info-block {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card-container">
+    <div class="card" id="capture-area">
+      <div class="card-header">
+        <div class="profile-section">
+          <div class="profile-pic">
+            <img src="https://via.placeholder.com/150 " alt="Foto de perfil" id="profile-img">
+          </div>
+          <div class="profile-actions">
+            <button id="btn-descargar" aria-label="Descargar imagen">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 16a1 1 0 0 1-.7-.29l-5-5a1 1 0 1 1 1.41-1.42L11 12.59V4a1 1 0 1 1 2 0v8.59l3.29-3.3a1 1 0 0 1 1.42 1.42l-5 5A1 1 0 0 1 12 16zM5 20a1 1 0 0 1 0-2h14a1 1 0 0 1 0 2H5z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <h1 id="name">José María Mera Beltrán</h1>
+        <p id="title">Criador Nacional Certificado</p>
+        <div class="badges">
+          <span class="badge verified"><i class="fas fa-check-circle"></i> Verificado</span>
+          <span class="badge premium"><i class="fas fa-crown"></i> Premium</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="info-container">
+          <div class="info-block">
+            <div class="label">Nº C. NACIONAL</div>
+            <div class="value" onclick="openModal('criador')" style="cursor: pointer; position: relative;">
+              56G88
+              <svg class="icon-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" fill="none" stroke="#003620" stroke-width="2"/>
+                <text x="12" y="16" font-family="Arial" font-size="12" text-anchor="middle" fill="#003620" font-weight="bold">i</text>
+              </svg>
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="label">COD. FEDERAL</div>
+            <div class="value" onclick="openModal('federal')" style="cursor: pointer; position: relative;">
+              E8.0595
+              <svg class="icon-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" fill="none" stroke="#003620" stroke-width="2"/>
+                <text x="12" y="16" font-family="Arial" font-size="12" text-anchor="middle" fill="#003620" font-weight="bold">i</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="info-container">
+          <div class="info-block">
+            <div class="label">DNI / NIE</div>
+            <div id="dniField" class="dni-field" onclick="showPasswordInput(this)" style="cursor: pointer; position: relative;">
+              <span id="dniText" class="dni-text">XXXXXXXX</span>
+              <svg class="icon-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" onclick="event.stopPropagation(); showPasswordInput(document.getElementById('dniField'));">
+                <path d="M12 6a9.77 9.77 0 0 1 8.82 5.5 9.77 9.77 0 0 1-8.82 5.5 9.77 9.77 0 0 1-8.82-5.5A9.77 9.77 0 0 1 12 6zm0-2C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 5a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1 0-5zm0-2c-2.48 0-4.5 2.02-4.5 4.5S9.52 16 12 16s4.5-2.02 4.5-4.5S14.48 7 12 7z" fill="#003620"/>
+              </svg>
+            </div>
+            <input type="password" id="dniPasswordField" onkeydown="handlePassword(event)" placeholder="Clave" class="dni-input-password" />
+          </div>
+          <div class="info-block">
+            <div class="label">FECHA VENCIMIENTO</div>
+            <div class="dni-field" onclick="openModal('fecha')" style="cursor: pointer; position: relative;">
+              <span class="dni-text">12/12/2026</span>
+              <svg class="icon-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" fill="none" stroke="#003620" stroke-width="2"/>
+                <text x="12" y="16" font-family="Arial" font-size="12" text-anchor="middle" fill="#003620" font-weight="bold">i</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="section-title">
+          <i class="fas fa-share-alt"></i>
+          <h3>Redes Sociales</h3>
+        </div>
+        <div class="social-links">
+          <a href="#" class="social-button" id="twitter">
+            <i class="fab fa-twitter"></i><span>Twitter</span>
+          </a>
+          <a href="#" class="social-button" id="linkedin">
+            <i class="fab fa-linkedin-in"></i><span>LinkedIn</span>
+          </a>
+          <a href="#" class="social-button" id="github">
+            <i class="fab fa-github"></i><span>GitHub</span>
+          </a>
+          <a href="#" class="social-button" id="instagram">
+            <i class="fab fa-instagram"></i><span>Instagram</span>
+          </a>
+        </div>
+        <div class="section-title">
+          <i class="fas fa-qrcode"></i>
+          <h3>QR de Contacto</h3>
+        </div>
+        <div class="qr-section">
+          <div class="qr-code">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ejemplo.com/carnet/56G88" alt="QR Code">
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="footer-credits">
+          <p>Carnet digital emitido por <strong>SOCNAS</strong></p>
+        </div>
+        <div class="footer-actions">
+          <button class="action-btn secondary" onclick="openModal('info')">
+            <i class="fas fa-info-circle"></i> Info
+          </button>
+          <button class="action-btn" onclick="downloadVCard()">
+            <i class="fas fa-download"></i> vCard
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modales -->
+  <div class="modal" id="criadorModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <div class="modal-title">Criador Nacional Certificado</div>
+      <div class="modal-text">José María Mera Beltrán</div>
+      <button class="modal-action">C.N: 56G88</button>
+    </div>
+  </div>
+  <div class="modal" id="federalModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <div class="modal-title">Código Federal</div>
+      <div class="modal-text">Código Federal: E8.0595</div>
+      <button class="modal-action">E8.0595</button>
+    </div>
+  </div>
+  <div class="modal" id="fechaModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <div class="modal-title">Fecha de Vencimiento</div>
+      <div class="modal-text">Vence: 12/12/2026</div>
+      <button class="modal-action">ACTUALIZAR DATOS</button>
+    </div>
+  </div>
+  <div class="modal" id="infoModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <div class="modal-title">Información del Carnet</div>
+      <div class="modal-text">Este carnet es válido como identificación oficial.</div>
+      <button class="modal-action" onclick="closeModal()">ENTENDIDO</button>
+    </div>
+  </div>
+
+  <script src=" https://cdn.jsdelivr.net/npm/html2canvas @1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    function openModal(modalType) {
+      closeModal();
+      document.getElementById(modalType + 'Modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.modal').forEach(m => {
+      m.addEventListener('click', e => e.target === m && closeModal());
+    });
+    function showPasswordInput(field) {
+      const input = document.getElementById('dniPasswordField');
+      input.style.display = input.style.display === 'none' ? 'block' : 'none';
+      if (input.style.display === 'block') input.focus();
+    }
+    function handlePassword(e) {
+      if (e.key === 'Enter') {
+        const pwd = e.target.value;
+        if (pwd === '1234') {
+          document.getElementById('dniText').textContent = '12345678X';
+          document.getElementById('dniPasswordField').style.display = 'none';
+        } else {
+          alert('Contraseña incorrecta');
+        }
+      }
+    }
+    document.getElementById('btn-descargar').addEventListener('click', () => {
+      html2canvas(document.getElementById('capture-area')).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'carnet_socnas.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      }).catch(() => alert('No se pudo generar la imagen'));
+    });
+    function downloadVCard() {
+      const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:José María Mera Beltrán
+TITLE:Criador Nacional Certificado
+ORG:SOCNAS
+TEL;TYPE=work:+123456789
+EMAIL:jose.mera@ejemplo.com
+ADR;TYPE=work:;;;Ciudad, País
+URL:https://ejemplo.com 
+NOTE:Nº Criador Nacional: 56G88
+Código Federal: E8.0595
+END:VCARD`;
+      const blob = new Blob([vcard], { type: 'text/vcard' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'carnet.vcf';
+      a.click();
+    }
+  </script>
+</body>
+</html>
