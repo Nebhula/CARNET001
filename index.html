@@ -66,10 +66,46 @@
             text-align: center;
             position: relative;
         }
+        .header-buttons {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .header-button {
+            background: var(--primary-light);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+        .header-button:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 600px) {
+            .header-button {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+        }
+
         .profile-section {
             position: relative;
             margin-bottom: 15px;
         }
+
         .profile-pic {
             width: 100px;
             height: 100px;
@@ -80,46 +116,43 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
+
         .profile-pic img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        .profile-actions {
+
+        .qr-corner {
             position: absolute;
-            top: 5px;
-            right: 10px;
+            top: 10px;
+            left: 10px;
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 8px;
+            padding: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
-        #btn-descargar {
-            background: var(--primary-light);
-            border: none;
-            padding: 6px;
-            border-radius: 50%;
-            cursor: pointer;
-            width: 36px;
-            height: 36px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+        .qr-corner img {
+            width: 100%;
+            height: 100%;
         }
-        #btn-descargar svg {
-            width: 18px;
-            height: 18px;
-            fill: var(--primary-color);
-        }
+
         .card-header h1 {
             font-size: 1.4rem;
             margin-bottom: 5px;
             font-weight: 600;
             line-height: 1.2;
         }
+
         .card-header p {
             font-size: 0.9rem;
             opacity: 0.9;
             margin-bottom: 15px;
         }
+
         .badges {
             display: flex;
             justify-content: center;
@@ -127,6 +160,7 @@
             margin-top: 10px;
             flex-wrap: wrap;
         }
+
         .badge {
             padding: 4px 8px;
             border-radius: 20px;
@@ -136,20 +170,24 @@
             align-items: center;
             gap: 4px;
         }
+
         .badge.verified {
             background-color: rgba(76, 209, 55, 0.2);
             color: #4cd137;
         }
+
         .badge.premium {
             background-color: rgba(255, 215, 0, 0.2);
             color: gold;
         }
+
         .social-icons {
             display: flex;
             justify-content: center;
             gap: 12px;
             margin: 15px 0;
         }
+
         .social-icon {
             width: 36px;
             height: 36px;
@@ -163,40 +201,30 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             transition: var(--transition);
         }
+
         .social-icon:hover {
             transform: translateY(-3px);
         }
-        .qr-corner {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 8px;
-            padding: 5px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-        .qr-corner img {
-            width: 100%;
-            height: 100%;
-        }
+
         .card-body {
             padding: 15px;
             flex: 1;
         }
+
         .info-container {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 15px;
         }
+
         .info-block {
             flex: 1 1 calc(50% - 5px);
             box-sizing: border-box;
             position: relative;
             min-width: calc(50% - 5px);
         }
+
         .label {
             font-size: 11px;
             color: var(--primary-color);
@@ -204,6 +232,7 @@
             text-align: left;
             font-weight: 500;
         }
+
         .value, .dni-field {
             background-color: var(--primary-light);
             color: var(--primary-color);
@@ -219,6 +248,7 @@
             overflow: visible;
             margin-bottom: 8px;
         }
+
         .icon-button {
             position: absolute;
             right: 8px;
@@ -239,6 +269,7 @@
             color: var(--primary-color);
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
+
         .dni-input-password {
             display: none;
             margin-top: 6px;
@@ -250,121 +281,12 @@
             color: var(--text-color);
             background-color: white;
         }
+
         .dni-text {
             display: block;
             width: 100%;
         }
-        .card-footer {
-            padding: 12px 15px;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .footer-credits {
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--text-light);
-        }
-        .footer-actions {
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .action-btn {
-            padding: 8px 12px;
-            border: none;
-            border-radius: 20px;
-            background-color: var(--primary-color);
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.75rem;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            width: 100%;
-            justify-content: center;
-        }
-        .action-btn.secondary {
-            background-color: transparent;
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
-            z-index: 99999;
-            align-items: flex-end;
-            justify-content: center;
-        }
-        .modal.active {
-            display: flex;
-        }
-        .modal-content {
-            width: 100%;
-            max-height: 85vh;
-            background: white;
-            border-radius: 20px 20px 0 0;
-            padding: 20px;
-            overflow-y: auto;
-            animation: slideUp 0.4s ease-out;
-            position: relative;
-        }
-        @keyframes slideUp {
-            from { transform: translateY(100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .modal-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 35px;
-            height: 35px;
-            background: #f0f0f0;
-            color: #555;
-            font-size: 22px;
-            font-weight: bold;
-            border-radius: 50%;
-            cursor: pointer;
-            border: none;
-        }
-        .modal-title {
-            color: var(--primary-color);
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        .modal-text {
-            color: var(--text-color);
-            font-size: 14px;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .modal-action {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            background: var(--primary-color);
-            color: white;
-            font-size: 14px;
-            font-weight: bold;
-            border-radius: 10px;
-            margin-top: 20px;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-        }
+
         .custom-container {
             display: flex;
             flex-wrap: wrap;
@@ -372,12 +294,14 @@
             justify-content: center;
             margin: 15px;
         }
+
         .custom-block {
             flex: 1;
             min-width: calc(50% - 5px);
             max-width: 300px;
             cursor: pointer;
         }
+
         .custom-label {
             font-size: 11px;
             color: var(--primary-color);
@@ -385,6 +309,7 @@
             text-align: left;
             font-weight: 500;
         }
+
         .custom-value {
             background-color: var(--primary-light);
             color: var(--primary-color);
@@ -401,10 +326,12 @@
             justify-content: center;
             gap: 8px;
         }
+
         .custom-button-icon {
             width: 18px;
             height: 18px;
         }
+
         .custom-icon-button {
             position: absolute;
             right: 10px;
@@ -414,6 +341,99 @@
             font-size: 12px;
             color: var(--primary-color);
         }
+
+        .card-footer {
+            padding: 12px 15px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-credits {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .footer-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .action-btn.secondary {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 99999;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            width: 100%;
+            max-height: 85vh;
+            background: white;
+            border-radius: 20px 20px 0 0;
+            padding: 20px;
+            overflow-y: auto;
+            animation: slideUp 0.4s ease-out;
+            position: relative;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 35px;
+            height: 35px;
+            background: #f0f0f0;
+            color: #555;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
         .custom-modal {
             display: none;
             position: fixed;
@@ -426,9 +446,11 @@
             align-items: flex-end;
             justify-content: center;
         }
+
         .custom-modal.active {
             display: flex;
         }
+
         .custom-modal-content {
             width: 100%;
             max-height: 85vh;
@@ -439,6 +461,7 @@
             animation: slideUp 0.4s ease-out;
             position: relative;
         }
+
         .custom-modal-close {
             position: absolute;
             top: 10px;
@@ -453,6 +476,7 @@
             cursor: pointer;
             border: none;
         }
+
         .custom-modal-title {
             color: var(--primary-color);
             font-size: 18px;
@@ -460,12 +484,14 @@
             margin-bottom: 15px;
             text-align: center;
         }
+
         .custom-modal-content-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
         }
+
         .custom-map-container,
         .custom-video-container {
             width: 100%;
@@ -474,25 +500,32 @@
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
+
         .custom-map-container {
             height: 250px;
         }
+
         .custom-map-container iframe,
         .custom-video-container iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
+
         .custom-video-container {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
         }
+
         .custom-video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
         }
+
         .custom-modal-action {
             display: block;
             width: 100%;
@@ -508,6 +541,7 @@
             cursor: pointer;
             border: none;
         }
+
         @media (min-width: 600px) {
             body {
                 justify-content: center;
@@ -568,209 +602,225 @@
     </style>
 </head>
 <body>
-    <div class="card-container">
-        <div class="card" id="capture-area">
-            <div class="card-header">
-                <div class="qr-corner">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ejemplo.com/carnet/56G88" alt="QR Code">
-                </div>
-                <div class="profile-section">
-                    <div class="profile-pic">
-                        <img src=" https://via.placeholder.com/150 " alt="Foto de perfil" id="profile-img">
-                    </div>
-                    <div class="profile-actions">
-                        <button id="btn-descargar" aria-label="Descargar imagen">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 16a1 1 0 0 1-.7-.29l-5-5a1 1 0 0 1 1.41-1.42L11 12.59V4a1 1 0 0 1 2 0v8.59l3.29-3.3a1 1 0 0 1 1.42 1.42l-5 5A1 1 0 0 1 12 16zM5 20a1 1 0 0 1 0-2h14a1 1 0 0 1 0 2H5z"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <h1 id="name">José María Mera Beltrán</h1>
-                <p id="title">Criador Nacional Certificado</p>
-                <div class="social-icons">
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                </div>
-                <div class="badges">
-                    <span class="badge verified"><i class="fas fa-check-circle"></i> Verificado</span>
-                    <span class="badge premium"><i class="fas fa-crown"></i> Premium</span>
+
+<div class="card-container">
+    <div class="card" id="capture-area">
+
+        <!-- Botones adicionales -->
+        <div class="card-header">
+            <div class="qr-corner">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ejemplo.com/carnet/56G88" alt="QR Code">
+            </div>
+
+            <!-- Botones hermanos -->
+            <div class="header-buttons">
+                <button class="header-button" title="Descargar"><i class="fas fa-download"></i></button>
+                <button class="header-button" title="Compartir"><i class="fas fa-share-alt"></i></button>
+                <button class="header-button" title="WhatsApp"><i class="fab fa-whatsapp"></i></button>
+                <button class="header-button" title="Contacto"><i class="fas fa-envelope"></i></button>
+            </div>
+
+            <!-- Imagen de perfil -->
+            <div class="profile-section">
+                <div class="profile-pic">
+                    <img src=" https://via.placeholder.com/150 " alt="Foto de perfil" id="profile-img">
                 </div>
             </div>
-            <div class="card-body">
-                <div class="info-container">
-                    <div class="info-block">
-                        <div class="label">Nº C. NACIONAL</div>
-                        <div class="value" onclick="openModal('criador')" style="cursor: pointer; position: relative;">
-                            56G88
-                            <span class="icon-button" onclick="event.stopPropagation(); openModal('criador')">i</span>
-                        </div>
-                    </div>
-                    <div class="info-block">
-                        <div class="label">COD. FEDERAL</div>
-                        <div class="value" onclick="openModal('federal')" style="cursor: pointer; position: relative;">
-                            E8.0595
-                            <span class="icon-button" onclick="event.stopPropagation(); openModal('federal')">i</span>
-                        </div>
-                    </div>
-                    <div class="info-block">
-                        <div class="label">DNI / NIE</div>
-                        <div id="dniField" class="dni-field" onclick="showPasswordInput(this)" style="cursor: pointer; position: relative;">
-                            <span id="dniText" class="dni-text">XXXXXXXX</span>
-                            <span class="icon-button" onclick="event.stopPropagation(); showPasswordInput(document.getElementById('dniField'))">i</span>
-                        </div>
-                        <input type="password" id="dniPasswordField" onkeydown="handlePassword(event)" placeholder="Clave" class="dni-input-password" />
-                    </div>
-                    <div class="info-block">
-                        <div class="label">FECHA VENCIMIENTO</div>
-                        <div class="dni-field" onclick="openModal('fecha')" style="cursor: pointer; position: relative;">
-                            <span class="dni-text">12/12/2026</span>
-                            <span class="icon-button" onclick="event.stopPropagation(); openModal('fecha')">i</span>
-                        </div>
+
+            <h1 id="name">José María Mera Beltrán</h1>
+            <p id="title">Criador Nacional Certificado</p>
+
+            <div class="badges">
+                <span class="badge verified"><i class="fas fa-check-circle"></i> Verificado</span>
+                <span class="badge premium"><i class="fas fa-crown"></i> Premium</span>
+            </div>
+
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="info-container">
+                <div class="info-block">
+                    <div class="label">Nº C. NACIONAL</div>
+                    <div class="value" onclick="openModal('criador')" style="cursor: pointer; position: relative;">
+                        56G88
+                        <span class="icon-button" onclick="event.stopPropagation(); openModal('criador')">i</span>
                     </div>
                 </div>
-                <div class="custom-container">
-                    <div class="custom-block" onclick="openCustomModal('map1')">
-                        <div class="custom-label">LOCALIZACIÓN</div>
-                        <div class="custom-value">
-                            <svg class="custom-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#003620">
-                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
-                            </svg>
-                            Huelva
-                            <span class="custom-icon-button">→</span>
-                        </div>
+                <div class="info-block">
+                    <div class="label">COD. FEDERAL</div>
+                    <div class="value" onclick="openModal('federal')" style="cursor: pointer; position: relative;">
+                        E8.0595
+                        <span class="icon-button" onclick="event.stopPropagation(); openModal('federal')">i</span>
                     </div>
-                    <div class="custom-block" onclick="openCustomModal('video1')">
-                        <div class="custom-label">AVIARIO</div>
-                        <div class="custom-value">
-                            <svg class="custom-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#003620">
-                                <path d="M10 16.5l6-4.5-6-4.5v9z"/>
-                            </svg>
-                            Mi canal
-                            <span class="custom-icon-button">→</span>
-                        </div>
+                </div>
+                <div class="info-block">
+                    <div class="label">DNI / NIE</div>
+                    <div id="dniField" class="dni-field" onclick="showPasswordInput(this)" style="cursor: pointer; position: relative;">
+                        <span id="dniText" class="dni-text">XXXXXXXX</span>
+                        <span class="icon-button" onclick="event.stopPropagation(); showPasswordInput(document.getElementById('dniField'))">i</span>
+                    </div>
+                    <input type="password" id="dniPasswordField" onkeydown="handlePassword(event)" placeholder="Clave" class="dni-input-password" />
+                </div>
+                <div class="info-block">
+                    <div class="label">FECHA VENCIMIENTO</div>
+                    <div class="dni-field" onclick="openModal('fecha')" style="cursor: pointer; position: relative;">
+                        <span class="dni-text">12/12/2026</span>
+                        <span class="icon-button" onclick="event.stopPropagation(); openModal('fecha')">i</span>
                     </div>
                 </div>
             </div>
-            <div class="card-footer">
-                <div class="footer-credits">
-                    <p>Carnet digital emitido por <strong>SOCNAS</strong></p>
+
+            <div class="custom-container">
+                <div class="custom-block" onclick="openCustomModal('map1')">
+                    <div class="custom-label">LOCALIZACIÓN</div>
+                    <div class="custom-value">
+                        <svg class="custom-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#003620">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+                        </svg>
+                        Huelva
+                        <span class="custom-icon-button">→</span>
+                    </div>
                 </div>
-                <div class="footer-actions">
-                    <button class="action-btn secondary" onclick="openModal('info')">
-                        <i class="fas fa-info-circle"></i> Info
-                    </button>
-                    <button class="action-btn" onclick="downloadVCard()">
-                        <i class="fas fa-download"></i> vCard
-                    </button>
+                <div class="custom-block" onclick="openCustomModal('video1')">
+                    <div class="custom-label">AVIARIO</div>
+                    <div class="custom-value">
+                        <svg class="custom-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#003620">
+                            <path d="M10 16.5l6-4.5-6-4.5v9z"/>
+                        </svg>
+                        Mi canal
+                        <span class="custom-icon-button">→</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="modal" id="criadorModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">×</button>
-            <div class="modal-title">Criador Nacional Certificado</div>
-            <div class="modal-text">José María Mera Beltrán</div>
-            <button class="modal-action" onclick="closeModal()">C.N: 56G88</button>
-        </div>
-    </div>
-    <div class="modal" id="federalModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">×</button>
-            <div class="modal-title">Código Federal</div>
-            <div class="modal-text">Código Federal: E8.0595</div>
-            <button class="modal-action" onclick="closeModal()">E8.0595</button>
-        </div>
-    </div>
-    <div class="modal" id="fechaModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">×</button>
-            <div class="modal-title">Fecha de Vencimiento</div>
-            <div class="modal-text">Vence: 12/12/2026</div>
-            <button class="modal-action" onclick="closeModal()">ACTUALIZAR DATOS</button>
-        </div>
-    </div>
-    <div class="modal" id="infoModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">×</button>
-            <div class="modal-title">Información del Carnet</div>
-            <div class="modal-text">Este carnet es válido como identificación oficial.</div>
-            <button class="modal-action" onclick="closeModal()">ENTENDIDO</button>
-        </div>
-    </div>
-    <div id="custom-map1Modal" class="custom-modal">
-        <div class="custom-modal-content">
-            <button class="custom-modal-close" onclick="closeCustomModal()">×</button>
-            <h2 class="custom-modal-title">Huelva</h2>
-            <div class="custom-modal-content-wrapper">
-                <div class="custom-map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3174.492318649884!2d-6.945604724418628!3d37.283464172113376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd11cfc1cd7be463%3A0xcf11ffd86f6b122a!2sC.%20Puerto%20Rico%2C%2021005%20Huelva!5e0!3m2!1ses!2ses!4v1752583789284!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <a class="custom-modal-action" href=" https://maps.google.com/?q=C.%20Puerto%20Rico%2C%2021005%20Huelva" target="_blank">VER EN GOOGLE MAPS</a>
+
+        <div class="card-footer">
+            <div class="footer-credits">
+                <p>Carnet digital emitido por <strong>SOCNAS</strong></p>
+            </div>
+            <div class="footer-actions">
+                <button class="action-btn secondary" onclick="openModal('info')">
+                    <i class="fas fa-info-circle"></i> Info
+                </button>
+                <button class="action-btn" onclick="downloadVCard()">
+                    <i class="fas fa-download"></i> vCard
+                </button>
             </div>
         </div>
     </div>
-    <div id="custom-video1Modal" class="custom-modal">
-        <div class="custom-modal-content">
-            <button class="custom-modal-close" onclick="closeCustomModal()">×</button>
-            <h2 class="custom-modal-title">Canaricultura -Timbrados</h2>
-            <div class="custom-modal-content-wrapper">
-                <div class="custom-video-container">
-                    <iframe src=" https://www.youtube.com/embed/MZddL74nqPU " allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-                <a class="custom-modal-action" href="https://www.youtube.com/watch?v=MZddL74nqPU" target="_blank">VER EN YOUTUBE</a>
+</div>
+
+<!-- Modales -->
+<div class="modal" id="criadorModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <div class="modal-title">Criador Nacional Certificado</div>
+        <div class="modal-text">José María Mera Beltrán</div>
+        <button class="modal-action" onclick="closeModal()">C.N: 56G88</button>
+    </div>
+</div>
+
+<div class="modal" id="federalModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <div class="modal-title">Código Federal</div>
+        <div class="modal-text">Código Federal: E8.0595</div>
+        <button class="modal-action" onclick="closeModal()">E8.0595</button>
+    </div>
+</div>
+
+<div class="modal" id="fechaModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <div class="modal-title">Fecha de Vencimiento</div>
+        <div class="modal-text">Vence: 12/12/2026</div>
+        <button class="modal-action" onclick="closeModal()">ACTUALIZAR DATOS</button>
+    </div>
+</div>
+
+<div class="modal" id="infoModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <div class="modal-title">Información del Carnet</div>
+        <div class="modal-text">Este carnet es válido como identificación oficial.</div>
+        <button class="modal-action" onclick="closeModal()">ENTENDIDO</button>
+    </div>
+</div>
+
+<div id="custom-map1Modal" class="custom-modal">
+    <div class="custom-modal-content">
+        <button class="custom-modal-close" onclick="closeCustomModal()">×</button>
+        <h2 class="custom-modal-title">Huelva</h2>
+        <div class="custom-modal-content-wrapper">
+            <div class="custom-map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3174.492318649884!2d-6.945604724418628!3d37.283464172113376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd11cfc1cd7be463%3A0xcf11ffd86f6b122a!2sC.%20Puerto%20Rico%2C%2021005%20Huelva!5e0!3m2!1ses!2ses!4v1752583789284!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
+            <a class="custom-modal-action" href=" https://maps.google.com/?q=C.%20Puerto%20Rico%2C%2021005%20Huelva" target="_blank">VER EN GOOGLE MAPS</a>
         </div>
     </div>
-    <script src=" https://cdn.jsdelivr.net/npm/html2canvas @1.4.1/dist/html2canvas.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                window.scrollTo(0, 0);
-                document.body.style.overflow = 'auto';
-            }, 100);
-        });
-        function openModal(modalType) {
-            closeModal();
-            document.getElementById(modalType + 'Modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeModal() {
-            document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
-            document.body.style.overflow = '';
-        }
-        document.querySelectorAll('.modal').forEach(m => {
-            m.addEventListener('click', e => e.target === m && closeModal());
-        });
-        function showPasswordInput(field) {
-            const input = document.getElementById('dniPasswordField');
-            input.style.display = input.style.display === 'none' ? 'block' : 'none';
-            if (input.style.display === 'block') input.focus();
-        }
-        function handlePassword(e) {
-            if (e.key === 'Enter') {
-                const pwd = e.target.value;
-                if (pwd === '1234') {
-                    document.getElementById('dniText').textContent = '12345678X';
-                    document.getElementById('dniPasswordField').style.display = 'none';
-                } else {
-                    alert('Contraseña incorrecta');
-                }
+</div>
+
+<div id="custom-video1Modal" class="custom-modal">
+    <div class="custom-modal-content">
+        <button class="custom-modal-close" onclick="closeCustomModal()">×</button>
+        <h2 class="custom-modal-title">Canaricultura - Timbrados</h2>
+        <div class="custom-modal-content-wrapper">
+            <div class="custom-video-container">
+                <iframe src=" https://www.youtube.com/embed/MZddL74nqPU " allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <a class="custom-modal-action" href="https://www.youtube.com/watch?v=MZddL74nqPU" target="_blank">VER EN YOUTUBE</a>
+        </div>
+    </div>
+</div>
+
+<script src=" https://cdn.jsdelivr.net/npm/html2canvas @1.4.1/dist/html2canvas.min.js"></script>
+<script>
+    function openModal(modalType) {
+        closeModal();
+        document.getElementById(modalType + 'Modal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
+        document.body.style.overflow = '';
+    }
+
+    function showPasswordInput(field) {
+        const input = document.getElementById('dniPasswordField');
+        input.style.display = input.style.display === 'none' ? 'block' : 'none';
+        if (input.style.display === 'block') input.focus();
+    }
+
+    function handlePassword(e) {
+        if (e.key === 'Enter') {
+            const pwd = e.target.value;
+            if (pwd === '1234') {
+                document.getElementById('dniText').textContent = '12345678X';
+                document.getElementById('dniPasswordField').style.display = 'none';
+            } else {
+                alert('Contraseña incorrecta');
             }
         }
-        document.getElementById('btn-descargar').addEventListener('click', () => {
-            html2canvas(document.getElementById('capture-area')).then(canvas => {
-                const link = document.createElement('a');
-                link.download = 'carnet_socnas.png';
-                link.href = canvas.toDataURL('image/png');
-                link.click();
-            }).catch(() => alert('No se pudo generar la imagen'));
-        });
-        function downloadVCard() {
-            const vcard = `BEGIN:VCARD
+    }
+
+    document.querySelector('#btn-descargar')?.addEventListener('click', () => {
+        html2canvas(document.getElementById('capture-area')).then(canvas => {
+            const link = document.createElement('a');
+            link.download = 'carnet_socnas.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }).catch(() => alert('No se pudo generar la imagen'));
+    });
+
+    function downloadVCard() {
+        const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:José María Mera Beltrán
 TITLE:Criador Nacional Certificado
@@ -782,28 +832,27 @@ URL:https://ejemplo.com
 NOTE:Nº Criador Nacional: 56G88
 Código Federal: E8.0595
 END:VCARD`;
-            const blob = new Blob([vcard], { type: 'text/vcard' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'carnet.vcf';
-            a.click();
-        }
-        function openCustomModal(id) {
-            closeCustomModal();
-            document.getElementById('custom-' + id + 'Modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeCustomModal() {
-            document.querySelectorAll('.custom-modal').forEach(modal => {
-                modal.classList.remove('active');
-            });
-            document.body.style.overflow = '';
-        }
-        document.querySelectorAll('.custom-modal').forEach(modal => {
-            modal.addEventListener('click', function(e) {
-                if (e.target === this) closeCustomModal();
-            });
-        });
-    </script>
+        const blob = new Blob([vcard], { type: 'text/vcard' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'carnet.vcf';
+        a.click();
+    }
+
+    function openCustomModal(id) {
+        closeCustomModal();
+        document.getElementById('custom-' + id + 'Modal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeCustomModal() {
+        document.querySelectorAll('.custom-modal').forEach(m => m.classList.remove('active'));
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.custom-modal').forEach(m => {
+        m.addEventListener('click', e => e.target === m && closeCustomModal());
+    });
+</script>
 </body>
 </html>
