@@ -18,11 +18,13 @@
             --transition: all 0.3s ease;
             --border-radius: 12px;
         }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+
         html, body {
             width: 100%;
             height: 100%;
@@ -30,29 +32,43 @@
             color: var(--text-color);
             background-color: var(--secondary-color);
             overflow-x: hidden;
-            -webkit-text-size-adjust: 100%;
         }
+
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
             min-height: 100vh;
+            padding: 20px;
         }
+
+        /* En móvil, expandir el contenedor a toda la pantalla */
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+            .card-container {
+                width: 100vw;
+                margin-left: calc(-50vw + 50%);
+                max-width: none;
+                padding: 20px;
+            }
+        }
+
+        /* En PC, tamaño fijo centrado */
+        @media (min-width: 769px) {
+            .card-container {
+                width: 100%;
+                max-width: 450px;
+                margin-top: 40px;
+                padding: 0;
+            }
+        }
+
         .card-container {
-            width: 100%;
-            max-width: 100%;
-            padding: 0;
             flex: 1;
             display: flex;
             flex-direction: column;
-            margin-top: 10px;
-        }
-
-        @media (min-width: 600px) {
-            .card-container {
-                margin-top: 60px;
-            }
         }
 
         .card {
@@ -66,6 +82,7 @@
             width: 100%;
             border-top: none;
         }
+
         .card-header {
             background: linear-gradient(135deg, var(--primary-color), #006341);
             color: white;
@@ -73,10 +90,12 @@
             text-align: center;
             position: relative;
         }
+
         .profile-section {
             position: relative;
             margin-bottom: 15px;
         }
+
         .profile-pic {
             width: 100px;
             height: 100px;
@@ -87,37 +106,53 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
+
         .profile-pic img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        .qr-corner {
+
+        .profile-actions {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 8px;
-            padding: 5px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            top: 5px;
+            right: 10px;
         }
-        .qr-corner img {
-            width: 100%;
-            height: 100%;
+
+        #btn-descargar {
+            background: var(--primary-light);
+            border: none;
+            padding: 6px;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+
+        #btn-descargar svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--primary-color);
+        }
+
         .card-header h1 {
             font-size: 1.4rem;
             margin-bottom: 5px;
             font-weight: 600;
             line-height: 1.2;
         }
+
         .card-header p {
             font-size: 0.9rem;
             opacity: 0.9;
             margin-bottom: 15px;
         }
+
         .badges {
             display: flex;
             justify-content: center;
@@ -125,6 +160,7 @@
             margin-top: 10px;
             flex-wrap: wrap;
         }
+
         .badge {
             padding: 4px 8px;
             border-radius: 20px;
@@ -134,20 +170,24 @@
             align-items: center;
             gap: 4px;
         }
+
         .badge.verified {
             background-color: rgba(76, 209, 55, 0.2);
             color: #4cd137;
         }
+
         .badge.premium {
             background-color: rgba(255, 215, 0, 0.2);
             color: gold;
         }
+
         .social-icons {
             display: flex;
             justify-content: center;
             gap: 12px;
             margin: 15px 0;
         }
+
         .social-icon {
             width: 36px;
             height: 36px;
@@ -161,67 +201,89 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             transition: var(--transition);
         }
+
         .social-icon:hover {
             transform: translateY(-3px);
         }
+
+        .qr-corner {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 8px;
+            padding: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .qr-corner img {
+            width: 100%;
+            height: 100%;
+        }
+
         .card-body {
             padding: 15px;
             flex: 1;
         }
-        .info-container {
+
+        /* Estilos unificados para todos los botones */
+        .button-container {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 15px;
+            width: 100%;
         }
-        .info-block {
+
+        .button-block {
             flex: 1 1 calc(50% - 5px);
-            box-sizing: border-box;
-            position: relative;
             min-width: calc(50% - 5px);
+            cursor: pointer;
         }
-        .label {
+
+        .button-label {
             font-size: 11px;
             color: var(--primary-color);
-            margin-bottom: 3px;
+            margin-bottom: 4px;
             text-align: left;
             font-weight: 500;
         }
-        .value, .dni-field {
+
+        .button-value {
             background-color: var(--primary-light);
             color: var(--primary-color);
             font-weight: bold;
-            padding: 12px;
+            padding: 12px 35px 12px 12px;
             border-radius: 8px;
-            width: 100%;
             text-align: center;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             user-select: none;
             font-size: 13px;
             position: relative;
-            overflow: visible;
-            margin-bottom: 8px;
-        }
-        .icon-button {
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 2;
-            cursor: pointer;
-            width: 16px;
-            height: 16px;
-            background: white;
-            border: 2px solid var(--primary-color);
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 8px;
-            font-weight: bold;
-            color: var(--primary-color);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            gap: 8px;
+            height: 100%;
         }
+
+        .button-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        .button-icon-right {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 12px;
+            color: var(--primary-color);
+        }
+
         .dni-input-password {
             display: none;
             margin-top: 6px;
@@ -233,10 +295,12 @@
             color: var(--text-color);
             background-color: white;
         }
+
         .dni-text {
             display: block;
             width: 100%;
         }
+
         .card-footer {
             padding: 12px 15px;
             border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -244,17 +308,20 @@
             flex-direction: column;
             gap: 12px;
         }
+
         .footer-credits {
             text-align: center;
             font-size: 0.75rem;
             color: var(--text-light);
         }
+
         .footer-actions {
             display: flex;
             gap: 8px;
             justify-content: center;
             flex-wrap: wrap;
         }
+
         .action-btn {
             padding: 8px 12px;
             border: none;
@@ -271,60 +338,13 @@
             width: 100%;
             justify-content: center;
         }
+
         .action-btn.secondary {
             background-color: transparent;
             border: 1px solid var(--primary-color);
             color: var(--primary-color);
         }
-        .custom-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin: 15px;
-        }
-        .custom-block {
-            flex: 1;
-            min-width: calc(50% - 5px);
-            max-width: 300px;
-            cursor: pointer;
-        }
-        .custom-label {
-            font-size: 11px;
-            color: var(--primary-color);
-            margin-bottom: 4px;
-            text-align: left;
-            font-weight: 500;
-        }
-        .custom-value {
-            background-color: var(--primary-light);
-            color: var(--primary-color);
-            font-weight: bold;
-            padding: 12px 35px 12px 12px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            user-select: none;
-            font-size: 13px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        .custom-button-icon {
-            width: 18px;
-            height: 18px;
-        }
-        .custom-icon-button {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            font-size: 12px;
-            color: var(--primary-color);
-        }
+
         .modal {
             display: none;
             position: fixed;
@@ -337,9 +357,11 @@
             align-items: flex-end;
             justify-content: center;
         }
+
         .modal.active {
             display: flex;
         }
+
         .modal-content {
             width: 100%;
             max-height: 85vh;
@@ -350,10 +372,12 @@
             animation: slideUp 0.4s ease-out;
             position: relative;
         }
+
         @keyframes slideUp {
             from { transform: translateY(100%); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+
         .modal-close {
             position: absolute;
             top: 10px;
@@ -368,6 +392,7 @@
             cursor: pointer;
             border: none;
         }
+
         .custom-modal {
             display: none;
             position: fixed;
@@ -380,9 +405,11 @@
             align-items: flex-end;
             justify-content: center;
         }
+
         .custom-modal.active {
             display: flex;
         }
+
         .custom-modal-content {
             width: 100%;
             max-height: 85vh;
@@ -393,6 +420,7 @@
             animation: slideUp 0.4s ease-out;
             position: relative;
         }
+
         .custom-modal-close {
             position: absolute;
             top: 10px;
@@ -407,6 +435,7 @@
             cursor: pointer;
             border: none;
         }
+
         .custom-map-container,
         .custom-video-container {
             width: 100%;
@@ -415,25 +444,32 @@
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
+
         .custom-map-container {
             height: 250px;
         }
+
         .custom-map-container iframe,
         .custom-video-container iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
+
         .custom-video-container {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
         }
+
         .custom-video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
         }
+
         .custom-modal-action {
             display: block;
             width: 100%;
@@ -449,19 +485,75 @@
             cursor: pointer;
             border: none;
         }
+
+        /* ESTILOS PARA MODALES DE BOTONES */
+        .icon-row {
+          display: flex;
+          justify-content: space-around;
+          gap: 20px;
+          margin: 25px auto;
+          flex-wrap: wrap;
+          width: 90%;
+        }
+        
+        .icon-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          flex: 1;
+          min-width: 80px;
+        }
+        
+        .icon-img {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          margin-bottom: 10px;
+          object-fit: contain;
+          background-color: #003620;
+          border: 0px solid #006341;
+          padding: 3px;
+        }
+        
+        .icon-title {
+          font-size: 16px;
+          font-weight: bold;
+          color: #003620;
+          white-space: nowrap;
+        }
+
+        .modal-title {
+          color: #003620;
+          font-size: 22px;
+          font-weight: bold;
+          margin-bottom: 20px;
+          text-align: center;
+        }
+        
+        .modal-text {
+          color: #333;
+          font-size: 16px;
+          line-height: 1.6;
+          margin-bottom: 25px;
+        }
+        
+        .modal-action {
+          display: block;
+          width: 100%;
+          padding: 18px;
+          background: #003620;
+          color: white;
+          font-size: 18px;
+          font-weight: bold;
+          border-radius: 12px;
+          margin-top: 25px;
+          text-decoration: none;
+          border: none;
+          cursor: pointer;
+        }
+
         @media (min-width: 600px) {
-            body {
-                justify-content: center;
-                padding: 40px 20px;
-            }
-            .card-container {
-                max-width: 450px;
-                padding: 16px;
-            }
-            .card {
-                border-radius: var(--border-radius);
-                box-shadow: var(--card-shadow);
-            }
             .card-header {
                 padding: 25px;
             }
@@ -472,24 +564,11 @@
             .card-header h1 {
                 font-size: 1.8rem;
             }
-            .value, .dni-field {
-                font-size: 14px;
-                padding: 15px;
-            }
-            .social-icon {
-                width: 42px;
-                height: 42px;
-                font-size: 18px;
-            }
-            .qr-corner {
-                width: 60px;
-                height: 60px;
-            }
-            .custom-value {
+            .button-value {
                 padding: 15px 40px 15px 15px;
                 font-size: 14px;
             }
-            .custom-button-icon {
+            .button-icon {
                 width: 20px;
                 height: 20px;
             }
@@ -505,6 +584,17 @@
                 max-width: 200px;
             }
         }
+
+        @media (max-width: 600px) {
+            .icon-img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .icon-title {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -517,84 +607,101 @@
             <div class="qr-corner">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ejemplo.com/carnet/56G88" alt="QR Code">
             </div>
-
-            <!-- Foto de perfil -->
             <div class="profile-section">
                 <div class="profile-pic">
                     <img src=" https://via.placeholder.com/150 " alt="Foto de perfil" id="profile-img">
                 </div>
+                <div class="profile-actions">
+                    <button id="btn-descargar" aria-label="Descargar imagen">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 16a1 1 0 0 1-.7-.29l-5-5a1 1 0 1 1.41-1.42L11 12.59V4a1 1 0 1 2 0v8.59l3.29-3.3a1 1 0 1 1.42 1.42l-5 5A1 1 0 0 12 16zM5 20a1 1 0 1 0-2h14a1 1 0 1 0 2H5z"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
-
             <h1 id="name">José María Mera Beltrán</h1>
             <p id="title">Criador Nacional Certificado</p>
-
-            <div class="badges">
-                <span class="badge verified"><i class="fas fa-check-circle"></i> Verificado</span>
-                <span class="badge premium"><i class="fas fa-crown"></i> Premium</span>
-            </div>
-
             <div class="social-icons">
                 <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
                 <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                 <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
             </div>
+            <div class="badges">
+                <span class="badge verified"><i class="fas fa-check-circle"></i> Verificado</span>
+                <span class="badge premium"><i class="fas fa-crown"></i> Premium</span>
+            </div>
         </div>
 
         <!-- Body -->
         <div class="card-body">
-            <div class="info-container">
-                <div class="info-block">
-                    <div class="label">Nº C. NACIONAL</div>
-                    <div class="value" onclick="openModal('criador')" style="cursor: pointer; position: relative;">
+            <!-- Primer grupo de botones (4 botones) -->
+            <div class="button-container">
+                <!-- Bloque 1 -->
+                <div class="button-block" onclick="openModal('criador')">
+                    <div class="button-label">Nº C. NACIONAL</div>
+                    <div class="button-value">
                         56G88
-                        <span class="icon-button" onclick="event.stopPropagation(); openModal('criador')">i</span>
+                        <span class="button-icon-right">→</span>
                     </div>
                 </div>
-                <div class="info-block">
-                    <div class="label">COD. FEDERAL</div>
-                    <div class="value" onclick="openModal('federal')" style="cursor: pointer; position: relative;">
+
+                <!-- Bloque 2 -->
+                <div class="button-block" onclick="openModal('ejemplo')">
+                    <div class="button-label">COD. FEDERAL</div>
+                    <div class="button-value">
                         E8.0595
-                        <span class="icon-button" onclick="event.stopPropagation(); openModal('federal')">i</span>
-                    </div>
-                </div>
-                <div class="info-block">
-                    <div class="label">DNI / NIE</div>
-                    <div id="dniField" class="dni-field" onclick="showPasswordInput(this)" style="cursor: pointer; position: relative;">
-                        <span id="dniText" class="dni-text">XXXXXXXX</span>
-                        <span class="icon-button" onclick="event.stopPropagation(); showPasswordInput(document.getElementById('dniField'))">i</span>
-                    </div>
-                    <input type="password" id="dniPasswordField" onkeydown="handlePassword(event)" placeholder="Clave" class="dni-input-password" />
-                </div>
-                <div class="info-block">
-                    <div class="label">FECHA VENCIMIENTO</div>
-                    <div class="dni-field" onclick="openModal('fecha')" style="cursor: pointer; position: relative;">
-                        <span class="dni-text">12/12/2026</span>
-                        <span class="icon-button" onclick="event.stopPropagation(); openModal('fecha')">i</span>
+                        <span class="button-icon-right">→</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Botones Localización y Aviario -->
-            <div class="custom-container">
-                <div class="custom-block" onclick="openCustomModal('map1')">
-                    <div class="custom-label">LOCALIZACIÓN</div>
-                    <div class="custom-value">
-                        <svg class="custom-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#003620">
+            <div class="button-container">
+                <!-- Info Bloque 1 - DNI -->
+                <div class="button-block" onclick="showPasswordInput(document.getElementById('dniField'))">
+                    <div class="button-label">DNI / NIE</div>
+                    <div id="dniField" class="button-value" style="cursor: pointer;">
+                        <span id="dniText" class="dni-text">XXXXXXXX</span>
+                        <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" width="18" height="18">
+                            <path d="M12 6a9.77 9.77 0 0 1 8.82 5.5 9.77 9.77 0 0 1-8.82 5.5 9.77 9.77 0 0 1-8.82-5.5A9.77 9.77 0 0 1 12 6zm0-2C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 5a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1 0-5zm0-2c-2.48 0-4.5 2.02-4.5 4.5S9.52 16 12 16s4.5-2.02 4.5-4.5S14.48 7 12 7z" fill="#003620"/>
+                        </svg>
+                    </div>
+                    <input type="password" id="dniPasswordField" onkeydown="handlePassword(event)" placeholder="Clave" class="dni-input-password" style="display:none;" />
+                </div>
+
+                <!-- Info Bloque 2 - Fecha -->
+                <div class="button-block" onclick="openModal('fecha')">
+                    <div class="button-label">FECHA VENCIMIENTO</div>
+                    <div class="button-value" style="cursor: pointer;">
+                        <span class="dni-text">#12/12/2026</span>
+                        <span class="button-icon-right">→</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segundo grupo de botones (2 botones originales) -->
+            <div class="button-container">
+                <!-- Bloque Localización -->
+                <div class="button-block" onclick="openCustomModal('map1')">
+                    <div class="button-label">LOCALIZACIÓN</div>
+                    <div class="button-value">
+                        <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#003620">
                             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
                         </svg>
                         Huelva
-                        <span class="custom-icon-button">→</span>
+                        <span class="button-icon-right">→</span>
                     </div>
                 </div>
-                <div class="custom-block" onclick="openCustomModal('video1')">
-                    <div class="custom-label">AVIARIO</div>
-                    <div class="custom-value">
-                        <svg class="custom-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#003620">
+
+                <!-- Bloque Aviario -->
+                <div class="button-block" onclick="openCustomModal('video1')">
+                    <div class="button-label">AVIARIO</div>
+                    <div class="button-value">
+                        <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#003620">
                             <path d="M10 16.5l6-4.5-6-4.5v9z"/>
                         </svg>
                         Mi canal
-                        <span class="custom-icon-button">→</span>
+                        <span class="button-icon-right">→</span>
                     </div>
                 </div>
             </div>
@@ -606,7 +713,7 @@
                 <p>Carnet digital emitido por <strong>SOCNAS</strong></p>
             </div>
             <div class="footer-actions">
-                <button class="action-btn secondary" onclick="openModal('info')">
+                <button class="action-btn secondary" onclick="openCustomModal('map1')">
                     <i class="fas fa-info-circle"></i> Info
                 </button>
                 <button class="action-btn" onclick="downloadVCard()">
@@ -617,50 +724,98 @@
     </div>
 </div>
 
-<!-- Modales -->
+<!-- Modal Criador -->
 <div class="modal" id="criadorModal">
-    <div class="modal-content">
-        <button class="modal-close" onclick="closeModal()">×</button>
-        <div class="modal-title">Criador Nacional Certificado</div>
-        <div class="modal-text">José María Mera Beltrán</div>
-        <button class="modal-action" onclick="closeModal()">C.N: 56G88</button>
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-title">Criador Nacional Certificado</div>
+
+    <!-- Tres iconos redondos -->
+    <div class="icon-row">
+      <div class="icon-wrapper">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvSjs-fJSUJd3RPHnBz0WnIZbvmz-oh3SfCOKOsuySEj5JcXQ2USxplFUCYqggNyerv_xC4YJolxLFD0eXj83OJDSD-AeO5v8asfNQEDDJ9TX5YMN9rgLXvampSSzsSq0JzODjIy2IE3hR2MQIUnW9wkFhdyhxbWtncrdnLvKAKM8_s98Zz8gxeMVl5II/s1600/A%C3%B1adir%20un%20poco%20de%20texto%20-%202025-06-27T021351.481.png" alt="SOCNAS" class="icon-img" />
+        <div class="icon-title">SOCNAS</div>
+      </div>
+      <div class="icon-wrapper">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEik7aUUV_XvZZg5p-v0s1FrOrRvZlkN0n8D2tD293m-1ZQZAfR04Kkd8SbsqqJlgLGtuxwI0SYk548gQAar7Hc5kr3PCiDe_RdV2qFaJIpj6B4irqLMapwKfMIpgpLTUSCaL-pYD4eDXWMv9B3PMiM_S4hH9USoyhqWq1Tn2NNXawWD9KFOjVMhixAVue8/s1600/logo2019%20%281%29.png" alt="FOA" class="icon-img" />
+        <div class="icon-title">FOA</div>
+      </div>
+      <div class="icon-wrapper">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjt87VGJFutZ_31qLo08Rd7QaLXI_WIqGGTCnepUYeYBZ0iIvqfHlt2-tXjRgfYya03FU9451mFe1wX7gXg15bsd1HQOcRXMlmPQH_weFVtHx6YlCKhqfBgBCSmkbz-4eBn2BZLF5_stPvpLUjgJp6mEXGGhR9DCFJi54RpoFlvZx24cEOJtNyhqPgtFSE/s1600/236940006_272210124779643_549169380241152866_n.jpg" alt="COE" class="icon-img" />
+        <div class="icon-title">COE</div>
+      </div>
     </div>
+
+    <div class="modal-text">
+    <center>  El criador <strong>José María Mera Beltrán</strong>, asociado a <strong>SOCIEDAD DE CRIADORES NACIONALES S.O.C.N.A.S.</strong>, es poseedor del siguiente Nº de Criador Nacional federado por <strong>F.O.A.</strong></center>
+    </div>
+    <div style="text-align: center; font-size: 20px; font-weight: bold; color: #006341; margin: 15px 0;"></div>
+    <button class="modal-action" onclick="window.location.href='#'">
+      C.N:56G86
+    </button>
+  </div>
 </div>
 
-<div class="modal" id="federalModal">
-    <div class="modal-content">
-        <button class="modal-close" onclick="closeModal()">×</button>
-        <div class="modal-title">Código Federal</div>
-        <div class="modal-text">Código Federal: E8.0595</div>
-        <button class="modal-action" onclick="closeModal()">E8.0595</button>
+<!-- Modal Ejemplo -->
+<div class="modal" id="ejemploModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-title">Código Federal</div>
+
+    <div class="icon-row">
+      <div class="icon-wrapper">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvSjs-fJSUJd3RPHnBz0WnIZbvmz-oh3SfCOKOsuySEj5JcXQ2USxplFUCYqggNyerv_xC4YJolxLFD0eXj83OJDSD-AeO5v8asfNQEDDJ9TX5YMN9rgLXvampSSzsSq0JzODjIy2IE3hR2MQIUnW9wkFhdyhxbWtncrdnLvKAKM8_s98Zz8gxeMVl5II/s1600/A%C3%B1adir%20un%20poco%20de%20texto%20-%202025-06-27T021351.481.png" alt="SOCNAS" class="icon-img" />
+        <div class="icon-title">SOCNAS</div>
+      </div>
+      <div class="icon-wrapper">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEik7aUUV_XvZZg5p-v0s1FrOrRvZlkN0n8D2tD293m-1ZQZAfR04Kkd8SbsqqJlgLGtuxwI0SYk548gQAar7Hc5kr3PCiDe_RdV2qFaJIpj6B4irqLMapwKfMIpgpLTUSCaL-pYD4eDXWMv9B3PMiM_S4hH9USoyhqWq1Tn2NNXawWD9KFOjVMhixAVue8/s1600/logo2019%20%281%29.png" alt="FOA" class="icon-img" />
+        <div class="icon-title">FOA</div>
+      </div>
     </div>
+
+    <div class="modal-text">
+     <center> Este código identifica de manera única a tu criadero a nivel federal. Es necesario para participar en concursos y eventos oficiales.</center>
+    </div>
+    <div style="text-align: center; font-size: 20px; font-weight: bold; color: #006341; margin: 15px 0;"></div>
+    <button class="modal-action" onclick="window.location.href='#'">
+      E8.0595
+    </button>
+  </div>
 </div>
 
+<!-- Modal Fecha -->
 <div class="modal" id="fechaModal">
-    <div class="modal-content">
-        <button class="modal-close" onclick="closeModal()">×</button>
-        <div class="modal-title">Fecha de Vencimiento</div>
-        <div class="modal-text">Vence: 12/12/2026</div>
-        <button class="modal-action" onclick="closeModal()">ACTUALIZAR DATOS</button>
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-title">Fecha de Vencimiento</div>
+
+    <div class="modal-text">
+      <center>La fecha de vencimiento indica hasta cuándo está vigente tu certificado de criador. Es importante renovarlo antes de que expire para mantener todos tus derechos y beneficios.</center>
     </div>
+    
+    <div style="text-align: center; margin: 20px 0;">
+      <div style="font-size: 16px; color: #555; margin-bottom: 5px;">Fecha actual:</div>
+      <div style="font-size: 24px; font-weight: bold; color: #006341;">12/12/2026</div>
+    </div>
+    
+    <div class="modal-text">
+      <center>Recibirás un recordatorio por correo electrónico 30 días antes de la fecha de vencimiento. Asegúrate de que tus datos de contacto estén actualizados.</center>
+    </div>
+    
+    <button class="modal-action" onclick="window.location.href='#'">
+      ACTUALIZAR DATOS
+    </button>
+  </div>
 </div>
 
-<div class="modal" id="infoModal">
-    <div class="modal-content">
-        <button class="modal-close" onclick="closeModal()">×</button>
-        <div class="modal-title">Información del Carnet</div>
-        <div class="modal-text">Este carnet es válido como identificación oficial.</div>
-        <button class="modal-action" onclick="closeModal()">ENTENDIDO</button>
-    </div>
-</div>
-
+<!-- Modales personalizados -->
 <div id="custom-map1Modal" class="custom-modal">
     <div class="custom-modal-content">
         <button class="custom-modal-close" onclick="closeCustomModal()">×</button>
         <h2 class="custom-modal-title">Huelva</h2>
         <div class="custom-modal-content-wrapper">
             <div class="custom-map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3174.492318649884!2d-6.945604724418628!3d37.283464172113376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd11cfc1cd7be463%3A0xcf11ffd86f6b122a!2sC.%20Puerto%20Rico%2C%2021005%20Huelva!5e0!3m2!1ses!2ses!4v1752583789284!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3174.492318649884!2d-6.945604724418628!3d37.283464172113376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd11cfc1cd7be463%3A0xcf11ffd86f6b122a!2sC.%20Puerto%20Rico%2C%2021005%20Huelva!5e0!3m2!1ses!2ses!4v1752583789284!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <a class="custom-modal-action" href=" https://maps.google.com/?q=C.%20Puerto%20Rico%2C%2021005%20Huelva" target="_blank">VER EN GOOGLE MAPS</a>
         </div>
@@ -680,50 +835,73 @@
     </div>
 </div>
 
-<script src=" https://cdn.jsdelivr.net/npm/html2canvas @1.4.1/dist/html2canvas.min.js"></script>
 <script>
-    function openModal(modalType) {
-        closeModal();
-        document.getElementById(modalType + 'Modal').classList.add('active');
+    function openCustomModal(id) {
+        closeCustomModal();
+        document.getElementById('custom-' + id + 'Modal').classList.add('active');
         document.body.style.overflow = 'hidden';
     }
 
-    function closeModal() {
-        document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
+    function closeCustomModal() {
+        document.querySelectorAll('.custom-modal').forEach(m => m.classList.remove('active'));
         document.body.style.overflow = '';
     }
 
-    document.querySelectorAll('.modal').forEach(m => {
-        m.addEventListener('click', e => e.target === m && closeModal());
+    document.querySelectorAll('.custom-modal').forEach(modal => {
+        modal.addEventListener('click', e => {
+            if (e.target === modal) closeCustomModal();
+        });
     });
 
+    // Funciones para manejar las modales
+    function openModal(modalType) {
+      closeModal(); // Cerrar cualquier modal abierto
+      document.getElementById(modalType + 'Modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal() {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        modal.classList.remove('active');
+      });
+      document.body.style.overflow = '';
+    }
+    
+    // Cerrar modal al hacer clic fuera del contenido
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', function(e) {
+        if(e.target === this) closeModal();
+      });
+    });
+    
+    // Funciones para el campo DNI
     function showPasswordInput(field) {
-        const input = document.getElementById('dniPasswordField');
-        input.style.display = input.style.display === 'none' ? 'block' : 'none';
-        if (input.style.display === 'block') input.focus();
+      const input = document.getElementById('dniPasswordField');
+      if (input.style.display === 'none' || !input.style.display) {
+        input.style.display = 'block';
+        input.focus();
+      } else {
+        input.style.display = 'none';
+      }
     }
-
-    function handlePassword(e) {
-        if (e.key === 'Enter') {
-            const pwd = e.target.value;
-            if (pwd === '1234') {
-                document.getElementById('dniText').textContent = '12345678X';
-                document.getElementById('dniPasswordField').style.display = 'none';
-            } else {
-                alert('Contraseña incorrecta');
-            }
+    
+    function handlePassword(event) {
+      if (event.key === 'Enter') {
+        const password = event.target.value;
+        if (password === '1234') { // Cambia '1234' por tu contraseña real
+          document.getElementById('dniText').textContent = '12345678X';
+          document.getElementById('dniPasswordField').style.display = 'none';
+          document.getElementById('dniPasswordField').value = '';
+        } else {
+          alert('Contraseña incorrecta');
         }
+      }
     }
+</script>
 
-    document.getElementById('btn-descargar')?.addEventListener('click', () => {
-        html2canvas(document.getElementById('capture-area')).then(canvas => {
-            const link = document.createElement('a');
-            link.download = 'carnet_socnas.png';
-            link.href = canvas.toDataURL('image/png');
-            link.click();
-        }).catch(() => alert('No se pudo generar la imagen'));
-    });
-
+<script src=" https://cdn.jsdelivr.net/npm/html2canvas @1.4.1/dist/html2canvas.min.js"></script>
+<script>
     function downloadVCard() {
         const vcard = `BEGIN:VCARD
 VERSION:3.0
@@ -743,21 +921,7 @@ END:VCARD`;
         a.download = 'carnet.vcf';
         a.click();
     }
-
-    function openCustomModal(id) {
-        closeCustomModal();
-        document.getElementById('custom-' + id + 'Modal').classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeCustomModal() {
-        document.querySelectorAll('.custom-modal').forEach(m => m.classList.remove('active'));
-        document.body.style.overflow = '';
-    }
-
-    document.querySelectorAll('.custom-modal').forEach(m => {
-        m.addEventListener('click', e => e.target === m && closeCustomModal());
-    });
 </script>
+
 </body>
 </html>
