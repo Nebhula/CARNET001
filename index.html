@@ -39,6 +39,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 20px;
+            min-height: 100vh;
         }
 
         .card-container {
@@ -48,6 +50,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
+            margin-top: 10px;
         }
 
         .card {
@@ -59,13 +62,13 @@
             display: flex;
             flex-direction: column;
             width: 100%;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-top: none;
         }
 
         .card-header {
             background: linear-gradient(135deg, var(--primary-color), #006341);
             color: white;
-            padding: 20px 15px;
+            padding: 20px 15px 15px;
             text-align: center;
             position: relative;
         }
@@ -129,7 +132,7 @@
         .card-header p {
             font-size: 0.9rem;
             opacity: 0.9;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .badges {
@@ -158,6 +161,48 @@
         .badge.premium {
             background-color: rgba(255, 215, 0, 0.2);
             color: gold;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 15px 0;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+
+        .qr-corner {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 8px;
+            padding: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .qr-corner img {
+            width: 100%;
+            height: 100%;
         }
 
         .card-body {
@@ -241,79 +286,6 @@
             width: 100%;
         }
 
-        .section-title {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin: 15px 0 10px;
-            color: var(--primary-color);
-        }
-
-        .section-title h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin: 0;
-        }
-
-        .section-title i {
-            font-size: 1rem;
-        }
-
-        .social-links {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
-            margin: 15px 0;
-        }
-
-        .social-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            padding: 8px;
-            border-radius: 6px;
-            text-decoration: none;
-            color: white;
-            font-weight: 500;
-            font-size: 0.8rem;
-            transition: var(--transition);
-        }
-
-        .social-button i {
-            font-size: 0.9rem;
-        }
-
-        #twitter {
-            background-color: #1DA1F2;
-        }
-
-        #linkedin {
-            background-color: #0077B5;
-        }
-
-        #github {
-            background-color: #333;
-        }
-
-        #instagram {
-            background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D);
-        }
-
-        .qr-section {
-            text-align: center;
-            margin-top: 15px;
-            padding: 15px;
-            background-color: rgba(211, 234, 217, 0.3);
-            border-radius: var(--border-radius);
-        }
-
-        .qr-code img {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 10px;
-        }
-
         .card-footer {
             padding: 12px 15px;
             border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -348,6 +320,8 @@
             display: flex;
             align-items: center;
             gap: 4px;
+            width: 100%;
+            justify-content: center;
         }
 
         .action-btn.secondary {
@@ -356,7 +330,6 @@
             color: var(--primary-color);
         }
 
-        /* Modales */
         .modal {
             display: none;
             position: fixed;
@@ -437,7 +410,167 @@
             text-align: center;
         }
 
-        /* Media queries para tablets y pantallas más grandes */
+        .custom-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 15px;
+        }
+
+        .custom-block {
+            flex: 1;
+            min-width: calc(50% - 5px);
+            max-width: 300px;
+            cursor: pointer;
+        }
+
+        .custom-label {
+            font-size: 11px;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .custom-value {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            font-weight: bold;
+            padding: 12px 35px 12px 12px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            user-select: none;
+            font-size: 13px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .custom-button-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        .custom-icon-button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 12px;
+            color: var(--primary-color);
+        }
+
+        .custom-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 99999;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .custom-modal.active {
+            display: flex;
+        }
+
+        .custom-modal-content {
+            width: 100%;
+            max-height: 85vh;
+            background: white;
+            border-radius: 20px 20px 0 0;
+            padding: 20px;
+            overflow-y: auto;
+            animation: slideUp 0.4s ease-out;
+            position: relative;
+        }
+
+        .custom-modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 35px;
+            height: 35px;
+            background: #f0f0f0;
+            color: #555;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
+        .custom-modal-title {
+            color: var(--primary-color);
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .custom-modal-content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .custom-map-container,
+        .custom-video-container {
+            width: 100%;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .custom-map-container {
+            height: 250px;
+        }
+
+        .custom-map-container iframe,
+        .custom-video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .custom-video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .custom-video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .custom-modal-action {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 15px;
+            cursor: pointer;
+            border: none;
+        }
+
         @media (min-width: 600px) {
             body {
                 justify-content: center;
@@ -447,6 +580,7 @@
             .card-container {
                 max-width: 450px;
                 padding: 16px;
+                margin-top: 0;
             }
             
             .card {
@@ -471,6 +605,41 @@
                 font-size: 14px;
                 padding: 15px;
             }
+
+            .social-icon {
+                width: 42px;
+                height: 42px;
+                font-size: 18px;
+            }
+
+            .qr-corner {
+                width: 60px;
+                height: 60px;
+            }
+
+            .custom-value {
+                padding: 15px 40px 15px 15px;
+                font-size: 14px;
+            }
+
+            .custom-button-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            .custom-map-container {
+                height: 350px;
+            }
+
+            .footer-actions {
+                flex-direction: row;
+            }
+
+            .action-btn {
+                width: auto;
+                flex: 1;
+                max-width: 200px;
+            }
         }
     </style>
 </head>
@@ -478,6 +647,10 @@
     <div class="card-container">
         <div class="card" id="capture-area">
             <div class="card-header">
+                <div class="qr-corner">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ejemplo.com/carnet/56G88" alt="QR Code">
+                </div>
+                
                 <div class="profile-section">
                     <div class="profile-pic">
                         <img src="https://via.placeholder.com/150" alt="Foto de perfil" id="profile-img">
@@ -492,6 +665,14 @@
                 </div>
                 <h1 id="name">José María Mera Beltrán</h1>
                 <p id="title">Criador Nacional Certificado</p>
+                
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                </div>
+                
                 <div class="badges">
                     <span class="badge verified"><i class="fas fa-check-circle"></i> Verificado</span>
                     <span class="badge premium"><i class="fas fa-crown"></i> Premium</span>
@@ -530,32 +711,27 @@
                     </div>
                 </div>
 
-                <div class="section-title">
-                    <i class="fas fa-share-alt"></i>
-                    <h3>Redes Sociales</h3>
-                </div>
-                <div class="social-links">
-                    <a href="#" class="social-button" id="twitter">
-                        <i class="fab fa-twitter"></i><span>Twitter</span>
-                    </a>
-                    <a href="#" class="social-button" id="linkedin">
-                        <i class="fab fa-linkedin-in"></i><span>LinkedIn</span>
-                    </a>
-                    <a href="#" class="social-button" id="github">
-                        <i class="fab fa-github"></i><span>GitHub</span>
-                    </a>
-                    <a href="#" class="social-button" id="instagram">
-                        <i class="fab fa-instagram"></i><span>Instagram</span>
-                    </a>
-                </div>
+                <div class="custom-container">
+                    <div class="custom-block" onclick="openCustomModal('map1')">
+                        <div class="custom-label">LOCALIZACIÓN</div>
+                        <div class="custom-value">
+                            <svg class="custom-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#003620">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+                            </svg>
+                            Huelva
+                            <span class="custom-icon-button">→</span>
+                        </div>
+                    </div>
 
-                <div class="section-title">
-                    <i class="fas fa-qrcode"></i>
-                    <h3>QR de Contacto</h3>
-                </div>
-                <div class="qr-section">
-                    <div class="qr-code">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ejemplo.com/carnet/56G88" alt="QR Code">
+                    <div class="custom-block" onclick="openCustomModal('video1')">
+                        <div class="custom-label">AVIARIO</div>
+                        <div class="custom-value">
+                            <svg class="custom-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#003620">
+                                <path d="M10 16.5l6-4.5-6-4.5v9z"/>
+                            </svg>
+                            Mi canal
+                            <span class="custom-icon-button">→</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -576,7 +752,6 @@
         </div>
     </div>
 
-    <!-- Modales -->
     <div class="modal" id="criadorModal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal()">×</button>
@@ -610,8 +785,41 @@
         </div>
     </div>
 
+    <div id="custom-map1Modal" class="custom-modal">
+        <div class="custom-modal-content">
+            <button class="custom-modal-close" onclick="closeCustomModal()">×</button>
+            <h2 class="custom-modal-title">Huelva</h2>
+            <div class="custom-modal-content-wrapper">
+                <div class="custom-map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3174.492318649884!2d-6.945604724418628!3d37.283464172113376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd11cfc1cd7be463%3A0xcf11ffd86f6b122a!2sC.%20Puerto%20Rico%2C%2021005%20Huelva!5e0!3m2!1ses!2ses!4v1752583789284!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <a class="custom-modal-action" href="https://maps.google.com/?q=C.%20Puerto%20Rico%2C%2021005%20Huelva" target="_blank">VER EN GOOGLE MAPS</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="custom-video1Modal" class="custom-modal">
+        <div class="custom-modal-content">
+            <button class="custom-modal-close" onclick="closeCustomModal()">×</button>
+            <h2 class="custom-modal-title">Canaricultura -Timbrados</h2>
+            <div class="custom-modal-content-wrapper">
+                <div class="custom-video-container">
+                    <iframe src="https://www.youtube.com/embed/MZddL74nqPU" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <a class="custom-modal-action" href="https://www.youtube.com/watch?v=MZddL74nqPU" target="_blank">VER EN YOUTUBE</a>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+                document.body.style.overflow = 'auto';
+            }, 100);
+        });
+
         function openModal(modalType) {
             closeModal();
             document.getElementById(modalType + 'Modal').classList.add('active');
@@ -673,6 +881,25 @@ END:VCARD`;
             a.download = 'carnet.vcf';
             a.click();
         }
+
+        function openCustomModal(id) {
+            closeCustomModal();
+            document.getElementById('custom-' + id + 'Modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCustomModal() {
+            document.querySelectorAll('.custom-modal').forEach(modal => {
+                modal.classList.remove('active');
+            });
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.custom-modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) closeCustomModal();
+            });
+        });
     </script>
 </body>
 </html>
