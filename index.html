@@ -1796,9 +1796,7 @@ END:VCARD`;
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    if (localStorage.getItem('pwaTipClosed') !== 'true') {
-      document.getElementById('pwaTip').style.display = 'block';
-    }
+    document.getElementById('pwaTip').style.display = 'block';
   });
 
   document.getElementById('installBtn').addEventListener('click', () => {
@@ -1815,7 +1813,6 @@ END:VCARD`;
 
   document.getElementById('closeTip').addEventListener('click', () => {
     document.getElementById('pwaTip').style.display = 'none';
-    localStorage.setItem('pwaTipClosed', 'true');
   });
 
   window.addEventListener('appinstalled', () => {
@@ -1828,6 +1825,7 @@ END:VCARD`;
       .catch(err => console.error('❌ Error SW:', err));
   }
 </script>
+
 
 
 
