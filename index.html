@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Carnet Digital Profesional</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css "/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css " />
   <style>
     :root {
       --primary-color: #003620;
@@ -18,38 +18,44 @@
       --transition: all 0.3s ease;
       --border-radius: 12px;
     }
-    body {
+
+    html, body {
       margin: 0;
-      padding: 20px;
-      background-color: var(--secondary-color);
+      padding: 0;
+      height: 100%;
       font-family: 'Poppins', sans-serif;
+      background-color: var(--secondary-color);
       color: var(--text-color);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
     }
+
     .card-container {
       width: 100%;
-      max-width: 450px;
+      max-width: 100%;
+      padding: 16px;
+      box-sizing: border-box;
     }
+
     .card {
       background-color: var(--bg-color);
       border-radius: var(--border-radius);
       overflow: hidden;
       box-shadow: var(--card-shadow);
+      margin: 0 auto;
     }
+
     .card-header {
       background: linear-gradient(135deg, var(--primary-color), #006341);
       color: white;
-      padding: 25px;
+      padding: 25px 20px 20px;
       text-align: center;
       position: relative;
     }
+
     .profile-section {
       position: relative;
       margin-bottom: 20px;
     }
+
     .profile-pic {
       width: 120px;
       height: 120px;
@@ -60,16 +66,19 @@
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
+
     .profile-pic img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
     .profile-actions {
       position: absolute;
-      top: 0;
-      right: 20%;
+      top: 10px;
+      right: 20px;
     }
+
     #btn-descargar {
       background: var(--primary-light);
       border: none;
@@ -84,31 +93,37 @@
       transition: var(--transition);
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
+
     #btn-descargar:hover {
       transform: translateY(-3px);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
+
     #btn-descargar svg {
       width: 20px;
       height: 20px;
       fill: var(--primary-color);
     }
+
     .card-header h1 {
       font-size: 1.8rem;
       margin-bottom: 5px;
       font-weight: 600;
     }
+
     .card-header p {
       font-size: 1rem;
       opacity: 0.9;
       margin-bottom: 15px;
     }
+
     .badges {
       display: flex;
       justify-content: center;
       gap: 10px;
       margin-top: 15px;
     }
+
     .badge {
       padding: 5px 10px;
       border-radius: 20px;
@@ -118,28 +133,33 @@
       align-items: center;
       gap: 5px;
     }
+
     .badge.verified {
       background-color: rgba(76, 209, 55, 0.2);
       color: #4cd137;
     }
+
     .badge.premium {
       background-color: rgba(255, 215, 0, 0.2);
       color: gold;
     }
+
     .card-body {
-      padding: 25px;
+      padding: 20px;
     }
+
     .info-container {
-      width: 100%;
       display: flex;
-      gap: 15px;
       flex-wrap: wrap;
-      margin-bottom: 15px;
+      gap: 12px;
+      margin-bottom: 20px;
     }
+
     .info-block {
-      flex: 1;
-      min-width: calc(50% - 8px);
+      flex: 1 1 calc(50% - 10px);
+      box-sizing: border-box;
     }
+
     .label {
       font-size: 12px;
       color: var(--primary-color);
@@ -147,6 +167,7 @@
       text-align: left;
       font-weight: 500;
     }
+
     .value, .dni-field {
       background-color: var(--primary-light);
       color: var(--primary-color);
@@ -160,11 +181,12 @@
       font-size: 14px;
       position: relative;
       overflow: visible;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
+
     .icon-button {
       position: absolute;
-      right: 10px;
+      right: 12px;
       top: 50%;
       transform: translateY(-50%);
       z-index: 2;
@@ -172,6 +194,7 @@
       width: 18px;
       height: 18px;
     }
+
     .dni-input-password {
       display: none;
       margin-top: 8px;
@@ -183,95 +206,36 @@
       color: var(--text-color);
       background-color: white;
     }
+
     .dni-text {
       display: block;
       width: 100%;
     }
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 20px 0 15px;
-      color: var(--primary-color);
-    }
-    .section-title h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin: 0;
-    }
-    .section-title i {
-      font-size: 1.2rem;
-    }
-    .social-links {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin: 20px 0;
-    }
-    .social-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-      font-size: 0.9rem;
-      transition: var(--transition);
-    }
-    .social-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-    .social-button i {
-      font-size: 1.1rem;
-    }
-    #twitter {
-      background-color: #1DA1F2;
-    }
-    #linkedin {
-      background-color: #0077B5;
-    }
-    #github {
-      background-color: #333;
-    }
-    #instagram {
-      background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D);
-    }
-    .qr-section {
-      text-align: center;
-      margin-top: 20px;
-      padding: 20px;
-      background-color: rgba(211, 234, 217, 0.3);
-      border-radius: var(--border-radius);
-    }
-    .qr-code img {
-      width: 150px;
-      height: 150px;
-      margin-bottom: 15px;
-    }
+
     .card-footer {
-      padding: 15px 25px;
+      padding: 15px 20px;
       border-top: 1px solid rgba(0, 0, 0, 0.05);
       display: flex;
       flex-direction: column;
       gap: 15px;
     }
+
     .footer-credits {
       text-align: center;
       font-size: 0.8rem;
       color: var(--text-light);
     }
+
     .footer-credits i {
       color: #ff4757;
     }
+
     .footer-actions {
       display: flex;
       gap: 10px;
       justify-content: center;
     }
+
     .action-btn {
       padding: 10px 15px;
       border: none;
@@ -286,15 +250,19 @@
       align-items: center;
       gap: 5px;
     }
+
     .action-btn:hover {
       opacity: 0.9;
       transform: translateY(-2px);
     }
+
     .action-btn.secondary {
       background-color: transparent;
       border: 1px solid var(--primary-color);
       color: var(--primary-color);
     }
+
+    /* Modales */
     .modal {
       display: none;
       position: fixed;
@@ -307,9 +275,11 @@
       align-items: flex-end;
       justify-content: center;
     }
+
     .modal.active {
       display: flex;
     }
+
     .modal-content {
       width: 95%;
       max-width: 750px;
@@ -321,10 +291,12 @@
       animation: slideUp 0.4s ease-out;
       position: relative;
     }
+
     @keyframes slideUp {
       from { transform: translateY(100%); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
+
     .modal-close {
       position: absolute;
       top: 15px;
@@ -339,6 +311,7 @@
       cursor: pointer;
       border: none;
     }
+
     .modal-title {
       color: var(--primary-color);
       font-size: 22px;
@@ -346,6 +319,7 @@
       margin-bottom: 20px;
       text-align: center;
     }
+
     .modal-text {
       color: var(--text-color);
       font-size: 16px;
@@ -353,6 +327,7 @@
       margin-bottom: 25px;
       text-align: center;
     }
+
     .modal-action {
       display: block;
       width: 100%;
@@ -368,26 +343,37 @@
       cursor: pointer;
       text-align: center;
     }
+
     @media (max-width: 600px) {
+      .card {
+        border-radius: 0;
+      }
+
+      .card-header {
+        padding: 20px 16px 16px;
+      }
+
+      .info-container {
+        gap: 10px;
+      }
+
+      .info-block {
+        flex: 1 1 48%;
+      }
+
+      .value, .dni-field {
+        font-size: 13px;
+        padding: 14px 12px;
+      }
+
       .icon-button {
-        right: 10px;
+        right: 12px;
         width: 16px;
         height: 16px;
       }
+
       .dni-field {
-        padding-right: 35px;
-      }
-      .modal-content {
-        padding: 20px;
-      }
-      .modal-title {
-        font-size: 20px;
-      }
-      .modal-text {
-        font-size: 14px;
-      }
-      .info-block {
-        min-width: 100%;
+        padding-right: 30px;
       }
     }
   </style>
@@ -415,6 +401,7 @@
           <span class="badge premium"><i class="fas fa-crown"></i> Premium</span>
         </div>
       </div>
+
       <div class="card-body">
         <div class="info-container">
           <div class="info-block">
@@ -437,14 +424,12 @@
               </svg>
             </div>
           </div>
-        </div>
-        <div class="info-container">
           <div class="info-block">
             <div class="label">DNI / NIE</div>
             <div id="dniField" class="dni-field" onclick="showPasswordInput(this)" style="cursor: pointer; position: relative;">
               <span id="dniText" class="dni-text">XXXXXXXX</span>
               <svg class="icon-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" onclick="event.stopPropagation(); showPasswordInput(document.getElementById('dniField'));">
-                <path d="M12 6a9.77 9.77 0 0 1 8.82 5.5 9.77 9.77 0 0 1-8.82 5.5 9.77 9.77 0 0 1-8.82-5.5A9.77 9.77 0 0 1 12 6zm0-2C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 5a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1 0-5zm0-2c-2.48 0-4.5 2.02-4.5 4.5S9.52 16 12 16s4.5-2.02 4.5-4.5S14.48 7 12 7z" fill="#003620"/>
+                <path d="M12 6a9.77 9.77 0 0 1 8.82 5.5 9.77 0 0 1-8.82 5.5 9.77 9.77 0 0 1-8.82-5.5A9.77 9.77 0 0 1 12 6zm0-2C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 5a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1 0-5zm0-2c-2.48 0-4.5 2.02-4.5 4.5S9.52 16 12 16s4.5-2.02 4.5-4.5S14.48 7 12 7z" fill="#003620"/>
               </svg>
             </div>
             <input type="password" id="dniPasswordField" onkeydown="handlePassword(event)" placeholder="Clave" class="dni-input-password" />
@@ -460,45 +445,19 @@
             </div>
           </div>
         </div>
-        <div class="section-title">
-          <i class="fas fa-share-alt"></i>
-          <h3>Redes Sociales</h3>
-        </div>
-        <div class="social-links">
-          <a href="#" class="social-button" id="twitter">
-            <i class="fab fa-twitter"></i><span>Twitter</span>
-          </a>
-          <a href="#" class="social-button" id="linkedin">
-            <i class="fab fa-linkedin-in"></i><span>LinkedIn</span>
-          </a>
-          <a href="#" class="social-button" id="github">
-            <i class="fab fa-github"></i><span>GitHub</span>
-          </a>
-          <a href="#" class="social-button" id="instagram">
-            <i class="fab fa-instagram"></i><span>Instagram</span>
-          </a>
-        </div>
-        <div class="section-title">
-          <i class="fas fa-qrcode"></i>
-          <h3>QR de Contacto</h3>
-        </div>
-        <div class="qr-section">
-          <div class="qr-code">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ejemplo.com/carnet/56G88" alt="QR Code">
+
+        <div class="card-footer">
+          <div class="footer-credits">
+            <p>Carnet digital emitido por <strong>SOCNAS</strong></p>
           </div>
-        </div>
-      </div>
-      <div class="card-footer">
-        <div class="footer-credits">
-          <p>Carnet digital emitido por <strong>SOCNAS</strong></p>
-        </div>
-        <div class="footer-actions">
-          <button class="action-btn secondary" onclick="openModal('info')">
-            <i class="fas fa-info-circle"></i> Info
-          </button>
-          <button class="action-btn" onclick="downloadVCard()">
-            <i class="fas fa-download"></i> vCard
-          </button>
+          <div class="footer-actions">
+            <button class="action-btn secondary" onclick="openModal('info')">
+              <i class="fas fa-info-circle"></i> Info
+            </button>
+            <button class="action-btn" onclick="downloadVCard()">
+              <i class="fas fa-download"></i> vCard
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -510,7 +469,7 @@
       <button class="modal-close" onclick="closeModal()">×</button>
       <div class="modal-title">Criador Nacional Certificado</div>
       <div class="modal-text">José María Mera Beltrán</div>
-      <button class="modal-action">C.N: 56G88</button>
+      <button class="modal-action" onclick="closeModal()">C.N: 56G88</button>
     </div>
   </div>
   <div class="modal" id="federalModal">
@@ -518,7 +477,7 @@
       <button class="modal-close" onclick="closeModal()">×</button>
       <div class="modal-title">Código Federal</div>
       <div class="modal-text">Código Federal: E8.0595</div>
-      <button class="modal-action">E8.0595</button>
+      <button class="modal-action" onclick="closeModal()">E8.0595</button>
     </div>
   </div>
   <div class="modal" id="fechaModal">
@@ -526,7 +485,7 @@
       <button class="modal-close" onclick="closeModal()">×</button>
       <div class="modal-title">Fecha de Vencimiento</div>
       <div class="modal-text">Vence: 12/12/2026</div>
-      <button class="modal-action">ACTUALIZAR DATOS</button>
+      <button class="modal-action" onclick="closeModal()">ACTUALIZAR DATOS</button>
     </div>
   </div>
   <div class="modal" id="infoModal">
@@ -538,7 +497,7 @@
     </div>
   </div>
 
-  <script src=" https://cdn.jsdelivr.net/npm/html2canvas @1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas @1.4.1/dist/html2canvas.min.js"></script>
   <script>
     function openModal(modalType) {
       closeModal();
