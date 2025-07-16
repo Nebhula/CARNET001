@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carnet Digital Profesional</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css " />
@@ -19,6 +19,10 @@
       --border-radius: 12px;
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
@@ -30,7 +34,6 @@
 
     .card-container {
       width: 100%;
-      max-width: 100%;
       padding: 16px;
       box-sizing: border-box;
     }
@@ -156,8 +159,9 @@
     }
 
     .info-block {
-      flex: 1 1 calc(50% - 10px);
+      flex: 1 1 calc(50% - 8px);
       box-sizing: border-box;
+      position: relative;
     }
 
     .label {
@@ -193,6 +197,16 @@
       cursor: pointer;
       width: 18px;
       height: 18px;
+      background: white;
+      border: 2px solid var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: bold;
+      color: var(--primary-color);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     .dni-input-password {
@@ -224,10 +238,6 @@
       text-align: center;
       font-size: 0.8rem;
       color: var(--text-light);
-    }
-
-    .footer-credits i {
-      color: #ff4757;
     }
 
     .footer-actions {
@@ -345,35 +355,22 @@
     }
 
     @media (max-width: 600px) {
-      .card {
-        border-radius: 0;
-      }
-
-      .card-header {
-        padding: 20px 16px 16px;
-      }
-
-      .info-container {
-        gap: 10px;
-      }
-
       .info-block {
-        flex: 1 1 48%;
-      }
-
-      .value, .dni-field {
-        font-size: 13px;
-        padding: 14px 12px;
+        flex: 1 1 100%;
       }
 
       .icon-button {
         right: 12px;
-        width: 16px;
-        height: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
       }
 
-      .dni-field {
+      .value, .dni-field {
         padding-right: 30px;
+        font-size: 13px;
       }
     }
   </style>
@@ -408,29 +405,21 @@
             <div class="label">Nº C. NACIONAL</div>
             <div class="value" onclick="openModal('criador')" style="cursor: pointer; position: relative;">
               56G88
-              <svg class="icon-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" fill="none" stroke="#003620" stroke-width="2"/>
-                <text x="12" y="16" font-family="Arial" font-size="12" text-anchor="middle" fill="#003620" font-weight="bold">i</text>
-              </svg>
+              <span class="icon-button" onclick="event.stopPropagation(); openModal('criador')">i</span>
             </div>
           </div>
           <div class="info-block">
             <div class="label">COD. FEDERAL</div>
             <div class="value" onclick="openModal('federal')" style="cursor: pointer; position: relative;">
               E8.0595
-              <svg class="icon-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" fill="none" stroke="#003620" stroke-width="2"/>
-                <text x="12" y="16" font-family="Arial" font-size="12" text-anchor="middle" fill="#003620" font-weight="bold">i</text>
-              </svg>
+              <span class="icon-button" onclick="event.stopPropagation(); openModal('federal')">i</span>
             </div>
           </div>
           <div class="info-block">
             <div class="label">DNI / NIE</div>
             <div id="dniField" class="dni-field" onclick="showPasswordInput(this)" style="cursor: pointer; position: relative;">
               <span id="dniText" class="dni-text">XXXXXXXX</span>
-              <svg class="icon-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" onclick="event.stopPropagation(); showPasswordInput(document.getElementById('dniField'));">
-                <path d="M12 6a9.77 9.77 0 0 1 8.82 5.5 9.77 0 0 1-8.82 5.5 9.77 9.77 0 0 1-8.82-5.5A9.77 9.77 0 0 1 12 6zm0-2C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 5a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1 0-5zm0-2c-2.48 0-4.5 2.02-4.5 4.5S9.52 16 12 16s4.5-2.02 4.5-4.5S14.48 7 12 7z" fill="#003620"/>
-              </svg>
+              <span class="icon-button" onclick="event.stopPropagation(); showPasswordInput(document.getElementById('dniField'))">i</span>
             </div>
             <input type="password" id="dniPasswordField" onkeydown="handlePassword(event)" placeholder="Clave" class="dni-input-password" />
           </div>
@@ -438,26 +427,23 @@
             <div class="label">FECHA VENCIMIENTO</div>
             <div class="dni-field" onclick="openModal('fecha')" style="cursor: pointer; position: relative;">
               <span class="dni-text">12/12/2026</span>
-              <svg class="icon-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" fill="none" stroke="#003620" stroke-width="2"/>
-                <text x="12" y="16" font-family="Arial" font-size="12" text-anchor="middle" fill="#003620" font-weight="bold">i</text>
-              </svg>
+              <span class="icon-button" onclick="event.stopPropagation(); openModal('fecha')">i</span>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="card-footer">
-          <div class="footer-credits">
-            <p>Carnet digital emitido por <strong>SOCNAS</strong></p>
-          </div>
-          <div class="footer-actions">
-            <button class="action-btn secondary" onclick="openModal('info')">
-              <i class="fas fa-info-circle"></i> Info
-            </button>
-            <button class="action-btn" onclick="downloadVCard()">
-              <i class="fas fa-download"></i> vCard
-            </button>
-          </div>
+      <div class="card-footer">
+        <div class="footer-credits">
+          <p>Carnet digital emitido por <strong>SOCNAS</strong></p>
+        </div>
+        <div class="footer-actions">
+          <button class="action-btn secondary" onclick="openModal('info')">
+            <i class="fas fa-info-circle"></i> Info
+          </button>
+          <button class="action-btn" onclick="downloadVCard()">
+            <i class="fas fa-download"></i> vCard
+          </button>
         </div>
       </div>
     </div>
@@ -504,18 +490,22 @@
       document.getElementById(modalType + 'Modal').classList.add('active');
       document.body.style.overflow = 'hidden';
     }
+
     function closeModal() {
       document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
       document.body.style.overflow = '';
     }
+
     document.querySelectorAll('.modal').forEach(m => {
       m.addEventListener('click', e => e.target === m && closeModal());
     });
+
     function showPasswordInput(field) {
       const input = document.getElementById('dniPasswordField');
       input.style.display = input.style.display === 'none' ? 'block' : 'none';
       if (input.style.display === 'block') input.focus();
     }
+
     function handlePassword(e) {
       if (e.key === 'Enter') {
         const pwd = e.target.value;
@@ -527,6 +517,7 @@
         }
       }
     }
+
     document.getElementById('btn-descargar').addEventListener('click', () => {
       html2canvas(document.getElementById('capture-area')).then(canvas => {
         const link = document.createElement('a');
@@ -535,6 +526,7 @@
         link.click();
       }).catch(() => alert('No se pudo generar la imagen'));
     });
+
     function downloadVCard() {
       const vcard = `BEGIN:VCARD
 VERSION:3.0
