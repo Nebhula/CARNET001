@@ -1,7 +1,7 @@
 {
   "name": "SOCNAS DIGI",
   "short_name": "SOCNAS DIGI",
-  "start_url": "/CARNET001/",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#fff",
   "theme_color": "#003620",
@@ -9,7 +9,7 @@
   "lang": "es",
   "dir": "ltr",
   "orientation": "any",
-  "scope": "/CARNET001/",
+  "scope": "/",
   "icons": [
     {
       "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLUhFi8sDXyBGPQo8nUd77tRmHqf0tcIBjvdatoHCIR74mzp4OIzLvllrjWR6FNS5kx4H68Ttk7ye8fJ1iddMed0jp5phIscpFDb0GWkX0dLXJnECL7IoJ_q_5pVyneP3009eJrAb56YukoV0Q3JN2lYJdKk6Z4gdcyyWPRLt5npy96AiVQj41MTpkRF0d/s1600/Dise%C3%B1o%20sin%20t%C3%ADtulo%20%2850%29.png",
