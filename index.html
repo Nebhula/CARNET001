@@ -1598,6 +1598,43 @@ END:VCARD`;
     document.querySelector('.aviso-pc').style.display = 'none';
   });
 </script>
+
+
+<!-- Aviso PC (solo aparece en computadoras) -->
+<div id="aviso-pc" style="
+  display:none;
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#000000dd;
+  color:white;
+  padding:12px 24px;
+  border-radius:25px;
+  z-index:9999;
+  font-family:Arial;
+  font-size:14px;
+  backdrop-filter:blur(3px);
+  border:1px solid #4CAF50;
+">
+  📱 Gira tu <strong>móvil</strong> para ver el reverso 
+  <a href="#" onclick="this.parentNode.remove()" style="
+    color:#4CAF50;
+    font-weight:bold;
+    margin-left:10px;
+    text-decoration:none;
+  ">OK</a>
+</div>
+
+<script>
+  // Detecta PC y muestra el aviso (sin afectar móviles)
+  if (!/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    document.getElementById('aviso-pc').style.display = 'block';
+  }
+</script>
+
+
+
     
 </body>
 </html>
