@@ -870,7 +870,25 @@
       }
     }
 
-        
+        .logo-corner {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.logo-corner img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
         
     </style>
 
@@ -893,6 +911,11 @@
             <div class="qr-corner">
                 <img src=" https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ejemplo.com/carnet/56G88" alt="QR Code">
             </div>
+<div class="logo-corner">
+  <img src=" https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDQ17rpDz9FK6Kgn3lQ2K1_R5o9brPkhtY9U5X0Ma8YyejvN-z3VDFGnHU6ocIuIVX0ANQ9tIN5ExYlPSgF3reNaiQg926Ie8qiHTBd1RhTcmEuWYKtQJjD5YobUY2fzNIsmiTQzxJsZt8BmWSO76ziQoB9lzkvE0ed8rnzZ-836B4dWMyogofSwh8MZgJ/s1600/Dise%C3%B1o%20sin%20t%C3%ADtulo%20%2845%29.png " alt="Logo">
+</div>
+
+            
             <div class="profile-section">
                 <div class="profile-pic">
                     <img src="" alt="Foto de perfil" id="profile-img">
