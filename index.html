@@ -109,19 +109,22 @@
         .card-body,
         .card-footer {
             width: 100%;
-            padding: 0px;
+            padding: 20px;
             box-sizing: border-box;
         }
 
         .card-header {
-            background: linear-gradient(135deg, var(--primary-color), #006341);
-            color: white;
-            text-align: center;
-            position: relative;
-            padding: 0px 0 !important; /* <-- Cambio clave: elimina padding horizontal */
-    width: 100%;
-    box-sizing: border-box;
-        }
+  background: linear-gradient(135deg, var(--primary-color), #006341);
+  color: white;
+  text-align: center;
+  position: relative;
+  padding: 20px 0 !important;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
 
         /* Estilos para móviles */
         @media (max-width: 600px) {
