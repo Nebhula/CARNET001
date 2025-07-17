@@ -827,7 +827,41 @@
 }
 
 
+/* --- REVERSO MÓVIL --- */
+.reverso-movil {
+  display: none;  /* Oculta por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1a3a32; /* Verde oscuro */
+  z-index: 1000;
+  text-align: center;
+  padding-top: 20px;
+}
 
+.logos-reverso {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20vh;
+}
+
+.logos-reverso img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+}
+
+/* Muestra solo en móvil horizontal */
+@media (max-width: 768px) and (orientation: landscape) {
+  .reverso-movil {
+    display: block;
+  }
+}
 
         
         
@@ -1476,44 +1510,6 @@ END:VCARD`;
     <img src="logo3.png" alt="Logo 3">
   </div>
 </div>
-
-<style>
-  /* OCULTA REVERSO POR DEFECTO */
-  .reverso-movil {
-    display: none;
-  }
-
-  /* MUÉSTRALO SOLO EN MÓVIL HORIZONTAL */
-  @media (max-width: 768px) and (orientation: landscape) {
-    .reverso-movil {
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #1a3a32;
-      z-index: 1000;
-      text-align: center;
-      padding-top: 20px;
-    }
-    
-    .logos-reverso {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20vh;
-    }
-    
-    .logos-reverso img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid white;
-    }
-  }
-</style>
 
 
 
