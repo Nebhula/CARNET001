@@ -905,7 +905,24 @@
 
 
 
-
+<!-- Estilos del banner PWA -->
+    <style>
+        #pwa-install-container {
+            display: none;
+            background: #ffffff;
+            border-radius: 8px;
+            margin: 15px auto;
+            max-width: 100%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+            padding: 12px 20px;
+        }
+        .browser-instruction {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+    </style>
 
 
 
@@ -1676,6 +1693,113 @@ END:VCARD`;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- Banner de instalación PWA -->
+    <div id="pwa-install-container">
+        <!-- Firefox -->
+        <div id="firefox-instructions" class="browser-instruction" style="display: none;">
+            <i class="fab fa-firefox" style="font-size: 22px; color: #ff7139;"></i>
+            <p style="margin: 0; color: #333; font-size: 14px;">
+                <strong style="color: #0060df;">Firefox:</strong> Toca <i class="fas fa-ellipsis-v" style="color: #555; margin: 0 4px;"></i> → <strong>"Añadir app a pantalla de inicio"</strong>
+            </p>
+        </div>
+
+        <!-- Safari iOS -->
+        <div id="ios-instructions" class="browser-instruction" style="display: none;">
+            <i class="fab fa-apple" style="font-size: 22px; color: #555;"></i>
+            <p style="margin: 0; color: #333; font-size: 14px;">
+                <strong style="color: #007aff;">iPhone/iPad:</strong> Toca <i class="fas fa-share-square" style="color: #007aff; margin: 0 4px;"></i> → <strong>"Añadir a inicio"</strong>
+            </p>
+        </div>
+
+        <!-- Samsung -->
+        <div id="samsung-instructions" class="browser-instruction" style="display: none;">
+            <i class="fas fa-mobile-alt" style="font-size: 22px; color: #1428a0;"></i>
+            <p style="margin: 0; color: #333; font-size: 14px;">
+                <strong style="color: #1428a0;">Samsung:</strong> Toca <i class="fas fa-ellipsis-v" style="color: #555; margin: 0 4px;"></i> → <strong>"Añadir página a"</strong> → <strong>"Pantalla de inicio"</strong>
+            </p>
+        </div>
+
+        <!-- Opera -->
+        <div id="opera-instructions" class="browser-instruction" style="display: none;">
+            <i class="fab fa-opera" style="font-size: 22px; color: #ff1b2d;"></i>
+            <p style="margin: 0; color: #333; font-size: 14px;">
+                <strong style="color: #ff1b2d;">Opera:</strong> Toca <i class="fas fa-ellipsis-v" style="color: #555; margin: 0 4px;"></i> → <strong>"Añadir a pantalla de inicio"</strong>
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+<!-- Script de detección -->
+    <script>
+        // Detectar si ya está instalada
+        function isInStandaloneMode() {
+            return (
+                window.matchMedia('(display-mode: standalone)').matches ||
+                window.navigator.standalone === true
+            );
+        }
+
+        // Mostrar instrucciones según navegador
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!isInStandaloneMode()) {
+                const container = document.getElementById('pwa-install-container');
+                const ua = navigator.userAgent;
+
+                if (container) {
+                    // iOS Safari
+                    if (/iPad|iPhone|iPod/.test(ua) || (ua.includes('Mac') && 'ontouchend' in document)) {
+                        document.getElementById('ios-instructions').style.display = 'flex';
+                        container.style.display = 'block';
+                    }
+                    // Firefox
+                    else if (/Firefox/.test(ua)) {
+                        document.getElementById('firefox-instructions').style.display = 'flex';
+                        container.style.display = 'block';
+                    }
+                    // Samsung
+                    else if (/SamsungBrowser/.test(ua)) {
+                        document.getElementById('samsung-instructions').style.display = 'flex';
+                        container.style.display = 'block';
+                    }
+                    // Opera
+                    else if (/Opera|OPR/.test(ua)) {
+                        document.getElementById('opera-instructions').style.display = 'flex';
+                        container.style.display = 'block';
+                    }
+                }
+            }
+        });
+
+        // Ocultar banner tras instalación
+        window.addEventListener('appinstalled', () => {
+            const container = document.getElementById('pwa-install-container');
+            if (container) container.style.display = 'none';
+        });
+    </script>
+
+
+
+
+
+
+
+
+    
     
 </body>
 </html>
