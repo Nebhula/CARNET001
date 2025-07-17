@@ -803,30 +803,31 @@
 
 
 
-/* Forzar ancho completo en todos los botones largos */
+/* Alinear botones largos al contenedor principal */
 .card-body .custom-container,
 .whatsapp-widget .container {
     width: 100%;
     max-width: 100%;
-    padding: 0 0 15px;
+    padding: 0 15px;
+    box-sizing: border-box;
 }
 
 .card-body .custom-block,
 .whatsapp-widget .block {
-    width: 100% !important;
-    min-width: 100% !important;
-    flex: 1 1 100% !important;
-    box-sizing: border-box !important;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .card-body .custom-value,
 .whatsapp-widget .value {
+    box-sizing: border-box;
     width: 100%;
     max-width: 100%;
-    box-sizing: border-box !important;
-    padding: 15px 40px 15px 15px !important;
-    white-space: normal !important;
-    word-wrap: break-word !important;
+    padding-left: 15px;
+    padding-right: 40px;
 }
 
         
