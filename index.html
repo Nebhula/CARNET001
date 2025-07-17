@@ -662,68 +662,191 @@
         }
     </style>
 
-    <!-- WhatsApp Widget -->
-    <div class="whatsapp-widget">
-        <div class="container">
-            <div class="block" onclick="abrirModalWhatsApp()">
-                <div class="label">CONTACTO INMEDIATO</div>
-                <div class="value">
-                    <i class="fab fa-whatsapp" style="color:#003620;"></i>
-                    Contactar por WhatsApp
-                    <span class="arrow">→</span>
-                </div>
-            </div>
-        </div>
-        <div class="modal" onclick="cerrarModalWhatsApp(event)">
-            <div class="modal-content">
-                <button class="close" onclick="cerrarModalWhatsApp()">×</button>
-                <div class="title"><i class="fab fa-whatsapp"></i> Envíanos un mensaje</div>
-                <form onsubmit="event.preventDefault(); enviarWhatsApp(this);">
-                    <div class="form-group">
-                        <label class="form-label">Tu nombre:</label>
-                        <input type="text" name="name" required />
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Tu teléfono (opcional):</label>
-                        <input type="tel" name="phone" />
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Mensaje:</label>
-                        <textarea name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit">Enviar por WhatsApp</button>
-                </form>
-            </div>
-        </div>
-    </div>
+<style>
+    .whatsapp-widget * {
+      box-sizing: border-box;
+    }
 
-    <script src="https://cdn.jsdelivr.net/npm/html2canvas @1.4.1/dist/html2canvas.min.js"></script>
-    <script>
-        function abrirModalWhatsApp() {
-            document.querySelector('.whatsapp-widget .modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+    .whatsapp-widget {
+      font-family: Arial, sans-serif;
+    }
 
-        function cerrarModalWhatsApp(e) {
-            const modal = document.querySelector('.whatsapp-widget .modal');
-            if (!e || e.target === modal || e.target.closest('.close')) {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        }
+    .whatsapp-widget .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
 
-        function enviarWhatsApp(form) {
-            const name = form.name.value.trim();
-            const phone = form.phone.value.trim();
-            const message = form.message.value.trim();
-            let text = `Hola, soy *${encodeURIComponent(name)}*`;
-            if (phone) text += `%0A%0ATeléfono: ${encodeURIComponent(phone)}`;
-            text += `%0A%0A${encodeURIComponent(message)}%0A%0A---%0AEnviado desde el biolink de José María Mera Beltrán`;
-            const whatsappURL = `https://wa.me/34677163664?text=${text}`;
-            window.open(whatsappURL, '_blank');
-            cerrarModalWhatsApp();
-        }
-    </script>
+    .whatsapp-widget .block {
+      flex: 1;
+      min-width: calc(100% - 10px);
+      max-width: 620px;
+      cursor: pointer;
+    }
+
+    .whatsapp-widget .label {
+      font-size: 12px;
+      color: #003620;
+      margin-bottom: 4px;
+      text-align: left;
+    }
+
+    .whatsapp-widget .value {
+      background-color: #d3ead9;
+      color: #003620;
+      font-weight: bold;
+      padding: 18px 40px 18px 20px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      gap: 10px;
+    }
+
+    .whatsapp-widget .value i {
+      font-size: 24px;
+    }
+
+    .whatsapp-widget .arrow {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+    }
+
+    .whatsapp-widget .modal {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 99999;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .whatsapp-widget .modal.active {
+      display: flex;
+    }
+
+    .whatsapp-widget .modal-content {
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 20px 20px 0 0;
+      padding: 25px;
+      animation: slideUpToast 0.4s ease-out;
+    }
+
+    @keyframes slideUpToast {
+      from {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .whatsapp-widget .close {
+      position: absolute;
+      top: 12px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 26px;
+      color: #555;
+      cursor: pointer;
+    }
+
+    .whatsapp-widget .title {
+      color: #075e54;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .whatsapp-widget .form-group {
+      margin-bottom: 20px;
+    }
+
+    .whatsapp-widget .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .whatsapp-widget input,
+    .whatsapp-widget textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .whatsapp-widget textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .whatsapp-widget .submit {
+      width: 100%;
+      padding: 16px;
+      background: #25D366;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .whatsapp-widget .submit:hover {
+      background: #128C7E;
+    }
+
+    @media (max-width: 600px) {
+      .whatsapp-widget .modal-content {
+        padding: 20px 15px;
+      }
+
+      .whatsapp-widget input,
+      .whatsapp-widget textarea {
+        padding: 10px 12px;
+      }
+
+      .whatsapp-widget .submit {
+        padding: 14px;
+      }
+    }
+  </style>
+
+
+
+
+
+
+
+
+    
+    
 </head>
 <body>
 <div class="card-container">
@@ -1001,6 +1124,94 @@ END:VCARD`;
         });
     });
 </script>
+
+
+
+
+
+
+
+
+
+
+<!-- WhatsApp Widget -->
+    <div class="whatsapp-widget">
+        <div class="container">
+            <div class="block" onclick="abrirModalWhatsApp()">
+                <div class="label">CONTACTO INMEDIATO</div>
+                <div class="value">
+                    <i class="fab fa-whatsapp" style="color:#003620;"></i>
+                    Contactar por WhatsApp
+                    <span class="arrow">→</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal" onclick="cerrarModalWhatsApp(event)">
+            <div class="modal-content">
+                <button class="close" onclick="cerrarModalWhatsApp()">×</button>
+                <div class="title"><i class="fab fa-whatsapp"></i> Envíanos un mensaje</div>
+                <form onsubmit="event.preventDefault(); enviarWhatsApp(this);">
+                    <div class="form-group">
+                        <label class="form-label">Tu nombre:</label>
+                        <input type="text" name="name" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tu teléfono (opcional):</label>
+                        <input type="tel" name="phone" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mensaje:</label>
+                        <textarea name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit">Enviar por WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas @1.4.1/dist/html2canvas.min.js"></script>
+    <script>
+        function abrirModalWhatsApp() {
+            document.querySelector('.whatsapp-widget .modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function cerrarModalWhatsApp(e) {
+            const modal = document.querySelector('.whatsapp-widget .modal');
+            if (!e || e.target === modal || e.target.closest('.close')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function enviarWhatsApp(form) {
+            const name = form.name.value.trim();
+            const phone = form.phone.value.trim();
+            const message = form.message.value.trim();
+            let text = `Hola, soy *${encodeURIComponent(name)}*`;
+            if (phone) text += `%0A%0ATeléfono: ${encodeURIComponent(phone)}`;
+            text += `%0A%0A${encodeURIComponent(message)}%0A%0A---%0AEnviado desde el biolink de José María Mera Beltrán`;
+            const whatsappURL = `https://wa.me/34677163664?text=${text}`;
+            window.open(whatsappURL, '_blank');
+            cerrarModalWhatsApp();
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 <style>
     #pwaTip {
