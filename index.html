@@ -154,8 +154,8 @@
             
             .card-container {
                 max-width: 450px;
-                padding: 0;
-                margin: 0 auto;
+                padding: 0; !important;
+                margin: 0 auto; !important;
             }
             
             .card {
@@ -195,7 +195,7 @@
         .card-container {
             width: 100%;
             max-width: 450px;
-            padding: 0;
+            padding: 0; !important;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -207,11 +207,16 @@
 }
 
         .card-header {
-            background: linear-gradient(135deg, var(--primary-color), #006341);
-            color: white;
-            padding: 20px 15px 15px;
-            text-align: center;
-            position: relative;
+    background: linear-gradient(135deg, var(--primary-color), #006341);
+    color: white;
+    text-align: center;
+    position: relative;
+    width: 100vw;
+    max-width: 100vw;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    margin: 0;
+}
         }
 
         .profile-section {
