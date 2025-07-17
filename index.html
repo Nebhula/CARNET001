@@ -1042,6 +1042,46 @@
     </div>
 </div>
 
+
+
+<!-- WhatsApp Widget -->
+    <div class="whatsapp-widget">
+        <div class="container">
+            <div class="block" onclick="abrirModalWhatsApp()">
+                <div class="label">CONTACTO INMEDIATO</div>
+                <div class="value">
+                    <i class="fab fa-whatsapp" style="color:#003620;"></i>
+                    Contactar por WhatsApp
+                    <span class="arrow">→</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal" onclick="cerrarModalWhatsApp(event)">
+            <div class="modal-content">
+                <button class="close" onclick="cerrarModalWhatsApp()">×</button>
+                <div class="title"><i class="fab fa-whatsapp"></i> Envíanos un mensaje</div>
+                <form onsubmit="event.preventDefault(); enviarWhatsApp(this);">
+                    <div class="form-group">
+                        <label class="form-label">Tu nombre:</label>
+                        <input type="text" name="name" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tu teléfono (opcional):</label>
+                        <input type="tel" name="phone" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mensaje:</label>
+                        <textarea name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit">Enviar por WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    
 <script>
     function openModal(modalType) {
         closeModal();
@@ -1134,40 +1174,7 @@ END:VCARD`;
 
 
 
-<!-- WhatsApp Widget -->
-    <div class="whatsapp-widget">
-        <div class="container">
-            <div class="block" onclick="abrirModalWhatsApp()">
-                <div class="label">CONTACTO INMEDIATO</div>
-                <div class="value">
-                    <i class="fab fa-whatsapp" style="color:#003620;"></i>
-                    Contactar por WhatsApp
-                    <span class="arrow">→</span>
-                </div>
-            </div>
-        </div>
-        <div class="modal" onclick="cerrarModalWhatsApp(event)">
-            <div class="modal-content">
-                <button class="close" onclick="cerrarModalWhatsApp()">×</button>
-                <div class="title"><i class="fab fa-whatsapp"></i> Envíanos un mensaje</div>
-                <form onsubmit="event.preventDefault(); enviarWhatsApp(this);">
-                    <div class="form-group">
-                        <label class="form-label">Tu nombre:</label>
-                        <input type="text" name="name" required />
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Tu teléfono (opcional):</label>
-                        <input type="tel" name="phone" />
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Mensaje:</label>
-                        <textarea name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit">Enviar por WhatsApp</button>
-                </form>
-            </div>
-        </div>
-    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/html2canvas @1.4.1/dist/html2canvas.min.js"></script>
     <script>
