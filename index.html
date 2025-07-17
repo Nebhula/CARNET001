@@ -803,18 +803,15 @@
 
 
 
-/* Forzar ancho completo en botones largos */
-.custom-block .custom-value,
-.whatsapp-widget .block .value {
+/* Forzar ancho completo en todos los botones largos */
+.card-body .custom-container,
+.whatsapp-widget .container {
     width: 100%;
     max-width: 100%;
-    box-sizing: border-box !important;
-    padding: 15px 40px 15px 15px !important;
-    white-space: normal !important;
-    word-wrap: break-word !important;
+    padding: 0 0 15px;
 }
 
-.custom-block,
+.card-body .custom-block,
 .whatsapp-widget .block {
     width: 100% !important;
     min-width: 100% !important;
@@ -822,8 +819,15 @@
     box-sizing: border-box !important;
 }
 
-
-
+.card-body .custom-value,
+.whatsapp-widget .value {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box !important;
+    padding: 15px 40px 15px 15px !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+}
 
         
     </style>
