@@ -825,6 +825,71 @@
     padding-left: 15px !important;
 }
 
+
+
+
+/* ESTILOS DEL REVERSO */
+.reverso-carnet {
+  display: none; /* Oculta en vertical */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1a3a32; /* Verde oscuro */
+  z-index: 1000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Contenedor de logos (en fila) */
+.contenedor-logos {
+  display: flex;
+  gap: 20px; /* Espacio entre logos */
+  margin-bottom: 30px;
+}
+
+/* Logos redondos */
+.logo-circular {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo-circular img {
+  max-width: 70%;
+  max-height: 70%;
+}
+
+/* Texto reverso */
+.texto-reverso {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  letter-spacing: 1px;
+}
+
+/* Muestra el reverso en horizontal */
+@media (orientation: landscape) {
+  .reverso-carnet {
+    display: flex;
+  }
+}
+
+
+
+        
         
     </style>
 
@@ -1428,5 +1493,41 @@ END:VCARD`;
             .catch(err => console.error('❌ Error SW:', err));
     }
 </script>
+
+
+
+
+
+
+
+
+
+<!-- REVERSO DEL CARNET -->
+<div class="reverso-carnet">
+  <div class="contenedor-logos">
+    <!-- Logo 1 -->
+    <div class="logo-circular">
+      <img src="logo1.png" alt="Logo 1">
+    </div>
+    <!-- Logo 2 -->
+    <div class="logo-circular">
+      <img src="logo2.png" alt="Logo 2">
+    </div>
+    <!-- Logo 3 -->
+    <div class="logo-circular">
+      <img src="logo3.png" alt="Logo 3">
+    </div>
+  </div>
+  <!-- Texto opcional -->
+  <p class="texto-reverso">Miembro Premium 2024</p>
+</div>
+
+
+
+
+
+
+
+    
 </body>
 </html>
