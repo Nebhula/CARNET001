@@ -1002,33 +1002,6 @@
 
 
 
-<!-- Scripts -->
-<script>
-  function abrirModalWhatsApp() {
-    document.querySelector('.whatsapp-widget .modal').classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function cerrarModalWhatsApp(e) {
-    const modal = document.querySelector('.whatsapp-widget .modal');
-    if (!e || e.target === modal || e.target.closest('.close')) {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  }
-
-  function enviarWhatsApp(form) {
-    const name = form.name.value.trim();
-    const phone = form.phone.value.trim();
-    const message = form.message.value.trim();
-    let text = `Hola, soy *${encodeURIComponent(name)}*`;
-    if (phone) text += `%0A%0ATeléfono: ${encodeURIComponent(phone)}`;
-    text += `%0A%0A${encodeURIComponent(message)}%0A%0A---%0AEnviado desde el biolink de José María Mera Beltrán`;
-    const whatsappURL = ` https://wa.me/34677163664?text=${text}`;
-    window.open(whatsappURL, '_blank');
-    cerrarModalWhatsApp();
-  }
-</script>
 
 
 
