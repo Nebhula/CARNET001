@@ -76,12 +76,16 @@
 
         /* Ajuste para móvil */
         @media (max-width: 600px) {
-            body {
-                padding: 0;
-            }
-            .card-container {
-        width: 100vw;
-        margin-left: calc(-50vw + 50%);
+             body {
+        padding: 0;
+    }
+
+    .card-container {
+        width: 100%;
+        max-width: 450px;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
         padding: 20px;
     }
 }
