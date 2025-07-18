@@ -681,23 +681,19 @@
 
 .whatsapp-widget .container {
   display: flex;
-  justify-content: flex-start; /* Alinea los bloques a la izquierda */
-  margin-bottom: 0;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  max-width: 550px; /* Para limitar el ancho máximo */
-  width: 100%;
+  justify-content: flex-start; /* Alinea a la izquierda */
+  width: 100%;                 /* Ocupa todo el ancho del padre */
+  padding-left: 15px;          /* Margen izquierdo */
+  padding-right: 15px;         /* Margen derecho */
+  box-sizing: border-box;
+  margin: 0;
 }
 
 .whatsapp-widget .block {
   cursor: pointer;
-  width: 100%;
-  max-width: 550px;
-  margin: 0; /* Quitar margen extra */
-  padding-left: 15px;
-  padding-right: 15px;
+  width: 100%;          /* Ocupa todo el ancho de .container */
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -713,9 +709,8 @@
   background-color: var(--primary-light);
   color: var(--primary-color);
   font-weight: bold;
-  padding: 15px;
+  padding: 15px 20px;
   border-radius: 8px;
-  text-align: left; /* Alinea texto a la izquierda */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: 14px;
   display: flex;
@@ -723,6 +718,9 @@
   justify-content: flex-start;
   gap: 10px;
   user-select: none;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
 }
 
 .whatsapp-widget .arrow {
@@ -738,50 +736,6 @@
   height: 20px;
   fill: #003620;
   flex-shrink: 0;
-}
-
-/* Forzar ancho y alineación iguales a los botones problemáticos */
-.whatsapp-widget .container,
-.whatsapp-widget .block {
-  max-width: 580px !important; /* mismo ancho que los de arriba, ajusta si quieres */
-  margin-left: 0 !important;
-  padding-left: 0 !important;
-  justify-content: flex-start !important; /* que no se centren */
-}
-
-.whatsapp-widget .value {
-  text-align: left !important;
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-  width: 100% !important;
-  box-sizing: border-box;
-}
-
-
-
-.whatsapp-widget .container {
-  width: 100% !important;
-  max-width: none !important;
-  padding-left: 15px !important;  /* Ajusta al margen deseado */
-  padding-right: 15px !important; /* Igual que el izquierdo */
-  box-sizing: border-box;
-  justify-content: flex-start !important; /* Para que no centren el contenido */
-}
-
-.whatsapp-widget .block {
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.whatsapp-widget .value {
-  width: 100% !important;
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-  box-sizing: border-box;
-  text-align: left !important;
 }
 
 
