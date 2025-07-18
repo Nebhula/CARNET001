@@ -1803,7 +1803,22 @@
         document.body.style.overflow = '';
     }
 
-   
+    function showPasswordInput(field) {
+        const input = document.getElementById('dniPasswordField');
+        input.style.display = input.style.display === 'none' ? 'block' : 'none';
+        if (input.style.display === 'block') input.focus();
+    }
+
+    function handlePassword(e) {
+        if (e.key === 'Enter') {
+            const pwd = e.target.value;
+            if (pwd === '1234') {
+                document.getElementById('dniText').textContent = '12345678X';
+                document.getElementById('dniPasswordField').style.display = 'none';
+            } else {
+                alert('Contraseña incorrecta');
+            }
+        }
     }
 
     function downloadVCard() {
