@@ -1756,8 +1756,7 @@
   function handlePassword(e) {
     if (e.key === 'Enter') {
       const pwd = e.target.value;
-
-      fetch('/api/checkPassword', {
+      fetch('/.netlify/functions/checkPassword', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password: pwd })
@@ -1774,6 +1773,7 @@
     }
   }
 </script>
+
 
 
 
