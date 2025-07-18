@@ -1747,6 +1747,69 @@ END:VCARD`;
 
 
 
+<style>
+  #bloqueoModal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: white;
+    z-index: 9999999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+  }
+  #bloqueoModal.active {
+    display: flex !important;
+  }
+  #bloqueoModal p {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  #bloqueoModal button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #25D366;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  #bloqueoModal button:hover {
+    background-color: #128C7E;
+  }
+  /* Para evitar scroll y que no se mueva nada */
+  body.lock-scroll {
+    overflow: hidden !important;
+  }
+</style>
+
+<div id="bloqueoModal">
+  <p>Su Carnet digital ha caducado</p>
+  <button id="renovarBtn">Renovar ahora</button>
+</div>
+
+<script>
+  (function() {
+    const tiempoBloqueo = 10000; // 10 segundos (cambia para test)
+    const modal = document.getElementById('bloqueoModal');
+    const btn = document.getElementById('renovarBtn');
+    const urlRenovacion = 'https://tu-pagina-renovacion.com'; // Cambia aquí
+
+    setTimeout(() => {
+      modal.classList.add('active');
+      document.body.classList.add('lock-scroll');
+    }, tiempoBloqueo);
+
+    btn.onclick = () => {
+      window.location.href = urlRenovacion;
+    }
+  })();
+</script>
 
 
 
