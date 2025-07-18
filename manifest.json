@@ -4,7 +4,7 @@
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#fff",
-  "theme_color": "#003620",
+  "theme_color": "#1a3a32",
   "description": "Carnet digital socios - Gestiona tus credenciales digitales de manera segura y accesible desde cualquier dispositivo.",
   "lang": "es",
   "dir": "ltr",
