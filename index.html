@@ -981,7 +981,8 @@
                 <div class="info-block">
                     <div class="label">DNI / NIE</div>
                     <div id="dniField" class="dni-field" onclick="showPasswordInput(this)" style="cursor: pointer; position: relative;">
-                        <span id="dniText" class="dni-text">XXXXXXXX</span>
+                        <span id="dniText" class="dni-text">XXXXXXXX</span><input type="password" id="dniPasswordField" onkeydown="handlePassword(event)" placeholder="Introduce contraseña" />
+<p id="dniText"></p>
                         <span class="icon-button" onclick="event.stopPropagation(); showPasswordInput(document.getElementById('dniField'))">i</span>
                     </div>
                     <input type="password" id="dniPasswordField" onkeydown="handlePassword(event)" placeholder="Clave" class="dni-input-password" />
@@ -1809,8 +1810,7 @@ END:VCARD`;
 
 
 
-<input type="password" id="dniPasswordField" onkeydown="handlePassword(event)" placeholder="Introduce contraseña" />
-<p id="dniText"></p>
+
 
 <script>
   function handlePassword(e) {
