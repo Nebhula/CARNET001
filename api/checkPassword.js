@@ -5,7 +5,7 @@ export default function handler(req, res) {
 
   const { password } = req.body;
 
-  if (password === '1234') {
+  if (password === '12345') {
     res.status(200).json({ success: true, dni: '48915466' });
   } else {
     res.status(401).json({ success: false, message: 'Contraseña incorrecta' });
