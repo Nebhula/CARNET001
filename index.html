@@ -1755,17 +1755,22 @@ END:VCARD`;
 </div>
 
 <script>
-  const tiempoBloqueo = 20000; // 20 segundos para pruebas. Cambia a 31536000000 para 1 año
+  const tiempoBloqueo = 20000; // 20 segundos para pruebas
 
   setTimeout(() => {
-    document.body.innerHTML = '';
+    // Ocultamos todo excepto el mensaje
+    const bodyChildren = Array.from(document.body.children);
+    bodyChildren.forEach(el => {
+      if (el.id !== 'bloqueo-carnet') {
+        el.style.display = 'none';
+      }
+    });
+    // Mostramos el mensaje
     const mensaje = document.getElementById('bloqueo-carnet');
-    if (mensaje) {
-      document.body.appendChild(mensaje);
-      mensaje.style.display = 'block';
-    }
+    mensaje.style.display = 'block';
   }, tiempoBloqueo);
 </script>
+
 
 
 
