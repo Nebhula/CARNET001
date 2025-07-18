@@ -1,13 +1,13 @@
 const CACHE_NAME = 'pwa-cache-v1';
-const OFFLINE_URL = '/offline.html'; // Puedes crear esta página más tarde
+const OFFLINE_URL = '/offline.html'; // ¡Cambia esto por tu página offline local!
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
   '/manifest.json',
   '/icon-192x192.png',
   '/icon-512x512.png',
-  '/style.css', // Si tienes CSS propio
-  '/script.js'  // Si tienes JS adicional
+  '/styles.css',
+  '/app.js'
 ];
 
 self.addEventListener('install', event => {
@@ -33,21 +33,15 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-  const { request } = event;
-
-  // Solo interceptar solicitudes GET
-  if (request.method !== 'GET') {
-    return;
-  }
+  if (event.request.method !== 'GET') return;
 
   event.respondWith(
-    caches.match(request).then(response => {
-      return response || fetch(request).catch(() => {
-        // Responder con página offline si no hay conexión
-        if (request.mode === 'navigate') {
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request).catch(() => {
+        if (event.request.mode === 'navigate') {
           return caches.match(OFFLINE_URL);
         }
       });
-    })
+    }
   );
 });
