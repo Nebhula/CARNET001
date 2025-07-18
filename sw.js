@@ -1,5 +1,5 @@
 const CACHE_NAME = 'pwa-cache-v1';
-const OFFLINE_URL = 'https://asdfdasfdasdfs.blogspot.com/'; // Puedes crear esta página más tarde
+const OFFLINE_URL = '/offline.html'; // Puedes crear esta página más tarde
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
