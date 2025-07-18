@@ -1841,14 +1841,7 @@ END:VCARD`;
         a.click();
     }
 
-    document.getElementById('btn-descargar')?.addEventListener('click', () => {
-        html2canvas(document.getElementById('capture-area')).then(canvas => {
-            const link = document.createElement('a');
-            link.download = 'carnet_socnas.png';
-            link.href = canvas.toDataURL('image/png');
-            link.click();
-        }).catch(() => alert('No se pudo generar la imagen'));
-    });
+    
 </script>
 
 
