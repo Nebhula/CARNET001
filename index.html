@@ -907,13 +907,13 @@
     width: 140px;
     padding: 8px 12px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #003620;
     border-radius: 5px;
     box-sizing: border-box;
   }
 
   #dniPasswordField:focus {
-    border-color: #0070f3;
+    border-color: #003620;
     outline: none;
     box-shadow: 0 0 5px rgba(0, 112, 243, 0.5);
   }
@@ -1004,7 +1004,7 @@
                 <div class="info-block">
                     <div class="label">DNI / NIE</div>
                     <div id="dniField" class="dni-field" onclick="showPasswordInput(this)" style="cursor: pointer; position: relative;">
-                        <span id="dniText" class="dni-text">XXXXXXXX</span><input type="password" id="dniPasswordField" onkeydown="handlePassword(event)" placeholder="Clave" />
+                        <span id="dniText" class="dni-text">XXXXXXXX-X</span><input type="password" id="dniPasswordField" onkeydown="handlePassword(event)" placeholder="Clave" />
 <p id="dniText"></p>
                         <span class="icon-button" onclick="event.stopPropagation(); showPasswordInput(document.getElementById('dniField'))">i</span>
                     </div>
