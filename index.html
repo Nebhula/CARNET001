@@ -1745,6 +1745,31 @@ END:VCARD`;
 
 
 
+<script>
+  const estaBloqueado = true; // ← tú cambias esto a false para desactivar el bloqueo
+
+  function mostrarBloqueo() {
+    document.body.innerHTML = `
+      <div style="height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; background:#f8f8f8; font-family: Arial, sans-serif; text-align:center; padding: 20px;">
+        <h1 style="color:#cc0000; margin-bottom:20px;">Su Carnet digital ha caducado</h1>
+        <p>Contacte con el administrador para renovar su acceso.</p>
+      </div>
+    `;
+  }
+
+  if (estaBloqueado) {
+    const bloqueoGuardado = localStorage.getItem('bloqueoCarnet');
+    if (bloqueoGuardado === 'true') {
+      mostrarBloqueo();
+    } else {
+      setTimeout(() => {
+        localStorage.setItem('bloqueoCarnet', 'true');
+        mostrarBloqueo();
+      }, 50000); // Bloquea en 50 segundos
+    }
+  }
+</script>
+
 
     
     
