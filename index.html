@@ -1002,21 +1002,13 @@
                     </div>
                 </div>
                 <div class="info-block">
-  <div class="label">DNI / NIE</div>
-
-  <div id="dniField" class="dni-field" onclick="showPasswordInput(this)" style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
-
-    <!-- DNI oculto o mostrado cuando acierta la clave -->
-    <span id="dniText" class="dni-text">XXXXXXXX-X  <i class="fa-solid fa-eye-slash" style="margin-left: 6px; color: #555;"></i></span>
-
-    <!-- Campo de clave -->
-    <input type="password" id="dniPasswordField" onkeydown="handlePassword(event)" placeholder="Clave" class="dni-input-password" />
-
-    <!-- Icono de candado -->
-    <i class="fa-solid fa-lock" style="color: #666;"></i>
-
-  </div>
-</div>
+  <div class="info-block">
+                    <div class="label">DNI / NIE</div>
+                    <div id="dniField" class="dni-field" onclick="showPasswordInput(this)" style="cursor: pointer; position: relative;">
+                        <span id="dniText" class="dni-text">XXXXXXXX-X</span><input type="password" id="dniPasswordField" onkeydown="handlePassword(event)" placeholder="Clave" /><i class="fa-solid fa-lock" style="margin-left: 8px; color: #666;"></i>
+<p id="dniText"></p>
+                        
+                    </div>
 
                 <div class="info-block">
                     <div class="label">FECHA VENCIMIENTO</div>
