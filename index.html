@@ -1758,7 +1758,8 @@
   function handlePassword(e) {
     if (e.key === 'Enter') {
       const pwd = e.target.value;
-      fetch('/.netlify/functions/checkPassword', {
+
+      fetch('/api/checkPassword', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password: pwd })
