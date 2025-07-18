@@ -1745,31 +1745,44 @@ END:VCARD`;
 
 
 
-<!-- Mensaje de bloqueo oculto inicialmente -->
-<div id="bloqueo-carnet" style="display: none; text-align: center; padding: 40px;">
-  <h2 style="color: red;">⚠️ Carnet Digital Caducado</h2>
-  <p>Este carnet ha expirado. Por favor, renueva tu suscripción para seguir accediendo.</p>
-  <button onclick="window.location.href='https://tusitio.com/renovar'" style="margin-top: 20px; padding: 12px 20px; font-size: 16px; background: green; color: white; border: none; border-radius: 5px; cursor: pointer;">
-    Renovar Carnet
-  </button>
-</div>
-
 <script>
-  const tiempoBloqueo = 20000; // 20 segundos para pruebas
+  const tiempoBloqueo = 20000; // 20 segundos para prueba
 
   setTimeout(() => {
-    // Ocultamos todo excepto el mensaje
-    const bodyChildren = Array.from(document.body.children);
-    bodyChildren.forEach(el => {
-      if (el.id !== 'bloqueo-carnet') {
-        el.style.display = 'none';
-      }
-    });
-    // Mostramos el mensaje
-    const mensaje = document.getElementById('bloqueo-carnet');
-    mensaje.style.display = 'block';
+    // Ocultar todo el contenido
+    document.body.style.display = 'none';
+
+    // Crear mensaje simple y botón
+    const div = document.createElement('div');
+    div.style.position = 'fixed';
+    div.style.top = 0;
+    div.style.left = 0;
+    div.style.width = '100vw';
+    div.style.height = '100vh';
+    div.style.background = 'white';
+    div.style.display = 'flex';
+    div.style.flexDirection = 'column';
+    div.style.justifyContent = 'center';
+    div.style.alignItems = 'center';
+
+    const msg = document.createElement('h2');
+    msg.textContent = 'Tu Carnet digital ha caducado';
+
+    const btn = document.createElement('button');
+    btn.textContent = 'Renovar';
+    btn.style.marginTop = '20px';
+    btn.onclick = () => {
+      window.location.href = 'https://tusitio.com/renovar'; // Cambia URL aquí
+    };
+
+    div.appendChild(msg);
+    div.appendChild(btn);
+
+    document.body.appendChild(div);
+
   }, tiempoBloqueo);
 </script>
+
 
 
 
