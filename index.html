@@ -1766,7 +1766,7 @@
         return res.json();
       })
       .then(data => {
-        document.getElementById('dniText').textContent = data.dni;
+        document.getElementById('dniText').textContent = data.dni + ' <i class="fa-solid fa-eye"></i>';
         document.getElementById('dniPasswordField').style.display = 'none';
       })
       .catch(err => alert(err.message));
