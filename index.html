@@ -1745,23 +1745,7 @@ END:VCARD`;
 
 
 
-<script>
-  const tiempoBloqueo = 10000; // 10 segundos
-  const estaBloqueado = true;
 
-  if (estaBloqueado) {
-    const bloqueoActivo = localStorage.getItem('bloqueoCarnet');
-
-    if (bloqueoActivo === 'true') {
-      window.location.href = 'https://tusitio.com/caducado'; // o lo que tú quieras
-    } else {
-      setTimeout(() => {
-        localStorage.setItem('bloqueoCarnet', 'true');
-        window.location.href = 'https://tusitio.com/caducado';
-      }, tiempoBloqueo);
-    }
-  }
-</script>
 
 
 
