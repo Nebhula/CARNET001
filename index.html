@@ -1746,42 +1746,23 @@ END:VCARD`;
 
 
 <script>
-  const tiempoBloqueo = 20000; // 20 segundos para prueba
+  const tiempoBloqueo = 10000; // 10 segundos
+  const estaBloqueado = true;
 
-  setTimeout(() => {
-    // Ocultar todo el contenido
-    document.body.style.display = 'none';
+  if (estaBloqueado) {
+    const bloqueoActivo = localStorage.getItem('bloqueoCarnet');
 
-    // Crear mensaje simple y botón
-    const div = document.createElement('div');
-    div.style.position = 'fixed';
-    div.style.top = 0;
-    div.style.left = 0;
-    div.style.width = '100vw';
-    div.style.height = '100vh';
-    div.style.background = 'white';
-    div.style.display = 'flex';
-    div.style.flexDirection = 'column';
-    div.style.justifyContent = 'center';
-    div.style.alignItems = 'center';
-
-    const msg = document.createElement('h2');
-    msg.textContent = 'Tu Carnet digital ha caducado';
-
-    const btn = document.createElement('button');
-    btn.textContent = 'Renovar';
-    btn.style.marginTop = '20px';
-    btn.onclick = () => {
-      window.location.href = 'https://tusitio.com/renovar'; // Cambia URL aquí
-    };
-
-    div.appendChild(msg);
-    div.appendChild(btn);
-
-    document.body.appendChild(div);
-
-  }, tiempoBloqueo);
+    if (bloqueoActivo === 'true') {
+      window.location.href = 'https://tusitio.com/caducado'; // o lo que tú quieras
+    } else {
+      setTimeout(() => {
+        localStorage.setItem('bloqueoCarnet', 'true');
+        window.location.href = 'https://tusitio.com/caducado';
+      }, tiempoBloqueo);
+    }
+  }
 </script>
+
 
 
 
