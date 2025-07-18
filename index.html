@@ -1745,25 +1745,28 @@ END:VCARD`;
 
 
 
-<div id="bloqueo-carnet" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 999999; text-align: center; padding: 50px; font-family: Arial, sans-serif;">
-  <h1 style="color: red; font-size: 24px;">Su carnet ha caducado</h1>
-  <p>Por favor, renueve su carnet para seguir accediendo.</p>
-  <button onclick="window.location.href='https://tupagina.com/renovar'" style="margin-top: 20px; padding: 10px 20px; font-size: 16px; background: green; color: white; border: none; border-radius: 5px; cursor: pointer;">
-    Renovar ahora
+<!-- Mensaje de bloqueo oculto inicialmente -->
+<div id="bloqueo-carnet" style="display: none; text-align: center; padding: 40px;">
+  <h2 style="color: red;">⚠️ Carnet Digital Caducado</h2>
+  <p>Este carnet ha expirado. Por favor, renueva tu suscripción para seguir accediendo.</p>
+  <button onclick="window.location.href='https://tusitio.com/renovar'" style="margin-top: 20px; padding: 12px 20px; font-size: 16px; background: green; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    Renovar Carnet
   </button>
 </div>
 
 <script>
-  // Tiempo en milisegundos (aquí 20 segundos para pruebas)
-  const tiempoBloqueo = 20000;
+  const tiempoBloqueo = 20000; // 20 segundos para pruebas. Cambia a 31536000000 para 1 año
 
-  // Mostrar bloqueo después del tiempo
   setTimeout(() => {
-    document.body.innerHTML = ''; // Borra todo
-    document.body.appendChild(document.getElementById('bloqueo-carnet'));
-    document.getElementById('bloqueo-carnet').style.display = 'block';
+    document.body.innerHTML = '';
+    const mensaje = document.getElementById('bloqueo-carnet');
+    if (mensaje) {
+      document.body.appendChild(mensaje);
+      mensaje.style.display = 'block';
+    }
   }, tiempoBloqueo);
 </script>
+
 
 
     
