@@ -1745,29 +1745,24 @@ END:VCARD`;
 
 
 
+<div id="bloqueo-carnet" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 999999; text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+  <h1 style="color: red; font-size: 24px;">Su carnet ha caducado</h1>
+  <p>Por favor, renueve su carnet para seguir accediendo.</p>
+  <button onclick="window.location.href='https://tupagina.com/renovar'" style="margin-top: 20px; padding: 10px 20px; font-size: 16px; background: green; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    Renovar ahora
+  </button>
+</div>
+
 <script>
-  const estaBloqueado = true; // ← tú cambias esto a false para desactivar el bloqueo
+  // Tiempo en milisegundos (aquí 20 segundos para pruebas)
+  const tiempoBloqueo = 20000;
 
-  function mostrarBloqueo() {
-    document.body.innerHTML = `
-      <div style="height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; background:#f8f8f8; font-family: Arial, sans-serif; text-align:center; padding: 20px;">
-        <h1 style="color:#cc0000; margin-bottom:20px;">Su Carnet digital ha caducado</h1>
-        <p>Contacte con el administrador para renovar su acceso.</p>
-      </div>
-    `;
-  }
-
-  if (estaBloqueado) {
-    const bloqueoGuardado = localStorage.getItem('bloqueoCarnet');
-    if (bloqueoGuardado === 'true') {
-      mostrarBloqueo();
-    } else {
-      setTimeout(() => {
-        localStorage.setItem('bloqueoCarnet', 'true');
-        mostrarBloqueo();
-      }, 50000); // Bloquea en 50 segundos
-    }
-  }
+  // Mostrar bloqueo después del tiempo
+  setTimeout(() => {
+    document.body.innerHTML = ''; // Borra todo
+    document.body.appendChild(document.getElementById('bloqueo-carnet'));
+    document.getElementById('bloqueo-carnet').style.display = 'block';
+  }, tiempoBloqueo);
 </script>
 
 
