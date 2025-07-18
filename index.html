@@ -1753,28 +1753,7 @@
 
 
 
-<script>
-  function handlePassword(e) {
-    if (e.key === 'Enter') {
-      const pwd = e.target.value;
 
-      fetch('/api/checkPassword', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password: pwd })
-      })
-      .then(res => {
-        if (!res.ok) throw new Error('Contraseña incorrecta');
-        return res.json();
-      })
-      .then(data => {
-        document.getElementById('dniText').textContent = data.dni;
-        document.getElementById('dniPasswordField').style.display = 'none';
-      })
-      .catch(err => alert(err.message));
-    }
-  }
-</script>
 
 
 
