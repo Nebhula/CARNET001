@@ -673,66 +673,12 @@
             }
         }
 
-.whatsapp-widget {
-  margin-top: 20px;
-  font-family: Arial, sans-serif;
-}
 
-.whatsapp-widget .container {
-  display: flex;
-  justify-content: flex-start; /* Alinea a la izquierda */
-  width: 100%;                 /* Ocupa todo el ancho del padre */
-  padding-left: 15px;          /* Margen izquierdo */
-  padding-right: 15px;         /* Margen derecho */
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.whatsapp-widget .block {
-  cursor: pointer;
-  width: 100%;          /* Ocupa todo el ancho de .container */
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.whatsapp-widget .label {
-  font-size: 11px;
-  color: #003620;
-  margin-bottom: 4px;
-  text-align: left;
-  font-weight: 500;
-}
-
-.whatsapp-widget .value {
-  background-color: var(--primary-light);
-  color: var(--primary-color);
-  font-weight: bold;
-  padding: 15px 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-  user-select: none;
-  width: 100%;
-  box-sizing: border-box;
-  text-align: left;
-}
-
-.whatsapp-widget .arrow {
-  margin-left: auto; /* Empuja la flecha a la derecha */
-  font-size: 18px;
-  color: var(--primary-color);
-  user-select: none;
-}
 
 /* Icono dentro del botón */
 .custom-button-icon {
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   fill: #003620;
   flex-shrink: 0;
 }
@@ -1204,18 +1150,7 @@
 
 
 
-<!-- Botón de WhatsApp -->
-    <div class="whatsapp-widget">
-      <div class="container">
-        <div class="block" onclick="abrirModalWhatsApp()">
-          <div class="label">CONTACTO INMEDIATO</div>
-          <div class="value">
-            <i class="fab fa-whatsapp" style="color:#003620;"></i>
-            Contactar por WhatsApp
-            <span class="arrow">→</span>
-          </div>
-        </div>
-      </div>
+
 
 
 
@@ -1676,61 +1611,7 @@ END:VCARD`;
 
 
 
-      <!-- Modal WhatsApp -->
-      <div class="modal" onclick="cerrarModalWhatsApp(event)">
-        <div class="modal-content">
-          <button class="close" onclick="cerrarModalWhatsApp()">×</button>
-          <div class="title"><i class="fab fa-whatsapp"></i> Envíanos un mensaje</div>
-          <form onsubmit="event.preventDefault(); enviarWhatsApp(this);">
-            <div class="form-group">
-              <label class="form-label">Tu nombre:</label>
-              <input type="text" name="name" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Tu teléfono (opcional):</label>
-              <input type="tel" name="phone" />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Mensaje:</label>
-              <textarea name="message" required></textarea>
-            </div>
-            <button type="submit" class="submit">Enviar por WhatsApp</button>
-          </form>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- Scripts -->
-<script>
-  function abrirModalWhatsApp() {
-    document.querySelector('.whatsapp-widget .modal').classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function cerrarModalWhatsApp(e) {
-    const modal = document.querySelector('.whatsapp-widget .modal');
-    if (!e || e.target === modal || e.target.closest('.close')) {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  }
-
-  function enviarWhatsApp(form) {
-    const name = form.name.value.trim();
-    const phone = form.phone.value.trim();
-    const message = form.message.value.trim();
-    let text = `Hola, soy *${encodeURIComponent(name)}*`;
-    if (phone) text += `%0A%0ATeléfono: ${encodeURIComponent(phone)}`;
-    text += `%0A%0A${encodeURIComponent(message)}%0A%0A---%0AEnviado desde el biolink de José María Mera Beltrán`;
-    const whatsappURL = ` https://wa.me/34677163664?text=${text}`;
-    window.open(whatsappURL, '_blank');
-    cerrarModalWhatsApp();
-  }
-</script>
-
+    
 
   
     
