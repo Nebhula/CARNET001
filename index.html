@@ -1599,25 +1599,7 @@
 
    
 
-    function downloadVCard() {
-        const vcard = `BEGIN:VCARD
-VERSION:3.0
-FN:José María Mera Beltrán
-TITLE:Criador Nacional Certificado
-ORG:SOCNAS
-TEL;TYPE=work:+123456789
-EMAIL:jose.mera@ejemplo.com
-ADR;TYPE=work:;;;Ciudad, País
-URL: https://ejemplo.com  
-NOTE:Nº Criador Nacional: 56G88
-Código Federal: E8.0595
-END:VCARD`;
-        const blob = new Blob([vcard], { type: 'text/vcard' });
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'carnet.vcf';
-        a.click();
-    }
+    
 
     
 </script>
