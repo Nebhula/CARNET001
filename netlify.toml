@@ -5,3 +5,10 @@ functions = "netlify/functions"
 from = "/api/checkPassword"
 to = "/.netlify/functions/checkPassword"
 status = 200
+
+# AÑADE ESTO NUEVO (para el modo offline de la PWA):
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+force = false
