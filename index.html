@@ -1649,6 +1649,46 @@
   }
 </script>
 
+
+
+
+
+
+
+
+
+
+<script>
+  // Registro del Service Worker (¡ya lo tienes, pero por si acaso!)
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => console.log('✅ SW registrado en scope:', reg.scope))
+        .catch(err => console.error('❌ Error al registrar SW:', err));
+    });
+  }
+
+  // Tu código existente del botón de instalación (conservalo)
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    document.getElementById('pwaTip').style.display = 'block';
+  });
+  // ... (el resto de tu código de instalación)
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
     
 
   
