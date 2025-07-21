@@ -42,7 +42,7 @@ self.addEventListener('fetch', event => {
   if (event.request.mode === 'navigate') {
     event.respondWith(
       fetch(event.request)
-        .catch(() => caches.match(OFFLINE_URL))  // ← Mostrar offline.html si falla
+        .catch(() => caches.match(/index.html))  // ← Mostrar offline.html si falla
     );
     return;
   }
