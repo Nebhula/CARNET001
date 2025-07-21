@@ -103,16 +103,25 @@
             box-sizing: border-box;
         }
 
-        .card-header {
-            background: linear-gradient(135deg, var(--primary-color), #1a3a32);
-            color: white;
-            text-align: center;
-            position: relative;
-            padding: 20px 0 !important;
-            width: 100%;
-            box-sizing: border-box;
-            overflow-x: hidden;
-        }
+        ..card-header {
+    background: 
+        /* Gradiente con colores HEX + opacidad (usando #RRGGBBAA) */
+        linear-gradient(
+            135deg, 
+            #1a3a32CC,  /* CC = 80% opacidad (equivalente a rgba(26, 58, 50, 0.8)) */
+            #1a3a32E6   /* E6 = 90% opacidad */
+        ),
+        /* Imagen de fondo (cambia la URL) */
+        url('https://ejemplo.com/tu-imagen.jpg') center/cover no-repeat;
+
+    /* Asegura que el texto se vea bien */
+    color: white;
+    text-align: center;
+    padding: 20px 0 !important;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
 
         @media (max-width: 600px) {
             body {
