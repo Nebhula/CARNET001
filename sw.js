@@ -1,5 +1,7 @@
-const CACHE_NAME = 'pwa-cache-v1';
-const OFFLINE_URL = '/offline.html'; // ¡Cambia esto por tu página offline local!
+const CACHE_NAME = 'pwa-cache-v2';  // Cambiado a v2 para forzar actualización
+const OFFLINE_URL = '/offline.html';
+
+// Añade aquí TODOS los archivos esenciales (usa las rutas exactas de tu proyecto)
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -11,38 +13,43 @@ const ASSETS_TO_CACHE = [
   '/app.js'
 ];
 
+// --- INSTALACIÓN ---
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(ASSETS_TO_CACHE);
-    })
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(ASSETS_TO_CACHE))
+      .then(() => self.skipWaiting())
   );
-  self.skipWaiting();
 });
 
+// --- ACTIVACIÓN ---
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keyList => {
-      return Promise.all(keyList.map(key => {
-        if (key !== CACHE_NAME) {
-          return caches.delete(key);
-        }
-      }));
-    })
+      return Promise.all(
+        keyList.map(key => key !== CACHE_NAME ? caches.delete(key) : Promise.resolve())
+      );
+    }).then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
+// --- INTERCEPTAR PETICIONES ---
 self.addEventListener('fetch', event => {
-  if (event.request.method !== 'GET') return;
+  // Ignorar peticiones que no sean GET o sean a otro dominio
+  if (event.request.method !== 'GET' || !event.request.url.includes('socnasdigi')) return;
 
+  // Manejo especial para páginas (HTML)
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .catch(() => caches.match(OFFLINE_URL))  // ← Mostrar offline.html si falla
+    );
+    return;
+  }
+
+  // Para otros recursos (CSS, JS, imágenes)
   event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request).catch(() => {
-        if (event.request.mode === 'navigate') {
-          return caches.match(OFFLINE_URL);
-        }
-      });
-    }
+    caches.match(event.request)
+      .then(cached => cached || fetch(event.request))
   );
 });
