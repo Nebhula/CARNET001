@@ -1,7 +1,4 @@
-const CACHE_NAME = 'pwa-cache-v2';  // Cambiado a v2 para forzar actualización
-const OFFLINE_URL = '/offline.html';
-
-// Añade aquí TODOS los archivos esenciales (usa las rutas exactas de tu proyecto)
+const CACHE_NAME = 'pwa-cache-v2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -13,7 +10,6 @@ const ASSETS_TO_CACHE = [
   '/app.js'
 ];
 
-// --- INSTALACIÓN ---
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -22,7 +18,6 @@ self.addEventListener('install', event => {
   );
 });
 
-// --- ACTIVACIÓN ---
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keyList => {
@@ -33,23 +28,17 @@ self.addEventListener('activate', event => {
   );
 });
 
-// --- INTERCEPTAR PETICIONES ---
 self.addEventListener('fetch', event => {
-  // Ignorar peticiones que no sean GET o sean a otro dominio
   if (event.request.method !== 'GET' || !event.request.url.includes('socnasdigi')) return;
 
-  // Manejo especial para páginas (HTML)
   if (event.request.mode === 'navigate') {
     event.respondWith(
-      fetch(event.request)
-        .catch(() => caches.match(/index.html))  // ← Mostrar offline.html si falla
+      fetch(event.request).catch(() => caches.match('/index.html'))
     );
     return;
   }
 
-  // Para otros recursos (CSS, JS, imágenes)
   event.respondWith(
-    caches.match(event.request)
-      .then(cached => cached || fetch(event.request))
+    caches.match(event.request).then(cached => cached || fetch(event.request))
   );
 });
