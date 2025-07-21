@@ -3,6 +3,7 @@ const OFFLINE_URL = '/offline.html'; // ¡Cambia esto por tu página offline loc
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
+  '/offline.html',
   '/manifest.json',
   '/icon-192x192.png',
   '/icon-512x512.png',
