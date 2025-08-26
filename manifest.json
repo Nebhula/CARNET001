@@ -4,7 +4,7 @@
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#fff",
-  "theme_color": "#1a3a32",
+  "theme_color": "#de4753",
   "description": "Carnet digital socios - Gestiona tus credenciales digitales de manera segura y accesible desde cualquier dispositivo.",
   "lang": "es",
   "dir": "ltr",
@@ -12,12 +12,12 @@
   "scope": "/",
   "icons": [
     {
-      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLUhFi8sDXyBGPQo8nUd77tRmHqf0tcIBjvdatoHCIR74mzp4OIzLvllrjWR6FNS5kx4H68Ttk7ye8fJ1iddMed0jp5phIscpFDb0GWkX0dLXJnECL7IoJ_q_5pVyneP3009eJrAb56YukoV0Q3JN2lYJdKk6Z4gdcyyWPRLt5npy96AiVQj41MTpkRF0d/s1600/Dise%C3%B1o%20sin%20t%C3%ADtulo%20%2850%29.png",
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9bk2O3c4fvYZyiFVhUD_EXXgOZUko0k4Uen_cxbHzPeEctHf15pKWFrdxowuVQyGq34GhpioJmNhvWeX9LlgLTtT5jPXfSClE23bdF1-5T5SkalZnKnb0nZlYtLNWyj6DXTb36FsfkrQLgU2_7GvFibgnDBd4aoFXXIvJ1T9hK8FzXFhbCIuKRwCLyW8/s1600/192X192%20.ico.jpg",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRgXjUh7A0nkllQ0CGtBn6RRxwYoRq4fenYyqDVIwh5D0A2IcH2QHR6acD34UGoeR8QxxEXtIH1t54Oc-bM7fnL0AhHCgS9F0iD9ooqJuZIV5jtxyHsV5LEKOSDdlm1D9HkZa6FtJjpj9ocokaCufec-Q3Edlg-E8f9jB3VfDREvhzpeRZGxh18H51ofsP/s1600/Dise%C3%B1o%20sin%20t%C3%ADtulo%20%2845%29.png",
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuLmmEJstZZlwdf0VeIgEKJZlcNJluFSjU8t-Hs29__rF7iTRO6QjQDGyxGOzvM83grvdgu9TTkotQdpkDOjLp09FaoQjEWMl9vpUTfmSSH8adubFTX5OOXMADN48kAl9BmmYq9gHJO0WhXJvx-ZuL79OybmEpgSnM2DMuBvK-Nswj_OXougVmxPiDhrM/s1600/512x512.ico.jpg",
       "sizes": "512x512",
       "type": "image/png"
     }
