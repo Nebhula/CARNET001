@@ -1657,7 +1657,268 @@
 
 
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnet Digital - Verificación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .carnet-container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+        }
+        
+        .carnet-header {
+            background: #1a2a6c;
+            color: white;
+            padding: 20px;
+        }
+        
+        .carnet-header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .carnet-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: -60px auto 15px;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #777;
+            font-size: 14px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .carnet-info {
+            padding: 20px;
+        }
+        
+        .carnet-info h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .carnet-info p {
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .carnet-status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .status-active {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .status-expired {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        
+        .carnet-footer {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-top: 1px solid #eee;
+            font-size: 12px;
+            color: #777;
+        }
+        
+        /* Modal de vencimiento */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            width: 500px;
+            animation: pulse 2s infinite;
+        }
+        
+        .modal-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            color: #ff4444;
+        }
+        
+        .modal-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #ff4444;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        
+        .modal-message {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #25D366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+        
+        .whatsapp-icon {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @media (max-width: 480px) {
+            .modal-title {
+                font-size: 24px;
+            }
+            
+            .modal-message {
+                font-size: 16px;
+            }
+            
+            .whatsapp-btn {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="carnet-container">
+        <div class="carnet-header">
+            <h1>CARNET DIGITAL</h1>
+            <p>Asociación de Profesionales</p>
+        </div>
+        
+        <div class="carnet-photo">
+            FOTO DEL SOCIO
+        </div>
+        
+        <div class="carnet-info">
+            <h2>María González</h2>
+            <p>Nº Socio: <strong>AS-2023-0456</strong></p>
+            <p>Categoría: <strong>Premium</strong></p>
+            <p>Fecha de emisión: <strong>15/03/2023</strong></p>
+            <p>Fecha de vencimiento: <strong id="fecha-vencimiento">15/03/2024</strong></p>
+            
+            <div class="carnet-status status-active" id="status-text">
+                VIGENTE
+            </div>
+        </div>
+        
+        <div class="carnet-footer">
+            Este carnet es personal e intransferible
+        </div>
+    </div>
+    
+    <!-- Modal que se mostrará cuando el carnet esté vencido -->
+    <div class="modal-overlay" id="modalVencido">
+        <div class="modal-content">
+            <div class="modal-icon">⚠️</div>
+            <h1 class="modal-title">CARNET DIGITAL VENCIDO CADUCADO</h1>
+            <p class="modal-message">Tu carnet ha expirado y ya no tiene validez.<br>Para seguir disfrutando de los beneficios, renueva tu membresía.</p>
+            <a href="https://wa.me/1234567890?text=Hola,%20necesito%20renovar%20mi%20carnet%20digital" class="whatsapp-btn" target="_blank">
+                <span class="whatsapp-icon">📱</span> NECESITAS RENOVARLO
+            </a>
+        </div>
+    </div>
 
+    <script>
+        // Función para mostrar el modal de vencimiento
+        function mostrarModalVencido() {
+            document.getElementById('modalVencido').style.display = 'flex';
+            document.getElementById('status-text').textContent = 'VENCIDO';
+            document.getElementById('status-text').className = 'carnet-status status-expired';
+        }
+        
+        // Función para verificar si el carnet está vencido
+        function verificarVencimiento() {
+            // En un caso real, aquí compararías con la fecha real de vencimiento
+            // Para esta demostración, mostraremos el modal después de 5 segundos
+            setTimeout(mostrarModalVencido, 5000);
+            
+            // Código para verificación real (descomenta y adapta según tus necesidades):
+            /*
+            const fechaVencimiento = new Date('2023-01-01'); // Fecha de vencimiento (ejemplo)
+            const hoy = new Date();
+            
+            if (hoy > fechaVencimiento) {
+                mostrarModalVencido();
+            }
+            */
+        }
+        
+        // Iniciar la verificación cuando se carga la página
+        window.onload = verificarVencimiento;
+    </script>
+</body>
+</html>
 
 
 
