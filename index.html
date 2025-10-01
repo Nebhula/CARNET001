@@ -1663,57 +1663,7 @@
 
 
 
-  <style>
-    /* Modal fullscreen */
-    #modalVencido {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: black;
-      color: white;
-      display: none; /* Oculto hasta que se cumpla el tiempo */
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      font-family: Arial, sans-serif;
-      z-index: 9999;
-    }
-    #modalVencido h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      text-align: center;
-      color: red;
-    }
-    #modalVencido a {
-      font-size: 1.2rem;
-      padding: 12px 24px;
-      background: red;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-    }
-  </style>
 
-  <div id="contenido">
-    <h2>Este es el carnet digital</h2>
-    <p>Contenido normal del carnet...</p>
-  </div>
-
-  <div id="modalVencido">
-    <h1>❌ CARNET DIGITAL VENCIDO ❌</h1>
-    <a href="mailto:contacto@tuweb.com">Contactar para renovar</a>
-  </div>
-
-  <script>
-    // Tiempo en segundos
-    const segundos = 5;
-
-    setTimeout(() => {
-      document.getElementById("modalVencido").style.display = "flex";
-    }, segundos * 1000);
-  </script>
 
 
     
