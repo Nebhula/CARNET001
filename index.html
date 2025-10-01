@@ -1658,7 +1658,112 @@
 
 
 
+<!-- Modal de vencimiento (pantalla completa, sin cierre) -->
+<div id="modalVencido" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  color: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999999;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+">
+  <h1 style="font-size: 2.5em; margin: 0 0 1.5rem; color: #ff4444; text-transform: uppercase;">CARNET DIGITAL VENCIDO</h1>
+  <p style="font-size: 1.8em; margin: 0 0 2rem; color: #fff;">CADUCADO</p>
+  <a href="https://wa.me/34677163664" 
+     target="_blank"
+     style="
+       background: #25D366;
+       color: white;
+       padding: 16px 32px;
+       font-size: 1.2em;
+       text-decoration: none;
+       border-radius: 50px;
+       font-weight: bold;
+       display: inline-flex;
+       align-items: center;
+       gap: 10px;
+       transition: all 0.3s ease;
+     "
+     onmouseover="this.style.transform='scale(1.05)'"
+     onmouseout="this.style.transform='scale(1)'">
+    <i class="fab fa-whatsapp"></i> NECESITAS RENOVARLO
+  </a>
+</div>
 
+<script>
+// Función mejorada para mostrar el modal
+function mostrarModalVencido() {
+    console.log("🔔 Mostrando modal de vencimiento...");
+    const modal = document.getElementById('modalVencido');
+    
+    if (modal) {
+        modal.style.display = 'flex';
+        
+        // Bloquear scroll del body
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+        
+        // Prevenir que otros modales se abran
+        document.querySelectorAll('.modal, .custom-modal').forEach(m => {
+            m.style.display = 'none';
+        });
+        
+        console.log("✅ Modal de vencimiento activado correctamente");
+    } else {
+        console.error("❌ No se encontró el modal con ID 'modalVencido'");
+    }
+}
+
+// Verificar vencimiento (para prueba: 5 segundos)
+function verificarVencimiento() {
+    console.log("⏰ Verificando vencimiento...");
+    
+    // PARA PRUEBA: Mostrar después de 5 segundos
+    setTimeout(mostrarModalVencido, 5000);
+    
+    // EN PRODUCCIÓN: Comenta la línea anterior y descomenta esto:
+    /*
+    const fechaVencimiento = new Date('2023-01-01'); // Cambia por tu fecha real
+    const hoy = new Date();
+    
+    if (hoy > fechaVencimiento) {
+        mostrarModalVencido();
+    }
+    */
+}
+
+// Iniciar cuando la página cargue
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("🚀 Página cargada, iniciando verificación de vencimiento...");
+    verificarVencimiento();
+});
+
+// También verificar cuando la ventana se carga completamente
+window.addEventListener('load', function() {
+    console.log("📄 Ventana completamente cargada");
+});
+
+// Prevenir el cierre con Escape
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('modalVencido');
+        if (modal && modal.style.display === 'flex') {
+            e.preventDefault();
+            console.log("⛔ Tecla Escape bloqueada - Modal no se puede cerrar");
+        }
+    }
+});
+</script>
     
 
 
