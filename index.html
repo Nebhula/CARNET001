@@ -1658,54 +1658,8 @@
 
 
 
+
     
-        
-       
-    
-    <!-- Modal que se mostrará cuando el carnet esté vencido -->
-    <div class="modal-overlay" id="modalVencido">
-        <div class="modal-content">
-            <div class="modal-icon">⚠️</div>
-            <h1 class="modal-title">CARNET DIGITAL VENCIDO CADUCADO</h1>
-            <p class="modal-message">Tu carnet ha expirado y ya no tiene validez.<br>Para seguir disfrutando de los beneficios, renueva tu membresía.</p>
-            <a href="https://wa.me/1234567890?text=Hola,%20necesito%20renovar%20mi%20carnet%20digital" class="whatsapp-btn" target="_blank">
-                <span class="whatsapp-icon">📱</span> NECESITAS RENOVARLO
-            </a>
-        </div>
-    </div>
-
-    <script>
-        // Función para mostrar el modal de vencimiento
-        function mostrarModalVencido() {
-            document.getElementById('modalVencido').style.display = 'flex';
-            document.getElementById('status-text').textContent = 'VENCIDO';
-            document.getElementById('status-text').className = 'carnet-status status-expired';
-        }
-        
-        // Función para verificar si el carnet está vencido
-        function verificarVencimiento() {
-            // En un caso real, aquí compararías con la fecha real de vencimiento
-            // Para esta demostración, mostraremos el modal después de 5 segundos
-            setTimeout(mostrarModalVencido, 5000);
-            
-            // Código para verificación real (descomenta y adapta según tus necesidades):
-            /*
-            const fechaVencimiento = new Date('2023-01-01'); // Fecha de vencimiento (ejemplo)
-            const hoy = new Date();
-            
-            if (hoy > fechaVencimiento) {
-                mostrarModalVencido();
-            }
-            */
-        }
-        
-        // Iniciar la verificación cuando se carga la página
-        window.onload = verificarVencimiento;
-    </script>
-
-
-
-
 
 
     
