@@ -1668,10 +1668,10 @@
 
     
 <style>
-  /* Modal fullscreen */
   #modalVencido {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background: black;
@@ -1686,8 +1686,8 @@
   #modalVencido h1 {
     font-size: 2rem;
     margin-bottom: 20px;
-    text-align: center;
     color: red;
+    text-align: center;
   }
   #modalVencido a {
     font-size: 1.2rem;
@@ -1708,10 +1708,13 @@
   // Tiempo en segundos
   const segundos = 5;
 
-  setTimeout(function() {
-    document.getElementById("modalVencido").style.display = "flex";
-  }, segundos * 1000);
+  document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(() => {
+      document.getElementById("modalVencido").style.display = "flex";
+    }, segundos * 1000);
+  });
 </script>
+
 
 
 
