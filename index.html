@@ -1709,27 +1709,29 @@
 </div>
 
 <script>
-// Script infalible
 function mostrarModal() {
     const modal = document.getElementById('modalVencido');
-    if (!modal) {
-        console.error('❌ Modal no encontrado');
-        return;
-    }
+    if (!modal) return;
     
-    // Forzar display flex
     modal.style.display = 'flex';
-    
-    // Bloquear todo
     document.body.style.overflow = 'hidden';
     document.body.style.height = '100vh';
-    
     console.log('✅ Modal mostrado correctamente');
 }
 
-// Ejecutar después de 5 segundos
-setTimeout(mostrarModal, 5000);
+// FECHA DE VENCIMIENTO
+const fechaVencimiento = new Date("2025-09-01T00:00:00"); // Ajusta aquí
+
+function verificarVencimiento() {
+    const ahora = new Date();
+    if (ahora >= fechaVencimiento) {
+        mostrarModal();
+    }
+}
+
+document.addEventListener("DOMContentLoaded", verificarVencimiento);
 </script>
+
     
 
 
