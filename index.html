@@ -1658,7 +1658,46 @@
 
 
 
+<!-- Modal de vencimiento (pantalla completa, sin cierre) -->
+<div id="modalVencido" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  color: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999999;
+  font-family: sans-serif;
+  text-align: center;
+">
+  <h1 style="font-size: 2.8em; margin: 0 0 1.5rem;">CARNET DIGITAL VENCIDO</h1>
+  <p style="font-size: 2em; margin: 0 0 2rem;">CADUCADO</p>
+  <a href="https://wa.me/5491112345678" 
+     target="_blank"
+     style="
+       background: #25D366;
+       color: white;
+       padding: 14px 28px;
+       font-size: 1.4em;
+       text-decoration: none;
+       border-radius: 10px;
+       font-weight: bold;
+     ">
+    NECESITAS RENOVARLO
+  </a>
+</div>
 
+<script>
+  // Mostrar el modal después de 5 segundos (5000 ms)
+  setTimeout(() => {
+    document.getElementById('modalVencido').style.display = 'flex';
+  }, 5000);
+</script>
     
 
 
