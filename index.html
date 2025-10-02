@@ -1120,69 +1120,50 @@
                         <td>2022</td>
                         <td>2.5</td>
                     </tr>
-
-<tr>
-                        <td><i class="fas fa-ring"></i></td>
-                        <td>67890 EE-E</td>
-                        <td>2024</td>
-                        <td>3.0</td>
-                    </tr>
-
-<tr>
-                        <td><i class="fas fa-ring"></i></td>
-                        <td>67890 EE-E</td>
-                        <td>2024</td>
-                        <td>3.0</td>
-                    </tr>
-                    
-                    
-
-<tr>
-                        <td><i class="fas fa-ring"></i></td>
-                        <td>12345 EE-E</td>
-                        <td>2023</td>
-                        <td>2.8</td>
-                    </tr>
-                        
-
-<tr>
+                    <tr>
                         <td><i class="fas fa-ring"></i></td>
                         <td>67890 EE-E</td>
                         <td>2024</td>
                         <td>3.0</td>
                     </tr>
                     <tr>
-<tr>
-                        <td><i class="fas fa-ring"></i></td>
-                        <td>67890 EE-E</td>
-                        <td>2024</td>
-                        <td>3.0</td>
-                    </tr>
-                    
-                    
-
-<tr>
-                        <td><i class="fas fa-ring"></i></td>
-                        <td>12345 EE-E</td>
-                        <td>2023</td>
-                        <td>2.8</td>
-                    </tr>
-                        
-
-<tr>
                         <td><i class="fas fa-ring"></i></td>
                         <td>67890 EE-E</td>
                         <td>2024</td>
                         <td>3.0</td>
                     </tr>
                     <tr>
-                    
+                        <td><i class="fas fa-ring"></i></td>
+                        <td>12345 EE-E</td>
+                        <td>2023</td>
+                        <td>2.8</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-ring"></i></td>
+                        <td>67890 EE-E</td>
+                        <td>2024</td>
+                        <td>3.0</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-ring"></i></td>
+                        <td>67890 EE-E</td>
+                        <td>2024</td>
+                        <td>3.0</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-ring"></i></td>
+                        <td>12345 EE-E</td>
+                        <td>2023</td>
+                        <td>2.8</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-ring"></i></td>
+                        <td>67890 EE-E</td>
+                        <td>2024</td>
+                        <td>3.0</td>
+                    </tr>
                 </tbody>
             </table>
-
-
-
-            
         </div>
     </div>
 </div>
@@ -1190,8 +1171,11 @@
 <style>
 .anillas-container {
     margin-top: 10px;
-    overflow-x: auto;
+    max-height: 300px; /* Altura máxima antes del scroll */
+    overflow-y: auto;  /* Scroll vertical si excede */
+    overflow-x: auto;  /* Scroll horizontal si la tabla es muy ancha */
     width: 100%;
+    -webkit-overflow-scrolling: touch; /* Suaviza scroll en móviles */
 }
 
 .anillas-table {
@@ -1201,6 +1185,7 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(222, 71, 83, 0.15);
+    min-width: 400px; /* Evita que se colapse demasiado en móviles */
 }
 
 .anillas-table th {
@@ -1211,11 +1196,15 @@
     text-align: left;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .anillas-table td {
     padding: 14px 16px;
     border-bottom: 1px solid #f0f0f0;
+    white-space: nowrap; /* Evita saltos de línea en celdas */
 }
 
 .anillas-table tbody tr:nth-child(even) {
@@ -1235,7 +1224,6 @@
     color: #de4753;
 }
 </style>
-
 
         
 <div class="modal" id="federalModal">
