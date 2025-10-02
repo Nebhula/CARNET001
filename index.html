@@ -1168,42 +1168,49 @@
     </div>
 </div>
 
-<style>
+
+        <style>
 .anillas-container {
     margin-top: 10px;
     max-height: 80vh;
     overflow-y: auto;
-    overflow-x: auto;
+    overflow-x: hidden; /* ← ¡elimina scroll horizontal! */
     width: 100%;
     -webkit-overflow-scrolling: touch;
 }
 
-/* El resto del CSS igual */
 .anillas-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.95rem;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(222, 71, 83, 0.15);
-    min-width: 400px;
+    table-layout: fixed; /* ← clave para controlar el ancho */
+}
+
+.anillas-table th,
+.anillas-table td {
+    padding: 12px 10px;
+    text-align: left;
+    word-wrap: break-word; /* ← permite que el texto se parta */
+    overflow-wrap: break-word;
 }
 
 .anillas-table th {
     background-color: #de4753;
     color: white;
     font-weight: 700;
-    padding: 14px 16px;
-    text-align: left;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    white-space: normal; /* ← permite saltos de línea en el encabezado */
 }
 
 .anillas-table td {
-    padding: 14px 16px;
     border-bottom: 1px solid #f0f0f0;
-    white-space: nowrap;
+    white-space: normal; /* ← permite que el código individual se parta en móvil */
 }
 
+/* Zebra y hover igual */
 .anillas-table tbody tr:nth-child(even) {
     background-color: #ffd4d7;
 }
@@ -1220,8 +1227,16 @@
     margin-right: 6px;
     color: #de4753;
 }
-</style>
-        
+
+/* Ajuste extra en móviles muy pequeños */
+@media (max-width: 480px) {
+    .anillas-table th,
+    .anillas-table td {
+        padding: 10px 8px;
+        font-size: 0.85rem;
+    }
+}
+  </style>     
 <div class="modal" id="federalModal">
     <div class="modal-content">
         <button class="modal-close" onclick="closeModal()">×</button>
