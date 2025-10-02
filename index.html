@@ -1171,21 +1171,21 @@
 <style>
 .anillas-container {
     margin-top: 10px;
-    max-height: 300px; /* Altura máxima antes del scroll */
-    overflow-y: auto;  /* Scroll vertical si excede */
-    overflow-x: auto;  /* Scroll horizontal si la tabla es muy ancha */
+    max-height: 70vh; /* Ajusta según necesites: 70% de la altura de la ventana */
+    overflow-y: auto;
+    overflow-x: auto;
     width: 100%;
-    -webkit-overflow-scrolling: touch; /* Suaviza scroll en móviles */
+    -webkit-overflow-scrolling: touch;
 }
 
+/* El resto del CSS igual */
 .anillas-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.95rem;
     border-radius: 10px;
-    overflow: hidden;
     box-shadow: 0 4px 12px rgba(222, 71, 83, 0.15);
-    min-width: 400px; /* Evita que se colapse demasiado en móviles */
+    min-width: 400px;
 }
 
 .anillas-table th {
@@ -1196,15 +1196,12 @@
     text-align: left;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
 }
 
 .anillas-table td {
     padding: 14px 16px;
     border-bottom: 1px solid #f0f0f0;
-    white-space: nowrap; /* Evita saltos de línea en celdas */
+    white-space: nowrap;
 }
 
 .anillas-table tbody tr:nth-child(even) {
@@ -1224,7 +1221,6 @@
     color: #de4753;
 }
 </style>
-
         
 <div class="modal" id="federalModal">
     <div class="modal-content">
