@@ -40,9 +40,9 @@
 
     <style>
       :root {
-            --primary-color: #de4753;
-            --primary-light: #ffd4d7;
-            --secondary-color: #f0f0f0;
+            --primary-color: #74915b;
+            --primary-light: #bdccaf;
+            --secondary-color: #2c2c2c;
             --text-color: #333;
             --text-light: #777;
             --bg-color: #fff;
@@ -55,6 +55,7 @@
             margin: 0;
             padding: 0;
         }
+
         html, body {
             width: 100%;
             height: 100%;
@@ -63,6 +64,7 @@
             background-color: var(--secondary-color);
             overflow-x: hidden;
         }
+
         body {
             display: flex;
             flex-direction: column;
@@ -71,6 +73,7 @@
             padding: 0;
             margin: 0;
         }
+
         .card-container {
             width: 100%;
             max-width: 450px;
@@ -79,13 +82,17 @@
             display: flex;
             flex-direction: column;
         }
+
         .card {
             background: 
+                
         linear-gradient(
             #FFFFFFCC,  /* Blanco con 80% de opacidad */
             #FFFFFFCC
         ),
-        url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgn6Hw8_Pq2y-AdJvC7AjVlkqMWwM_5iBIIJpDeDf4inVkoptv1_uezWuJ29gOyrckg54BFiEAlHq09B5-MTUCOUlUIGeYmMNv8MXoLSMg_gzqiqnAwh6iuJTxYMIkwXAtkQf6Dne7xFk1PJmvCTvnbSqrBkQ9sRqHwUwRIvr9Fqq2esKcTW_p8wW8ihKs/s1600/Dise%C3%B1o%20sin%20t%C3%ADtulo%20-%202025-10-02T184833.132.png') center/cover no-repeat;
+        url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggYVwXPOXo1WFd5gVp4cwWM3v_nD9tJvURBCzct7ixP0qzoByeFLLtVvNuInrp0Ew1HeEc8_yuHGGwy6615NuB5sYbLZ1SIBoZHvggLRUNHKsV-zlFigCtgQuJrFegtKhBTi8oUVfgkU1GyUI7mT-57QdmIu15yLVW2_Q7rzqPjspIA-EUfsrMk0mSyZKV/s1600/A%C3%B1adir%20un%20poco%20de%20texto%20-%202025-07-07T081828.493.png') center/cover no-repeat;
+                
+           
             width: 100%;
             max-width: 100%;
             margin: 0 auto;
@@ -94,6 +101,7 @@
             flex-direction: column;
             min-height: 100vh;
         }
+
         .card-header,
         .card-body,
         .card-footer {
@@ -101,16 +109,18 @@
             padding: 20px;
             box-sizing: border-box;
         }
+
         .card-header {
     background: 
         /* Gradiente con colores HEX + opacidad (usando #RRGGBBAA) */
         linear-gradient(
             0deg, 
-            #cc3b4799,  /* CC = 80% opacidad (equivalente a rgba(26, 58, 50, 0.8)) */
+            #00000099,  /* CC = 80% opacidad (equivalente a rgba(26, 58, 50, 0.8)) */
             #000000E6   /* E6 = 90% opacidad */
         ),
         /* Imagen de fondo (cambia la URL) */
-        url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-Fdj0C2CesOhd2qDOztkfFcuyNVyu8MTaQeLfWCN21IUz_NY_UoEUYkco2kErOrhambxmQltgUixPhO3b2GNrfmgxoMvDDxh_aVBAdP9BifwoI381cJWNmQmm4oLOcNm5Alo3wJzmXEMuKZxZx2avOeaZ-kCjy3O_9hc8TFS4RE0hHUMZOt_AIRIycvU/s1600/489453348_1280619703870222_5704119463758955707_n.jpg') center/cover no-repeat;
+        url('https://media.istockphoto.com/id/1301911854/es/foto/cazador-y-su-perro-con-presa-al-atardecer.jpg?s=612x612&w=0&k=20&c=W9vsoK0D1S5gPHI9-lbeHC8ckytnIhDxr7xO7Fxl27Q=') center/cover no-repeat;
+
     /* Asegura que el texto se vea bien */
     color: white;
     text-align: center;
@@ -119,31 +129,37 @@
     box-sizing: border-box;
     position: relative;
 }
+
         @media (max-width: 600px) {
             body {
                 padding: 0;
                 margin: 0;
             }
+
             .card {
                 border-radius: 0;
                 box-shadow: none;
             }
+
             .card-header,
             .card-body,
             .card-footer {
                 padding: 15px;
             }
         }
+
         @media (min-width: 600px) {
             body {
-                padding: 0px;
+                padding: 20px;
                 justify-content: center;
             }
         }
+
         img, iframe, video, svg {
             max-width: 100%;
             height: auto;
         }
+
         .modal-content,
         .custom-modal-content {
             width: 100vw;
@@ -151,10 +167,12 @@
             max-width: 100%;
             border-radius: 0;
         }
+
         .profile-section {
             position: relative;
             margin-bottom: 15px;
         }
+
         .profile-pic {
             width: 100px;
             height: 100px;
@@ -165,16 +183,19 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
+
         .profile-pic img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+
         .profile-actions {
             position: absolute;
             top: 5px;
             right: 10px;
         }
+
         #btn-descargar {
             background: var(--primary-light);
             border: none;
@@ -189,22 +210,26 @@
             transition: var(--transition);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+
         #btn-descargar svg {
             width: 18px;
             height: 18px;
             fill: var(--primary-color);
         }
+
         .card-header h1 {
             font-size: 1.4rem;
             margin-bottom: 5px;
             font-weight: 600;
             line-height: 1.2;
         }
+
         .card-header p {
             font-size: 0.9rem;
             opacity: 0.9;
             margin-bottom: 15px;
         }
+
         .badges {
             display: flex;
             justify-content: center;
@@ -212,6 +237,7 @@
             margin-top: 10px;
             flex-wrap: wrap;
         }
+
         .badge {
             padding: 4px 8px;
             border-radius: 20px;
@@ -221,20 +247,24 @@
             align-items: center;
             gap: 4px;
         }
+
         .badge.verified {
             background-color: rgba(76, 209, 55, 0.2);
             color: #47cc69;
         }
+
         .badge.premium {
             background-color: rgba(255, 215, 0, 0.2);
             color: gold;
         }
+
         .social-icons {
             display: flex;
             justify-content: center;
             gap: 12px;
             margin: 15px 0;
         }
+
         .social-icon {
             width: 36px;
             height: 36px;
@@ -248,40 +278,47 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             transition: var(--transition);
         }
+
         .social-icon:hover {
             transform: translateY(-3px);
         }
+
         .qr-corner {
             position: absolute;
             top: 10px;
             left: 10px;
-            width: 55px;
-            height: 55px;
-            background: white;
+            width: 60px;
+            height: 60px;
+            background: ;
             border-radius: 8px;
             padding: 5px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
+
         .qr-corner img {
             width: 100%;
             height: 100%;
         }
+
         .card-body {
             padding: 15px;
             flex: 1;
         }
+
         .info-container {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 15px;
         }
+
         .info-block {
             flex: 1 1 calc(50% - 5px)!important;
             box-sizing: border-box;
             position: relative;
             min-width: calc(50% - 5px)!important;
         }
+
         .label {
             font-size: 11px;
             color: var(--primary-color);
@@ -289,6 +326,7 @@
             text-align: left;
             font-weight: 500;
         }
+
         .value,
         .dni-field {
             background-color: var(--primary-light);
@@ -305,6 +343,7 @@
             overflow: visible;
             margin-bottom: 8px;
         }
+
         .icon-button {
             position: absolute;
             right: 8px;
@@ -325,6 +364,7 @@
             color: var(--primary-color);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         .dni-input-password {
             display: none;
             margin-top: 6px;
@@ -336,10 +376,12 @@
             color: var(--text-color);
             background-color: white;
         }
+
         .dni-text {
             display: block;
             width: 100%;
         }
+
         .card-footer {
             padding: 12px 15px;
             border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -347,17 +389,20 @@
             flex-direction: column;
             gap: 12px;
         }
+
         .footer-credits {
             text-align: center;
             font-size: 0.75rem;
             color: var(--text-light);
         }
+
         .footer-actions {
             display: flex;
-            gap: 32px;
+            gap: 8px;
             justify-content: center;
             flex-wrap: wrap;
         }
+
         .action-btn {
             padding: 8px 12px;
             border: none;
@@ -374,11 +419,13 @@
             width: 100%;
             justify-content: center;
         }
+
         .action-btn.secondary {
             background-color: transparent;
             border: 1px solid var(--primary-color);
             color: var(--primary-color);
         }
+
         .modal,
         .custom-modal {
             display: none;
@@ -392,10 +439,12 @@
             align-items: flex-end;
             justify-content: center;
         }
+
         .modal.active,
         .custom-modal.active {
             display: flex;
         }
+
         .modal-content,
         .custom-modal-content {
             width: 100%;
@@ -408,10 +457,12 @@
             position: relative;
             margin: 0 auto;
         }
+
         @keyframes slideUp {
             from { transform: translateY(100%); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+
         .modal-close,
         .custom-modal-close {
             position: absolute;
@@ -427,6 +478,7 @@
             cursor: pointer;
             border: none;
         }
+
         .modal-title,
         .custom-modal-title {
             color: var(--primary-color);
@@ -435,6 +487,7 @@
             margin-bottom: 15px;
             text-align: center;
         }
+
         .modal-text {
             color: var(--text-color);
             font-size: 14px;
@@ -442,6 +495,7 @@
             margin-bottom: 20px;
             text-align: center;
         }
+
         .modal-action {
             display: block;
             width: 100%;
@@ -457,6 +511,7 @@
             border: none;
             text-align: center;
         }
+
         .custom-container {
             display: flex;
             flex-wrap: wrap;
@@ -464,12 +519,14 @@
             justify-content: center;
             margin: 15px;
         }
+
         .custom-block {
             flex: 1;
             min-width: calc(50% - 5px)!important;
             max-width: 500px;
             cursor: pointer;
         }
+
         .custom-label {
             font-size: 11px;
             color: var(--primary-color);
@@ -477,6 +534,7 @@
             text-align: left;
             font-weight: 500;
         }
+
         .custom-value {
             background-color: var(--primary-light);
             color: var(--primary-color);
@@ -493,10 +551,12 @@
             justify-content: center;
             gap: 8px;
         }
+
         .custom-button-icon {
             width: 18px;
             height: 18px;
         }
+
         .custom-icon-button {
             position: absolute;
             right: 10px;
@@ -506,6 +566,7 @@
             font-size: 12px;
             color: var(--primary-color);
         }
+
         .custom-map-container,
         .custom-video-container {
             width: 100%;
@@ -514,20 +575,24 @@
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         .custom-map-container {
             height: 250px;
         }
+
         .custom-map-container iframe,
         .custom-video-container iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
+
         .custom-video-container {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
         }
+
         .custom-video-container iframe {
             position: absolute;
             top: 0;
@@ -535,6 +600,7 @@
             width: 100%;
             height: 100%;
         }
+
         .custom-modal-action {
             display: block;
             width: 100%;
@@ -550,64 +616,91 @@
             cursor: pointer;
             border: none;
         }
+
         @media (min-width: 600px) {
             body {
                 justify-content: center;
                 padding: 40px 20px;
             }
+
             .card-container {
                 max-width: 450px;
                 padding: 16px;
-                margin-top: 290px;
+                margin-top: 450px;
             }
+
             .card {
                 border-radius: var(--border-radius);
                 box-shadow: var(--card-shadow);
             }
+
             .card-header {
                 padding: 25px;
             }
+
             .profile-pic {
                 width: 120px;
                 height: 120px;
             }
+
             .card-header h1 {
                 font-size: 1.8rem;
             }
+
             .value,
             .dni-field {
                 font-size: 14px;
                 padding: 15px;
             }
+
             .social-icon {
                 width: 42px;
                 height: 42px;
                 font-size: 18px;
             }
+
             .qr-corner {
                 width: 60px;
                 height: 60px;
             }
+
             .custom-value {
                 padding: 15px 40px 15px 15px;
                 font-size: 14px;
             }
+
             .custom-button-icon {
                 width: 20px;
                 height: 20px;
             }
+
             .custom-map-container {
                 height: 350px;
             }
+
             .footer-actions {
                 flex-direction: row;
             }
+
             .action-btn {
                 width: auto;
                 flex: 1;
                 max-width: 200px;
             }
         }
+
+
+
+/* Icono dentro del botón */
+.custom-button-icon {
+  width: 20px;
+  height: 20px;
+  fill: #ed851d;
+  flex-shrink: 0;
+}
+
+
+
 
 /* Icono dentro del botón */
 .custom-button-icon {
