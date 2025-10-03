@@ -1901,17 +1901,66 @@
     
     
 <script>
-  function sendWhatsAppMessage(event) {
+function sendWhatsAppMessage(event) {
     event.preventDefault();
+    console.log("Función ejecutándose...");
+    
     const name = document.getElementById('name').value.trim();
     const message = document.getElementById('message').value.trim();
+    
+    console.log("Nombre:", name);
+    console.log("Mensaje:", message);
+
+    // Validación
+    if (!name) {
+        alert('Por favor, escribe tu nombre');
+        document.getElementById('name').focus();
+        return false;
+    }
+    
+    if (!message) {
+        alert('Por favor, escribe tu mensaje');
+        document.getElementById('message').focus();
+        return false;
+    }
+
     const fullMessage = `Hola, soy ${name}. ${message}`;
-    const phoneNumber = "34677163664"; // ← TU NÚMERO REAL (sin +, sin espacios)
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(fullMessage)}`;
+    const phoneNumber = "34658129159";
+
+    // Codificar correctamente para WhatsApp
+    const encodedMessage = encodeURIComponent(fullMessage);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    console.log("URL final:", whatsappURL);
+    
+    // Abrir WhatsApp
     window.open(whatsappURL, '_blank');
+    
+    // Cerrar modal y limpiar
     closeCustomModal();
+    document.getElementById('name').value = '';
+    document.getElementById('message').value = '';
+    
     return false;
-  }
+}
+
+function closeCustomModal() {
+    const modal = document.getElementById('custom-whatsappModal');
+    modal.style.display = 'none';
+}
+
+function openCustomModal() {
+    const modal = document.getElementById('custom-whatsappModal');
+    modal.style.display = 'block';
+}
+
+// Cerrar al hacer clic fuera
+window.onclick = function(event) {
+    const modal = document.getElementById('custom-whatsappModal');
+    if (event.target === modal) {
+        closeCustomModal();
+    }
+}
 </script>
 
 
