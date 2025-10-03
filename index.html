@@ -112,11 +112,11 @@
 
         .card-header {
     background: 
-        /* Gradiente 100% opaco (sin transparencia) */
+        /* Gradiente 100% OPACO (sin transparencia) */
         linear-gradient(
             0deg, 
-            #cc3b47,   /* Sin "99" → opaco */
-            #000000    /* Sin "E6" → opaco */
+            #cc3b47,   /* ← sin "99" */
+            #000000    /* ← sin "E6" */
         ),
         url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-Fdj0C2CesOhd2qDOztkfFcuyNVyu8MTaQeLfWCN21IUz_NY_UoEUYkco2kErOrhambxmQltgUixPhO3b2GNrfmgxoMvDDxh_aVBAdP9BifwoI381cJWNmQmm4oLOcNm5Alo3wJzmXEMuKZxZx2avOeaZ-kCjy3O_9hc8TFS4RE0hHUMZOt_AIRIycvU/s1600/489453348_1280619703870222_5704119463758955707_n.jpg') center/cover no-repeat;
     color: white;
@@ -125,6 +125,9 @@
     width: 100%;
     box-sizing: border-box;
     position: relative;
+    /* Asegura que no haya fugas de fondo */
+    background-origin: padding-box;
+    background-clip: padding-box;
 }
     /* Asegura que el texto se vea bien */
     color: white;
