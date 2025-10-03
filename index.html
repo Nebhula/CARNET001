@@ -1900,25 +1900,21 @@
     
     
     
-
-
-
 <script>
   function sendWhatsAppMessage(event) {
     event.preventDefault();
     const name = document.getElementById('name').value.trim();
     const message = document.getElementById('message').value.trim();
-
     const fullMessage = `Hola, soy ${name}. ${message}`;
-    const phoneNumber = "34658129159"; // reemplaza con tu número, formato internacional sin '+'
-
+    const phoneNumber = "34677163664"; // ← TU NÚMERO REAL (sin +, sin espacios)
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(fullMessage)}`;
     window.open(whatsappURL, '_blank');
-
-    closeCustomModal(); // Cierra el modal después de abrir WhatsApp
+    closeCustomModal();
     return false;
   }
 </script>
+
+
 
 
 
