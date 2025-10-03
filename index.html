@@ -843,7 +843,47 @@
 
 
 
+<style>
+/* ARREGLO PARA MÓVILES - QUITAR MARGIN TOP */
+@media (max-width: 768px) {
+    .card-container {
+        margin-top: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .card {
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        min-height: 100vh !important;
+    }
+    
+    .modal-content {
+        margin: 0 !important;
+        border-radius: 0 !important;
+        min-height: 100vh;
+        overflow-y: auto;
+    }
+    
+    /* Asegurar que el modal ocupe toda la pantalla */
+    .modal.active {
+        align-items: flex-start !important;
+    }
+    
+    .modal-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100vh !important;
+    }
+}
 
+/* Para desktop mantener el diseño original */
+@media (min-width: 769px) {
+    .card-container {
+        margin-top: 450px; /* Este es el que causa problemas en móvil */
+    }
+}
+
+</style>
 
 
     
