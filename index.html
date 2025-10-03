@@ -40,9 +40,9 @@
 
     <style>
       :root {
-            --primary-color: #74915b;
-            --primary-light: #bdccaf;
-            --secondary-color: #2c2c2c;
+            --primary-color: #de4753;
+            --primary-light: #ffd4d7;
+            --secondary-color: #f0f0f0;
             --text-color: #333;
             --text-light: #777;
             --bg-color: #fff;
@@ -55,7 +55,6 @@
             margin: 0;
             padding: 0;
         }
-
         html, body {
             width: 100%;
             height: 100%;
@@ -64,7 +63,6 @@
             background-color: var(--secondary-color);
             overflow-x: hidden;
         }
-
         body {
             display: flex;
             flex-direction: column;
@@ -73,7 +71,6 @@
             padding: 0;
             margin: 0;
         }
-
         .card-container {
             width: 100%;
             max-width: 450px;
@@ -82,17 +79,13 @@
             display: flex;
             flex-direction: column;
         }
-
         .card {
             background: 
-                
         linear-gradient(
             #FFFFFFCC,  /* Blanco con 80% de opacidad */
             #FFFFFFCC
         ),
-        url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggYVwXPOXo1WFd5gVp4cwWM3v_nD9tJvURBCzct7ixP0qzoByeFLLtVvNuInrp0Ew1HeEc8_yuHGGwy6615NuB5sYbLZ1SIBoZHvggLRUNHKsV-zlFigCtgQuJrFegtKhBTi8oUVfgkU1GyUI7mT-57QdmIu15yLVW2_Q7rzqPjspIA-EUfsrMk0mSyZKV/s1600/A%C3%B1adir%20un%20poco%20de%20texto%20-%202025-07-07T081828.493.png') center/cover no-repeat;
-                
-           
+        url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgn6Hw8_Pq2y-AdJvC7AjVlkqMWwM_5iBIIJpDeDf4inVkoptv1_uezWuJ29gOyrckg54BFiEAlHq09B5-MTUCOUlUIGeYmMNv8MXoLSMg_gzqiqnAwh6iuJTxYMIkwXAtkQf6Dne7xFk1PJmvCTvnbSqrBkQ9sRqHwUwRIvr9Fqq2esKcTW_p8wW8ihKs/s1600/Dise%C3%B1o%20sin%20t%C3%ADtulo%20-%202025-10-02T184833.132.png') center/cover no-repeat;
             width: 100%;
             max-width: 100%;
             margin: 0 auto;
@@ -101,7 +94,6 @@
             flex-direction: column;
             min-height: 100vh;
         }
-
         .card-header,
         .card-body,
         .card-footer {
@@ -109,18 +101,16 @@
             padding: 20px;
             box-sizing: border-box;
         }
-
         .card-header {
     background: 
         /* Gradiente con colores HEX + opacidad (usando #RRGGBBAA) */
         linear-gradient(
             0deg, 
-            #00000099,  /* CC = 80% opacidad (equivalente a rgba(26, 58, 50, 0.8)) */
+            #cc3b4799,  /* CC = 80% opacidad (equivalente a rgba(26, 58, 50, 0.8)) */
             #000000E6   /* E6 = 90% opacidad */
         ),
         /* Imagen de fondo (cambia la URL) */
-        url('https://media.istockphoto.com/id/1301911854/es/foto/cazador-y-su-perro-con-presa-al-atardecer.jpg?s=612x612&w=0&k=20&c=W9vsoK0D1S5gPHI9-lbeHC8ckytnIhDxr7xO7Fxl27Q=') center/cover no-repeat;
-
+        url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-Fdj0C2CesOhd2qDOztkfFcuyNVyu8MTaQeLfWCN21IUz_NY_UoEUYkco2kErOrhambxmQltgUixPhO3b2GNrfmgxoMvDDxh_aVBAdP9BifwoI381cJWNmQmm4oLOcNm5Alo3wJzmXEMuKZxZx2avOeaZ-kCjy3O_9hc8TFS4RE0hHUMZOt_AIRIycvU/s1600/489453348_1280619703870222_5704119463758955707_n.jpg') center/cover no-repeat;
     /* Asegura que el texto se vea bien */
     color: white;
     text-align: center;
@@ -129,32 +119,27 @@
     box-sizing: border-box;
     position: relative;
 }
-
         @media (max-width: 600px) {
             body {
                 padding: 0;
                 margin: 0;
             }
-
             .card {
                 border-radius: 0;
                 box-shadow: none;
             }
-
             .card-header,
             .card-body,
             .card-footer {
                 padding: 15px;
             }
         }
-
         @media (min-width: 600px) {
             body {
-                padding: 20px;
+                padding: 0px;
                 justify-content: center;
             }
         }
-
         img, iframe, video, svg {
             max-width: 100%;
             height: auto;
