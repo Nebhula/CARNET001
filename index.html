@@ -95,14 +95,11 @@
         }
         .card-header {
     background: 
-        /* Gradiente con colores HEX + opacidad (usando #RRGGBBAA) */
-        linear-gradient(
-            0deg, 
-            #cc3b4799,  /* CC = 80% opacidad (equivalente a rgba(26, 58, 50, 0.8)) */
-            #000000E6   /* E6 = 90% opacidad */
-        ),
-        /* Imagen de fondo (cambia la URL) */
-        url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-Fdj0C2CesOhd2qDOztkfFcuyNVyu8MTaQeLfWCN21IUz_NY_UoEUYkco2kErOrhambxmQltgUixPhO3b2GNrfmgxoMvDDxh_aVBAdP9BifwoI381cJWNmQmm4oLOcNm5Alo3wJzmXEMuKZxZx2avOeaZ-kCjy3O_9hc8TFS4RE0hHUMZOt_AIRIycvU/s1600/489453348_1280619703870222_5704119463758955707_n.jpg') center/cover no-repeat;
+        linear-gradient(0deg, #cc3b4799, #000000E6),
+        url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-Fdj0C2CesOhd2qDOztkfFcuyNVyu8MTaQeLfWCN21IUz_NY_UoEUYkco2kErOrhambxmQltgUixPhO3b2GNrfmgxoMvDDxh_aVBAdP9BifwoI381cJWNmQmm4oLOcNm5Alo3wJzmXEMuKZxZx2avOeaZ-kCjy3O_9hc8TFS4RE0hHUMZOt_AIRIycvU/s1600/489453348_1280619703870222_5704119463758955707_n.jpg') center/cover no-repeat !important;
+    background-size: 105% 105% !important; /* ← Esto fuerza que cubra de más */
+    background-position: center !important;
+}
     /* Asegura que el texto se vea bien */
     color: white;
     text-align: center;
